@@ -6,931 +6,231 @@
 <title>Agile WM Workflow</title>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ── DESIGN TOKENS ─────────────────────────────────── */
-  :root {
-    --teal:        #2A8C8C;
-    --teal-light:  #E8F5F5;
-    --teal-mid:    #4AABAB;
-    --orange:      #E8834A;
-    --orange-light:#FEF0E7;
-    --purple:      #7B5EA7;
-    --purple-light:#F0EBF8;
-    --yellow:      #F5C842;
-    --yellow-light:#FEFAE8;
-    --green:       #4A9B6F;
-    --green-light: #EBF5F0;
-    --red-light:   #FDECEA;
-    --ink:         #1E2832;
-    --ink-soft:    #4A5568;
-    --paper:       #FAFAF7;
-    --paper-warm:  #F5F3EE;
-    --border:      #E2DDD5;
-    --shadow:      0 2px 12px rgba(0,0,0,0.08);
-    --shadow-lg:   0 8px 32px rgba(0,0,0,0.12);
-    --radius:      12px;
-    --radius-lg:   20px;
-  }
-
-  /* ── RESET & BASE ───────────────────────────────────── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3, .handwritten {
-    font-family: 'Caveat', cursive;
-  }
-
-  /* ── NAV ────────────────────────────────────────────── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(250,250,247,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 2px solid var(--border);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-
-  .nav-logo {
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--teal);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 0.25rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--ink-soft);
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-    transition: all 0.2s;
-  }
-
-  .nav-links a:hover {
-    background: var(--teal-light);
-    color: var(--teal);
-  }
-
-  /* ── SECTIONS ───────────────────────────────────────── */
-  section {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-  }
-
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 0.75rem;
-  }
-
-  .section-label .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-  }
-
-  .section-title {
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-  }
-
-  .section-sub {
-    color: var(--ink-soft);
-    font-size: 1rem;
-    max-width: 560px;
-  }
-
-  /* ── HERO ───────────────────────────────────────────── */
-  #hero {
-    min-height: calc(100vh - 60px);
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-    padding: 0;
-    background: linear-gradient(135deg, var(--teal-light) 0%, var(--paper) 50%, var(--orange-light) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  #hero::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(42,140,140,0.12) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  #hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -60px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(232,131,74,0.1) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .hero-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: white;
-    border: 2px solid var(--teal);
-    border-radius: 20px;
-    padding: 0.35rem 1rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--teal);
-    margin-bottom: 2rem;
-  }
-
-  .hero-title {
-    font-size: clamp(2.8rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: var(--ink);
-  }
-
-  .hero-title span { color: var(--teal); }
-
-  .hero-desc {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-
-  .btn-primary {
-    background: var(--teal);
-    color: white;
-    border-color: var(--teal);
-  }
-
-  .btn-primary:hover {
-    background: #1f6e6e;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(42,140,140,0.3);
-  }
-
-  .btn-secondary {
-    background: white;
-    color: var(--ink);
-    border-color: var(--border);
-  }
-
-  .btn-secondary:hover {
-    border-color: var(--teal);
-    color: var(--teal);
-  }
-
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 3rem;
-  }
-
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    padding: 0.35rem 0.85rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--ink-soft);
-  }
-
-  /* ── WORKFLOW STEPS ─────────────────────────────────── */
-  #workflow { background: var(--paper-warm); max-width: 100%; }
-  .workflow-inner { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
-
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 2.5rem;
-    position: relative;
-  }
-
-  .zone-label {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 1rem 0 0.25rem;
-  }
-
-  .zone-label .zone-pill {
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .zone-teal .zone-pill { background: var(--teal); color: white; }
-  .zone-orange .zone-pill { background: var(--orange); color: white; }
-  .zone-purple .zone-pill { background: var(--purple); color: white; }
-
-  .zone-line {
-    flex: 1;
-    height: 2px;
-    border-top: 2px dashed var(--border);
-  }
-
-  .handoff-bar {
-    grid-column: 1 / -1;
-    background: var(--ink);
-    color: white;
-    border-radius: 10px;
-    padding: 0.65rem 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    margin: 0.5rem 0;
-  }
-
-  .handoff-bar.teal { background: var(--teal); }
-  .handoff-bar.orange { background: var(--orange); }
-
-  .step-card {
-    background: white;
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    border: 2px solid var(--border);
-    position: relative;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .step-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .step-number {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: white;
-  }
-
-  .step-number.teal { background: var(--teal); }
-  .step-number.orange { background: var(--orange); }
-  .step-number.purple { background: var(--purple); }
-
-  .step-title {
-    font-family: 'Caveat', cursive;
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .step-action {
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    margin-bottom: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .step-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .step-meta span {
-    font-size: 0.72rem;
-    color: var(--ink-soft);
-  }
-
-  .step-meta strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  .step-badge {
-    position: absolute;
-    top: 0.75rem; right: 0.75rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .badge-ki { background: var(--teal-light); color: var(--teal); }
-  .badge-manual { background: var(--orange-light); color: var(--orange); }
-
-  /* ── FORM ───────────────────────────────────────────── */
-  #formular { background: white; max-width: 100%; }
-  .form-inner { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .form-card {
-    background: var(--paper-warm);
-    border: 2px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    transition: border-color 0.2s;
-  }
-
-  .form-card:hover { border-color: var(--teal-mid); }
-
-  .form-card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .form-card-icon {
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-  }
-
-  .form-card-title {
-    font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
-
-  .form-field {
-    margin-bottom: 1rem;
-  }
-
-  .form-field:last-child { margin-bottom: 0; }
-
-  label {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--ink-soft);
-    margin-bottom: 0.35rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  select,
-  textarea {
-    width: 100%;
-    padding: 0.6rem 0.9rem;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    background: white;
-    color: var(--ink);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-
-  input:focus, select:focus, textarea:focus {
-    border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(42,140,140,0.12);
-  }
-
-  textarea { resize: vertical; min-height: 80px; }
-
-  .checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .checkbox-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .checkbox-item input[type="checkbox"] { width: auto; }
-
-  .checkbox-item label {
-    font-size: 0.8rem;
-    text-transform: none;
-    letter-spacing: 0;
-    font-weight: 400;
-    color: var(--ink);
-    margin: 0;
-    cursor: pointer;
-  }
-
-  .form-submit-row {
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: center;
-    padding-top: 1rem;
-  }
-
-  .btn-analyze {
-    background: var(--teal);
-    color: white;
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .btn-analyze:hover {
-    background: #1f6e6e;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(42,140,140,0.3);
-  }
-
-  /* ── RESULT ─────────────────────────────────────────── */
-  #result-box {
-    display: none;
-    margin-top: 2rem;
-    border: 2px solid var(--teal);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
-  .result-header {
-    background: var(--teal);
-    color: white;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .result-header h3 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-  }
-
-  .result-body {
-    background: white;
-    padding: 1.5rem;
-  }
-
-  .result-mode-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.2);
-  }
-
-  .prompt-box {
-    background: var(--paper-warm);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem;
-    font-size: 0.82rem;
-    line-height: 1.7;
-    white-space: pre-wrap;
-    font-family: 'DM Sans', sans-serif;
-    max-height: 400px;
-    overflow-y: auto;
-    color: var(--ink);
-  }
-
-  .result-actions {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  .btn-copy {
-    background: var(--teal-light);
-    color: var(--teal);
-    border: 2px solid var(--teal);
-    padding: 0.6rem 1.25rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    transition: all 0.2s;
-  }
-
-  .btn-copy:hover { background: var(--teal); color: white; }
-
-  /* ── SCORING ────────────────────────────────────────── */
-  #scoring { background: var(--paper-warm); max-width: 100%; }
-  .scoring-inner { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
-
-  .criteria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .criteria-card {
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    border: 2px solid transparent;
-    text-align: center;
-  }
-
-  .criteria-card .c-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
-  .criteria-card .c-name {
-    font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
-  .criteria-card .c-scale {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--ink-soft);
-    margin-bottom: 0.5rem;
-  }
-  .criteria-card .c-question {
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-
-  .c-teal   { background: var(--teal-light);   border-color: var(--teal); }
-  .c-orange { background: var(--orange-light);  border-color: var(--orange); }
-  .c-green  { background: var(--green-light);   border-color: var(--green); }
-  .c-yellow { background: var(--yellow-light);  border-color: var(--yellow); }
-
-  .juri-criteria {
-    background: #EEF2FF;
-    border: 2px dashed var(--purple);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin: 1rem 0 2rem;
-  }
-
-  .juri-criteria .jc-icon { font-size: 2rem; }
-
-  .juri-criteria .jc-text h4 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--purple);
-    margin-bottom: 0.25rem;
-  }
-
-  .juri-criteria .jc-text p {
-    font-size: 0.82rem;
-    color: var(--ink-soft);
-  }
-
-  .juri-criteria .jc-badge {
-    margin-left: auto;
-    background: var(--purple);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.35rem 0.85rem;
-    border-radius: 20px;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .scoring-table-wrapper {
-    overflow-x: auto;
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--border);
-    background: white;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.875rem;
-  }
-
-  th {
-    background: var(--ink);
-    color: white;
-    padding: 0.85rem 1.25rem;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 0.03em;
-  }
-
-  th:first-child { border-radius: 0; }
-
-  td {
-    padding: 0.85rem 1.25rem;
-    border-bottom: 1.5px solid var(--border);
-    vertical-align: middle;
-  }
-
-  tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: var(--paper-warm); }
-
-  .score-input {
-    width: 60px;
-    padding: 0.4rem 0.5rem;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    text-align: center;
-    font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .score-input:focus {
-    border-color: var(--teal);
-    outline: none;
-  }
-
-  .juri-row td { background: #EEF2FF !important; }
-
-  .total-row td {
-    background: var(--ink) !important;
-    color: white;
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  .total-score {
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--teal-mid);
-  }
-
-  .potenzial-label {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
-
-  .pot-high   { background: #D1FAE5; color: #065F46; }
-  .pot-mid    { background: #FEF3C7; color: #92400E; }
-  .pot-low    { background: #FFEDD5; color: #9A3412; }
-  .pot-none   { background: #FEE2E2; color: #991B1B; }
-
-  .legend-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
-    font-size: 0.82rem;
-  }
-
-  .legend-dot {
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ── JURI ───────────────────────────────────────────── */
-  #juri { background: white; max-width: 100%; }
-  .juri-inner { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
-
-  .juri-what-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .juri-what-card {
-    background: var(--paper-warm);
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem;
-    text-align: center;
-    transition: all 0.2s;
-  }
-
-  .juri-what-card:hover {
-    border-color: var(--purple);
-    transform: translateY(-2px);
-  }
-
-  .juri-what-card .jw-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-
-  .juri-what-card .jw-title {
-    font-family: 'Caveat', cursive;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
-
-  .juri-what-card .jw-q {
-    font-size: 0.72rem;
-    color: var(--ink-soft);
-    line-height: 1.4;
-  }
-
-  .juri-prompt-section {
-    background: var(--purple-light);
-    border: 2px solid var(--purple);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    margin-top: 2rem;
-  }
-
-  .juri-prompt-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-
-  .juri-prompt-header h3 {
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
-    color: var(--purple);
-  }
-
-  .juri-prompt-box {
-    background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem;
-    font-size: 0.82rem;
-    line-height: 1.7;
-    white-space: pre-wrap;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--ink);
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 1rem;
-  }
-
-  .disclaimer {
-    background: var(--red-light);
-    border-left: 4px solid #E53E3E;
-    border-radius: 0 8px 8px 0;
-    padding: 0.75rem 1rem;
-    font-size: 0.78rem;
-    color: #742A2A;
-    margin-top: 1rem;
-  }
-
-  /* ── FOOTER ─────────────────────────────────────────── */
-  footer {
-    background: var(--ink);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.8rem;
-  }
-
-  footer strong { color: white; }
-
-  /* ── UTILITIES ──────────────────────────────────────── */
-  .mt-1 { margin-top: 0.5rem; }
-  .mt-2 { margin-top: 1rem; }
-  .mt-3 { margin-top: 1.5rem; }
-  .mt-4 { margin-top: 2rem; }
-  .info-note {
-    background: var(--teal-light);
-    border-left: 4px solid var(--teal);
-    border-radius: 0 8px 8px 0;
-    padding: 0.75rem 1rem;
-    font-size: 0.82rem;
-    color: var(--teal);
-    margin: 1rem 0;
-  }
-
-  @media (max-width: 640px) {
-    .nav-links { display: none; }
-    .hero-title { font-size: 2.4rem; }
-    .juri-criteria { flex-direction: column; }
-    .juri-criteria .jc-badge { margin-left: 0; }
-  }
+:root{--teal:#2A8C8C;--teal-light:#E8F5F5;--teal-mid:#4AABAB;--orange:#E8834A;--orange-light:#FEF0E7;--purple:#7B5EA7;--purple-light:#F0EBF8;--yellow:#F5C842;--yellow-light:#FEFAE8;--green:#4A9B6F;--green-light:#EBF5F0;--red-light:#FDECEA;--ink:#1E2832;--ink-soft:#4A5568;--paper:#FAFAF7;--paper-warm:#F5F3EE;--border:#E2DDD5;--shadow:0 2px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 32px rgba(0,0,0,.12);--radius:12px;--radius-lg:20px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6}
+h1,h2,h3{font-family:'Caveat',cursive}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.95);backdrop-filter:blur(8px);border-bottom:2px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:'Caveat',cursive;font-size:1.4rem;font-weight:700;color:var(--teal)}
+.nav-links{display:flex;gap:.25rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.85rem;font-weight:500;padding:.4rem .9rem;border-radius:20px;transition:all .2s}
+.nav-links a:hover{background:var(--teal-light);color:var(--teal)}
+
+.si{max-width:960px;margin:0 auto;padding:4rem 2rem}
+.sl{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.75rem}
+.sl .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.st{font-size:2.6rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
+.ss{color:var(--ink-soft);font-size:1rem;max-width:560px}
+
+#hero{min-height:calc(100vh - 60px);display:flex;align-items:center;background:linear-gradient(135deg,var(--teal-light) 0%,var(--paper) 50%,var(--orange-light) 100%);position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(42,140,140,.12) 0%,transparent 70%);border-radius:50%}
+#hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(232,131,74,.1) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:960px;margin:0 auto;padding:4rem 2rem;width:100%;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:white;border:2px solid var(--teal);border-radius:20px;padding:.35rem 1rem;font-size:.8rem;font-weight:600;color:var(--teal);margin-bottom:2rem}
+.hero-title{font-size:clamp(2.8rem,6vw,4.5rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;color:var(--ink)}
+.hero-title span{color:var(--teal)}
+.hero-desc{font-size:1.1rem;color:var(--ink-soft);max-width:520px;margin-bottom:2.5rem;line-height:1.7}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;border:2px solid transparent;transition:all .2s;text-decoration:none}
+.btn-primary{background:var(--teal);color:white;border-color:var(--teal)}
+.btn-primary:hover{background:#1f6e6e;transform:translateY(-1px);box-shadow:0 4px 16px rgba(42,140,140,.3)}
+.btn-secondary{background:white;color:var(--ink);border-color:var(--border)}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:3rem}
+.tag{display:inline-flex;align-items:center;gap:.4rem;background:white;border:1.5px solid var(--border);border-radius:8px;padding:.35rem .85rem;font-size:.8rem;font-weight:500;color:var(--ink-soft)}
+
+#workflow{background:var(--paper-warm)}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2.5rem}
+.zone-label{grid-column:1/-1;display:flex;align-items:center;gap:.75rem;margin:1rem 0 .25rem}
+.zone-pill{padding:.3rem 1rem;border-radius:20px;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.zone-teal .zone-pill{background:var(--teal);color:white}
+.zone-orange .zone-pill{background:var(--orange);color:white}
+.zone-purple .zone-pill{background:var(--purple);color:white}
+.zone-auto .zone-pill{background:var(--green);color:white}
+.zone-line{flex:1;height:2px;border-top:2px dashed var(--border)}
+.handoff-bar{grid-column:1/-1;color:white;border-radius:10px;padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:center;gap:.75rem;font-size:.82rem;font-weight:600;margin:.5rem 0}
+.handoff-bar.teal{background:var(--teal)}.handoff-bar.orange{background:var(--orange)}.handoff-bar.green{background:var(--green)}
+.step-card{background:white;border-radius:var(--radius);padding:1.25rem;border:2px solid var(--border);position:relative;transition:transform .2s,box-shadow .2s}
+.step-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin-bottom:.75rem;color:white}
+.step-num.t{background:var(--teal)}.step-num.o{background:var(--orange)}.step-num.p{background:var(--purple)}.step-num.g{background:var(--green)}
+.step-title{font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.step-action{font-size:.78rem;color:var(--ink-soft);margin-bottom:.75rem;line-height:1.5}
+.step-meta{display:flex;flex-direction:column;gap:.2rem}
+.step-meta span{font-size:.72rem;color:var(--ink-soft)}
+.step-meta strong{color:var(--ink);font-weight:600}
+.step-badge{position:absolute;top:.75rem;right:.75rem;font-size:.65rem;font-weight:700;padding:.2rem .5rem;border-radius:6px;text-transform:uppercase;letter-spacing:.05em}
+.bki{background:var(--teal-light);color:var(--teal)}.bm{background:var(--orange-light);color:var(--orange)}.ba{background:var(--green-light);color:var(--green)}
+
+#formular{background:white}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem}
+.form-card{background:var(--paper-warm);border:2px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;transition:border-color .2s}
+.form-card:hover{border-color:var(--teal-mid)}
+.fch{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
+.fci{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.fct{font-family:'Caveat',cursive;font-size:1.2rem;font-weight:700}
+.ff{margin-bottom:1rem}.ff:last-child{margin-bottom:0}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--ink-soft);margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.05em}
+input[type=text],input[type=number],select,textarea{width:100%;padding:.6rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.875rem;background:white;color:var(--ink);transition:border-color .2s,box-shadow .2s;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(42,140,140,.12)}
+textarea{resize:vertical;min-height:80px}
+.cbg{display:flex;flex-wrap:wrap;gap:.5rem}
+.cbi{display:flex;align-items:center;gap:.4rem}
+.cbi input[type=checkbox]{width:auto}
+.cbi label{font-size:.8rem;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink);margin:0;cursor:pointer}
+
+.mode-toggle{display:flex;background:var(--paper-warm);border:2px solid var(--border);border-radius:12px;padding:.35rem;gap:.35rem;width:fit-content;margin-bottom:1.5rem}
+.mode-btn{padding:.5rem 1.25rem;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--ink-soft);background:transparent}
+.mode-btn.active{background:white;color:var(--teal);box-shadow:var(--shadow)}
+
+.demo-banner{background:linear-gradient(135deg,var(--orange-light),var(--yellow-light));border:2px solid var(--orange);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.db-text h4{font-family:'Caveat',cursive;font-size:1.2rem;font-weight:700;color:var(--ink)}
+.db-text p{font-size:.8rem;color:var(--ink-soft)}
+.btn-demo{background:var(--orange);color:white;border:none;padding:.65rem 1.5rem;border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.btn-demo:hover{background:#c96835;transform:translateY(-1px)}
+
+.fsr{grid-column:1/-1;display:flex;justify-content:center;padding-top:1rem}
+.btn-analyze{background:var(--teal);color:white;border:none;padding:1rem 2.5rem;font-size:1rem;font-weight:600;border-radius:12px;cursor:pointer;display:flex;align-items:center;gap:.75rem;transition:all .2s;font-family:'DM Sans',sans-serif}
+.btn-analyze:hover{background:#1f6e6e;transform:translateY(-2px);box-shadow:0 6px 20px rgba(42,140,140,.3)}
+
+#paste-section{display:none;margin-top:1.5rem}
+.paste-box{border:2.5px solid var(--orange);border-radius:var(--radius-lg);overflow:hidden}
+.paste-header{background:var(--orange);color:white;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.paste-header h3{font-family:'Caveat',cursive;font-size:1.3rem}
+.ph-badge{background:rgba(255,255,255,.2);font-size:.72rem;font-weight:700;padding:.25rem .75rem;border-radius:20px}
+.paste-body{background:white;padding:1.5rem}
+.paste-hint{background:var(--orange-light);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.8rem;color:#7a3a14;margin-bottom:1rem}
+.paste-body textarea{min-height:160px;font-size:.82rem}
+.paste-body textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,131,74,.12)}
+#paste-feedback{margin-top:.75rem;display:none}
+.auto-detect-ok{background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:.85rem 1.25rem;display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--green);font-weight:600;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+#scoring{background:var(--paper-warm)}
+.scoring-status{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border-radius:var(--radius);border:2px solid var(--border);background:white;margin-bottom:1.5rem;transition:all .3s;flex-wrap:wrap}
+.scoring-status.populated{border-color:var(--green);background:var(--green-light)}
+.ss-icon{font-size:1.5rem}
+.ss-h4{font-size:.9rem;font-weight:600;color:var(--ink)}
+.ss-p{font-size:.78rem;color:var(--ink-soft)}
+.ss-actions{margin-left:auto}
+.crit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:2rem 0}
+.cc{border-radius:var(--radius);padding:1.25rem;border:2px solid transparent;text-align:center}
+.cc-t{background:var(--teal-light);border-color:var(--teal)}.cc-o{background:var(--orange-light);border-color:var(--orange)}.cc-g{background:var(--green-light);border-color:var(--green)}.cc-y{background:var(--yellow-light);border-color:var(--yellow)}
+.ci{font-size:1.8rem;margin-bottom:.5rem}.cn{font-family:'Caveat',cursive;font-size:1.2rem;font-weight:700;margin-bottom:.25rem}.csc{font-size:.75rem;font-weight:600;color:var(--ink-soft);margin-bottom:.5rem}.cq{font-size:.78rem;color:var(--ink-soft);line-height:1.5}
+.juri-band{background:#EEF2FF;border:2px dashed var(--purple);border-radius:var(--radius);padding:1.25rem;display:flex;align-items:center;gap:1.5rem;margin:1rem 0 2rem;flex-wrap:wrap}
+.juri-band .jbi{font-size:2rem}
+.juri-band h4{font-family:'Caveat',cursive;font-size:1.2rem;font-weight:700;color:var(--purple);margin-bottom:.25rem}
+.juri-band p{font-size:.82rem;color:var(--ink-soft)}
+.juri-band .jbb{margin-left:auto;background:var(--purple);color:white;font-size:.7rem;font-weight:700;padding:.35rem .85rem;border-radius:20px;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+.sc-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem}
+.tsc{background:white;border:2px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;transition:all .3s}
+.tsc.populated{border-color:var(--teal)}
+.tsc-ph{text-align:center;padding:2.5rem 1rem;color:var(--ink-soft);font-size:.85rem;border:2px dashed var(--border);border-radius:var(--radius-lg);background:var(--paper-warm)}
+.tsc-ph-icon{font-size:2rem;display:block;margin-bottom:.5rem}
+.tsc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.tsc-name{font-family:'Caveat',cursive;font-size:1.4rem;font-weight:700}
+.tsc-total{font-family:'Caveat',cursive;font-size:2rem;font-weight:700;color:var(--teal)}
+.tsc-bars{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
+.tsc-bar{display:flex;align-items:center;gap:.75rem}
+.tsc-bl{font-size:.75rem;font-weight:600;color:var(--ink-soft);width:130px;flex-shrink:0}
+.tsc-bt{flex:1;height:8px;background:var(--paper-warm);border-radius:4px;overflow:hidden}
+.tsc-bf{height:100%;border-radius:4px;transition:width .7s ease}
+.tsc-bv{font-size:.78rem;font-weight:700;color:var(--ink);width:20px;text-align:right}
+.tsc-reason{font-size:.78rem;color:var(--ink-soft);line-height:1.5;border-top:1.5px solid var(--border);padding-top:.75rem}
+.pot-label{display:inline-block;padding:.25rem .75rem;border-radius:20px;font-size:.72rem;font-weight:700}
+.ph{background:#D1FAE5;color:#065F46}.pm{background:#FEF3C7;color:#92400E}.pl{background:#FFEDD5;color:#9A3412}.pn{background:#FEE2E2;color:#991B1B}
+.set-btn{background:none;border:1.5px solid var(--border);color:var(--ink-soft);padding:.45rem 1rem;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.set-btn:hover{border-color:var(--teal);color:var(--teal)}
+#edit-panel{display:none;margin-top:1.5rem}
+.stw{overflow-x:auto;border-radius:var(--radius-lg);border:2px solid var(--border);background:white}
+table{width:100%;border-collapse:collapse;font-size:.875rem}
+th{background:var(--ink);color:white;padding:.85rem 1.25rem;text-align:left;font-weight:600;font-size:.8rem;letter-spacing:.03em}
+td{padding:.85rem 1.25rem;border-bottom:1.5px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--paper-warm)}
+.si-input{width:60px;padding:.4rem .5rem;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-weight:600;font-family:'DM Sans',sans-serif}
+.si-input:focus{border-color:var(--teal);outline:none}
+.juri-row td{background:#EEF2FF !important}
+.total-row td{background:var(--ink) !important;color:white;font-weight:700}
+.total-score{font-family:'Caveat',cursive;font-size:1.4rem;font-weight:700;color:var(--teal-mid)}
+.leg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:1.5rem}
+.leg-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-radius:10px;font-size:.82rem}
+.leg-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+
+#juri{background:white}
+.jw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:2rem 0}
+.jw-card{background:var(--paper-warm);border:2px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center;transition:all .2s}
+.jw-card:hover{border-color:var(--purple);transform:translateY(-2px)}
+.jwi{font-size:1.5rem;margin-bottom:.5rem}.jwt{font-family:'Caveat',cursive;font-size:1rem;font-weight:700;margin-bottom:.25rem}.jwq{font-size:.72rem;color:var(--ink-soft);line-height:1.4}
+.jp-section{background:var(--purple-light);border:2px solid var(--purple);border-radius:var(--radius-lg);padding:1.75rem;margin-top:1.5rem}
+.jp-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.75rem}
+.jp-hdr h3{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--purple)}
+.jp-box{background:white;border:1.5px solid var(--border);border-radius:10px;padding:1.25rem;font-size:.82rem;line-height:1.7;white-space:pre-wrap;font-family:'DM Sans',sans-serif;color:var(--ink);max-height:320px;overflow-y:auto;margin-bottom:1rem}
+.jp-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.btn-juri{background:var(--purple);color:white;border:none;padding:.65rem 1.5rem;border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.btn-juri:hover{background:#5e4282}
+.btn-copy{background:var(--teal-light);color:var(--teal);border:2px solid var(--teal);padding:.6rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.btn-copy:hover{background:var(--teal);color:white}
+.disclaimer{background:var(--red-light);border-left:4px solid #E53E3E;border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.78rem;color:#742A2A;margin-top:1rem}
+
+#vision{background:var(--ink)}
+#vision .sl{color:rgba(255,255,255,.5)}
+#vision .sl .dot{background:var(--teal-mid)}
+#vision .st{color:white}
+#vision .ss{color:rgba(255,255,255,.6)}
+.v-stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2.5rem}
+.vc{border-radius:var(--radius-lg);padding:1.75rem;border:2px solid rgba(255,255,255,.1)}
+.vc.now{background:rgba(42,140,140,.15);border-color:var(--teal-mid)}
+.vc.next{background:rgba(232,131,74,.12);border-color:rgba(232,131,74,.4)}
+.vc.future{background:rgba(123,94,167,.15);border-color:rgba(123,94,167,.4)}
+.vc-stage{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.vc.now .vc-stage{color:var(--teal-mid)}.vc.next .vc-stage{color:var(--orange)}.vc.future .vc-stage{color:#a78bde}
+.vc-dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+.vc-title{font-family:'Caveat',cursive;font-size:1.5rem;font-weight:700;color:white;margin-bottom:.5rem}
+.vc-sub{font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:1.25rem;line-height:1.5}
+.vc-steps{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.vc-step{display:flex;align-items:flex-start;gap:.65rem;font-size:.8rem;color:rgba(255,255,255,.8);line-height:1.4}
+.vc-n{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.vc.now .vc-n{background:var(--teal);color:white}.vc.next .vc-n{background:var(--orange);color:white}.vc.future .vc-n{background:var(--purple);color:white}
+.vc-m{display:inline-block;font-size:.62rem;font-weight:700;padding:.1rem .4rem;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;margin-left:.35rem;background:rgba(232,131,74,.25);color:var(--orange)}
+.vc-a{background:rgba(74,155,111,.2);color:#6fcf97}
+.vc-footer{margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);font-size:.75rem;color:rgba(255,255,255,.4)}
+.v-prereqs{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.5rem;margin-top:2rem}
+.v-prereqs h4{font-family:'Caveat',cursive;font-size:1.3rem;color:white;margin-bottom:1rem}
+.pr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem}
+.pr{display:flex;align-items:flex-start;gap:.75rem;font-size:.82rem;color:rgba(255,255,255,.7);padding:.75rem;background:rgba(255,255,255,.04);border-radius:8px}
+.pri{font-size:1.2rem;flex-shrink:0}
+
+.info-note{background:var(--teal-light);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.82rem;color:var(--teal);margin:1rem 0}
+footer{background:#111820;color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.8rem}
+footer strong{color:white}
+.mt2{margin-top:1rem}.mt3{margin-top:1.5rem}.mt4{margin-top:2rem}
+
+@media(max-width:640px){.nav-links{display:none}.hero-title{font-size:2.4rem}.juri-band,.demo-banner{flex-direction:column}.juri-band .jbb{margin-left:0}.mode-toggle{width:100%}}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ─────────────────────────────────────────────── -->
 <nav>
   <div class="nav-logo">🔄 Agile WM Workflow</div>
   <ul class="nav-links">
     <li><a href="#hero">Start</a></li>
     <li><a href="#workflow">Workflow</a></li>
-    <li><a href="#formular">WM-Analyse</a></li>
+    <li><a href="#formular">Analyse</a></li>
     <li><a href="#scoring">Scoring</a></li>
     <li><a href="#juri">Juri</a></li>
+    <li><a href="#vision">Vision</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ────────────────────────────────────────────── -->
+<!-- HERO -->
 <div id="hero">
   <div class="hero-inner">
-    <div class="hero-badge">
-      🤖 KI-gestützter Workflow · Wissensmanagement
-    </div>
-    <h1 class="hero-title">
-      Vom Excel-Chaos<br>
-      zum <span>sichtbaren Flow</span>
-    </h1>
-    <p class="hero-desc">
-      Zwei KI-Systeme. Ein strukturierter Prozess.
-      Von der Unternehmensanalyse über agile Methoden
-      bis zur Lizenz- und Compliance-Prüfung eurer Tools.
-    </p>
+    <div class="hero-badge">🤖 KI-gestützter Workflow · Wissensmanagement</div>
+    <h1 class="hero-title">Vom Excel-Chaos<br>zum <span>sichtbaren Flow</span></h1>
+    <p class="hero-desc">Zwei KI-Systeme. Ein strukturierter Prozess. Von der Unternehmensanalyse über agile Methoden bis zur Lizenz- und Compliance-Prüfung.</p>
     <div class="hero-cta">
       <a href="#formular" class="btn btn-primary">▶ Analyse starten</a>
       <a href="#workflow" class="btn btn-secondary">Workflow ansehen</a>
@@ -938,391 +238,203 @@
     <div class="hero-tags">
       <span class="tag">🤖 WM · Claude Project</span>
       <span class="tag">⚖️ Juri · Custom GPT</span>
-      <span class="tag">📊 Scoring Matrix</span>
-      <span class="tag">🏗️ Pilotunternehmen: Buildwise GmbH</span>
+      <span class="tag">📊 Auto-Scoring</span>
+      <span class="tag">🏗️ Buildwise GmbH · Demo</span>
       <span class="tag">🔒 DSGVO-relevant</span>
     </div>
   </div>
 </div>
 
-<!-- ── WORKFLOW ─────────────────────────────────────────── -->
+<!-- WORKFLOW -->
 <div id="workflow">
-  <div class="workflow-inner">
-    <div class="section-label"><span class="dot"></span> Prozessübersicht</div>
-    <h2 class="section-title">Der Workflow</h2>
-    <p class="section-sub">8 Schritte, 3 Zonen – von der Dateneingabe bis zum Entscheidungsreport.</p>
-
+  <div class="si">
+    <div class="sl"><span class="dot"></span> Prozessübersicht</div>
+    <h2 class="st">Der Workflow</h2>
+    <p class="ss">3 Zonen – von der Dateneingabe bis zum Entscheidungsreport.</p>
     <div class="steps-grid">
-
-      <!-- Zone: Manuell -->
-      <div class="zone-label zone-orange">
-        <span class="zone-pill">🖐 Manueller Input</span>
-        <span class="zone-line"></span>
-      </div>
-
+      <div class="zone-label zone-orange"><span class="zone-pill">🖐 Manueller Input</span><span class="zone-line"></span></div>
       <div class="step-card">
-        <div class="step-number orange">1</div>
-        <span class="step-badge badge-manual">Manuell</span>
+        <div class="step-num o">1</div><span class="step-badge bm">Manuell</span>
         <div class="step-title">Firmendaten eingeben</div>
-        <div class="step-action">Unternehmensformular ausfüllen</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> Leeres Formular</span>
-          <span><strong>OUT:</strong> Firmenprofil</span>
-          <span><strong>WER:</strong> Nutzer</span>
-        </div>
+        <div class="step-action">Vollanalyse oder Berater-Schnellmodus – Formular ausfüllen</div>
+        <div class="step-meta"><span><strong>IN:</strong> Leeres Formular</span><span><strong>OUT:</strong> Firmenprofil</span><span><strong>WER:</strong> Nutzer/Berater</span></div>
       </div>
-
-      <div class="handoff-bar teal">▸ Übergabe: Manuell → WM</div>
-
-      <!-- Zone: WM -->
-      <div class="zone-label zone-teal">
-        <span class="zone-pill">🤖 WM · Claude Project</span>
-        <span class="zone-line"></span>
-      </div>
-
       <div class="step-card">
-        <div class="step-number teal">2</div>
-        <span class="step-badge badge-ki">KI</span>
-        <div class="step-title">Kontext analysieren</div>
-        <div class="step-action">Firmenprofil entlang Branche, Team, Reifegrad und Zielen auswerten</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> Firmenprofil</span>
-          <span><strong>OUT:</strong> Kontextanalyse</span>
-          <span><strong>WER:</strong> WM</span>
-        </div>
+        <div class="step-num o">2</div><span class="step-badge bm">1 Klick</span>
+        <div class="step-title">Prompt → Claude öffnen</div>
+        <div class="step-action">Prompt wird generiert + in Zwischenablage kopiert. Claude Project öffnet sich automatisch.</div>
+        <div class="step-meta"><span><strong>IN:</strong> Firmenprofil</span><span><strong>OUT:</strong> WM-Analyse + JSON</span><span><strong>WER:</strong> Nutzer + WM</span></div>
       </div>
-
       <div class="step-card">
-        <div class="step-number teal">3</div>
-        <span class="step-badge badge-ki">KI</span>
-        <div class="step-title">Methoden-Potenziale</div>
-        <div class="step-action">Passende agile Ansätze für diesen Kontext ableiten</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> Kontextanalyse</span>
-          <span><strong>OUT:</strong> Methoden-Potenziale</span>
-          <span><strong>WER:</strong> WM</span>
-        </div>
+        <div class="step-num o">3</div><span class="step-badge bm">Paste</span>
+        <div class="step-title">Antwort einfügen</div>
+        <div class="step-action">Vollständige Claude-Antwort einfügen – JSON wird automatisch erkannt, kein weiterer Klick.</div>
+        <div class="step-meta"><span><strong>IN:</strong> WM-Antwort</span><span><strong>OUT:</strong> Scoring befüllt</span><span><strong>WER:</strong> Nutzer</span></div>
       </div>
-
+      <div class="handoff-bar green">⚡ Automatisch: JSON erkannt → Scoring + Juri-Prompt generiert</div>
+      <div class="zone-label zone-auto"><span class="zone-pill">⚡ Automatisch</span><span class="zone-line"></span></div>
       <div class="step-card">
-        <div class="step-number teal">4</div>
-        <span class="step-badge badge-ki">KI</span>
-        <div class="step-title">Tool-Kandidaten</div>
-        <div class="step-action">2–3 konkrete Tools für den Unternehmenskontext vorschlagen</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> Methoden-Potenziale</span>
-          <span><strong>OUT:</strong> Tool-Kandidaten</span>
-          <span><strong>WER:</strong> WM</span>
-        </div>
+        <div class="step-num g">4</div><span class="step-badge ba">Auto</span>
+        <div class="step-title">Scoring Matrix</div>
+        <div class="step-action">Tool-Scores, Balkengrafiken, Potenzial-Labels erscheinen automatisch aus WM-Ausgabe</div>
+        <div class="step-meta"><span><strong>IN:</strong> WM JSON-Block</span><span><strong>OUT:</strong> Scoring Matrix</span><span><strong>WER:</strong> App</span></div>
       </div>
-
       <div class="step-card">
-        <div class="step-number teal">5</div>
-        <span class="step-badge badge-ki">KI</span>
-        <div class="step-title">Scoring & Top-Tools</div>
-        <div class="step-action">Tools bewerten und Top-Tools für Juri-Analyse priorisieren</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> Tool-Kandidaten</span>
-          <span><strong>OUT:</strong> Top-Tools + Scores</span>
-          <span><strong>WER:</strong> WM</span>
-        </div>
+        <div class="step-num g">5</div><span class="step-badge ba">Auto</span>
+        <div class="step-title">Juri Modus-C-Prompt</div>
+        <div class="step-action">Übergabe-Prompt für Juri wird automatisch aus Scoring und Firmenprofil generiert</div>
+        <div class="step-meta"><span><strong>IN:</strong> Scoring + Profil</span><span><strong>OUT:</strong> Modus-C-Prompt</span><span><strong>WER:</strong> App</span></div>
       </div>
-
-      <div class="handoff-bar orange">▸ ÜBERGABE: WM → Juri &nbsp;·&nbsp; Claude Project → Custom GPT</div>
-
-      <!-- Zone: Juri -->
-      <div class="zone-label zone-purple">
-        <span class="zone-pill">⚖️ Juri · Custom GPT</span>
-        <span class="zone-line"></span>
-      </div>
-
+      <div class="handoff-bar orange">▸ Übergabe: App → Juri (Custom GPT)</div>
+      <div class="zone-label zone-purple"><span class="zone-pill">⚖️ Juri · Custom GPT</span><span class="zone-line"></span></div>
       <div class="step-card">
-        <div class="step-number purple">6</div>
-        <span class="step-badge badge-ki">KI</span>
-        <div class="step-title">ToS-Analyse</div>
-        <div class="step-action">Nutzungsbedingungen der Top-Tools im Unternehmenskontext analysieren</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> Top-Tools + Firmenprofil</span>
-          <span><strong>OUT:</strong> ToS-Übersicht + Checkliste</span>
-          <span><strong>WER:</strong> Juri</span>
-        </div>
+        <div class="step-num p">6</div><span class="step-badge bki">KI</span>
+        <div class="step-title">ToS-Analyse Modus C</div>
+        <div class="step-action">Juri analysiert Nutzungsbedingungen der Top-Tools kontextualisiert für dieses Unternehmen + Compliance-Score</div>
+        <div class="step-meta"><span><strong>IN:</strong> Tools + Firmenprofil</span><span><strong>OUT:</strong> ToS + Score X/10</span><span><strong>WER:</strong> Juri</span></div>
       </div>
-
-      <div class="step-card" style="border-color: var(--border);">
-        <div class="step-number orange">7</div>
-        <span class="step-badge badge-manual">Manuell</span>
+      <div class="step-card">
+        <div class="step-num o">7</div><span class="step-badge bm">Manuell</span>
         <div class="step-title">Report zusammenführen</div>
-        <div class="step-action">WM, Scoring und Juri-Analyse zu einem Entscheidungsdokument bündeln</div>
-        <div class="step-meta">
-          <span><strong>IN:</strong> WM + Scoring + Juri</span>
-          <span><strong>OUT:</strong> Entscheidungsreport</span>
-          <span><strong>WER:</strong> Berater</span>
-        </div>
+        <div class="step-action">WM-Analyse, Scoring und Juris Compliance-Score zu einem Entscheidungsdokument bündeln</div>
+        <div class="step-meta"><span><strong>IN:</strong> WM + Scoring + Juri</span><span><strong>OUT:</strong> Entscheidungsreport</span><span><strong>WER:</strong> Berater</span></div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- ── FORMULAR ─────────────────────────────────────────── -->
+<!-- FORMULAR -->
 <div id="formular">
-  <div class="form-inner">
-    <div class="section-label"><span class="dot"></span> Schritt 1 – WM-Analyse</div>
-    <h2 class="section-title">Unternehmensanalyse</h2>
-    <p class="section-sub">Fülle das Formular aus – der WM generiert daraus einen fertigen Analyse-Prompt für Claude.</p>
+  <div class="si">
+    <div class="sl"><span class="dot"></span> Schritt 1 – WM-Analyse</div>
+    <h2 class="st">Unternehmensanalyse</h2>
+    <p class="ss">Modus wählen, Formular ausfüllen – Scoring und Juri-Prompt entstehen automatisch.</p>
 
-    <div class="info-note mt-2">
-      💡 <strong>So funktioniert es:</strong> Trage deine Unternehmensdaten ein und klicke auf "Analyse-Prompt generieren". Der fertige Prompt wird direkt in dein Claude Project (WM) eingefügt.
+    <div class="mode-toggle mt3">
+      <button class="mode-btn active" id="mode-voll" onclick="setMode('voll')">📋 Vollanalyse</button>
+      <button class="mode-btn" id="mode-berater" onclick="setMode('berater')">⚡ Berater-Schnellmodus</button>
+    </div>
+    <div id="berater-hint" class="info-note" style="display:none">⚡ <strong>Berater-Schnellmodus:</strong> 5 Kernfelder für eine fundierte Ersteinschätzung. WM leitet fehlende Infos aus dem Kontext ab – ideal fürs Erstgespräch.</div>
+
+    <div class="demo-banner">
+      <div class="db-text">
+        <h4>🏗️ Demo: Buildwise GmbH laden</h4>
+        <p>Für Präsentationen – Formular wird mit Beispieldaten befüllt und Scoring sofort angezeigt. Kein Claude Project nötig.</p>
+      </div>
+      <button class="btn-demo" onclick="loadDemo()">Demo starten →</button>
     </div>
 
     <form id="wm-form">
       <div class="form-grid">
 
-        <!-- 1. Unternehmensprofil -->
         <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--teal-light)">🏢</div>
-            <div class="form-card-title">1 · Unternehmensprofil</div>
-          </div>
-          <div class="form-field">
-            <label>Unternehmensname</label>
-            <input type="text" id="f-name" placeholder="z.B. Buildwise GmbH">
-          </div>
-          <div class="form-field">
-            <label>Branche</label>
-            <input type="text" id="f-branche" placeholder="z.B. Bauplanung, IT, Handel">
-          </div>
-          <div class="form-field">
-            <label>Mitarbeitende</label>
-            <input type="number" id="f-ma" placeholder="z.B. 28" min="1">
-          </div>
-          <div class="form-field">
-            <label>Standort</label>
-            <input type="text" id="f-standort" placeholder="z.B. München">
-          </div>
+          <div class="fch"><div class="fci" style="background:var(--teal-light)">🏢</div><div class="fct">1 · Unternehmensprofil</div></div>
+          <div class="ff"><label>Unternehmensname <span style="color:var(--teal)">✱</span></label><input type="text" id="f-name" placeholder="z.B. Buildwise GmbH"></div>
+          <div class="ff"><label>Branche <span style="color:var(--teal)">✱</span></label><input type="text" id="f-branche" placeholder="z.B. Bauplanung, IT, Handel"></div>
+          <div class="ff ext"><label>Mitarbeitende</label><input type="number" id="f-ma" placeholder="z.B. 28" min="1"></div>
+          <div class="ff ext"><label>Standort</label><input type="text" id="f-standort" placeholder="z.B. München"></div>
         </div>
 
-        <!-- 2. Teamstruktur -->
         <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--orange-light)">👥</div>
-            <div class="form-card-title">2 · Teamstruktur</div>
-          </div>
-          <div class="form-field">
-            <label>Teamgröße</label>
-            <select id="f-teamgroesse">
-              <option value="">– Wählen –</option>
-              <option>1–5 Personen</option>
-              <option>6–10 Personen</option>
-              <option>11–20 Personen</option>
-              <option>20+ Personen</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Arbeitsmodell</label>
-            <select id="f-modell">
-              <option value="">– Wählen –</option>
-              <option>Vor Ort</option>
-              <option>Hybrid</option>
-              <option>Remote</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Hierarchie</label>
-            <select id="f-hierarchie">
-              <option value="">– Wählen –</option>
-              <option>Flach</option>
-              <option>Mittlere Hierarchie</option>
-              <option>Stark hierarchisch</option>
-            </select>
-          </div>
+          <div class="fch"><div class="fci" style="background:var(--orange-light)">👥</div><div class="fct">2 · Teamstruktur</div></div>
+          <div class="ff"><label>Teamgröße <span style="color:var(--teal)">✱</span></label>
+            <select id="f-teamgroesse"><option value="">– Wählen –</option><option>1–5 Personen</option><option>6–10 Personen</option><option>11–20 Personen</option><option>20+ Personen</option></select></div>
+          <div class="ff"><label>Arbeitsmodell <span style="color:var(--teal)">✱</span></label>
+            <select id="f-modell"><option value="">– Wählen –</option><option>Vor Ort</option><option>Hybrid</option><option>Remote</option></select></div>
+          <div class="ff ext"><label>Hierarchie</label>
+            <select id="f-hierarchie"><option value="">– Wählen –</option><option>Flach</option><option>Mittlere Hierarchie</option><option>Stark hierarchisch</option></select></div>
         </div>
 
-        <!-- 3. Aktuelle Arbeitsweise -->
-        <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--green-light)">⚙️</div>
-            <div class="form-card-title">3 · Arbeitsweise</div>
-          </div>
-          <div class="form-field">
-            <label>Aktuelle PM-Methode</label>
-            <input type="text" id="f-methode" placeholder="z.B. klassisch, Excel, E-Mail">
-          </div>
-          <div class="form-field">
-            <label>Agile Erfahrung</label>
-            <select id="f-agile">
-              <option value="">– Wählen –</option>
-              <option>Keine</option>
-              <option>Grundkenntnisse</option>
-              <option>Erste Erfahrungen</option>
-              <option>Fortgeschritten</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Bestehende Tools</label>
-            <input type="text" id="f-tools" placeholder="z.B. Excel, Outlook, Teams">
-          </div>
+        <div class="form-card ext">
+          <div class="fch"><div class="fci" style="background:var(--green-light)">⚙️</div><div class="fct">3 · Arbeitsweise</div></div>
+          <div class="ff"><label>Aktuelle PM-Methode</label><input type="text" id="f-methode" placeholder="z.B. klassisch, Excel, E-Mail"></div>
+          <div class="ff"><label>Agile Erfahrung</label>
+            <select id="f-agile"><option value="">– Wählen –</option><option>Keine</option><option>Grundkenntnisse</option><option>Erste Erfahrungen</option><option>Fortgeschritten</option></select></div>
+          <div class="ff"><label>Bestehende Tools</label><input type="text" id="f-tools" placeholder="z.B. Excel, Outlook, Teams"></div>
         </div>
 
-        <!-- 4. Projektkontext -->
-        <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--yellow-light)">📋</div>
-            <div class="form-card-title">4 · Projektkontext</div>
-          </div>
-          <div class="form-field">
-            <label>Projektart</label>
-            <input type="text" id="f-projektart" placeholder="z.B. Hochbau, Software, Marketing">
-          </div>
-          <div class="form-field">
-            <label>Typische Laufzeit</label>
-            <select id="f-laufzeit">
-              <option value="">– Wählen –</option>
-              <option>unter 3 Monate</option>
-              <option>3–6 Monate</option>
-              <option>6–18 Monate</option>
-              <option>über 18 Monate</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Parallele Projekte</label>
-            <input type="number" id="f-parallel" placeholder="z.B. 8" min="0">
-          </div>
-          <div class="form-field">
-            <label>Regulatorik</label>
-            <input type="text" id="f-regulatorik" placeholder="z.B. VOB, HOAI, ISO, keine">
-          </div>
+        <div class="form-card ext">
+          <div class="fch"><div class="fci" style="background:var(--yellow-light)">📋</div><div class="fct">4 · Projektkontext</div></div>
+          <div class="ff"><label>Projektart</label><input type="text" id="f-projektart" placeholder="z.B. Hochbau, Software, Marketing"></div>
+          <div class="ff"><label>Typische Laufzeit</label>
+            <select id="f-laufzeit"><option value="">– Wählen –</option><option>unter 3 Monate</option><option>3–6 Monate</option><option>6–18 Monate</option><option>über 18 Monate</option></select></div>
+          <div class="ff"><label>Parallele Projekte</label><input type="number" id="f-parallel" placeholder="z.B. 8" min="0"></div>
+          <div class="ff"><label>Regulatorik</label><input type="text" id="f-regulatorik" placeholder="z.B. VOB, HOAI, ISO, keine"></div>
         </div>
 
-        <!-- 5. Ziele -->
         <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--teal-light)">🎯</div>
-            <div class="form-card-title">5 · Ziele</div>
-          </div>
-          <div class="form-field">
-            <label>Was wollt ihr erreichen?</label>
-            <div class="checkbox-group">
-              <div class="checkbox-item"><input type="checkbox" id="z1"><label for="z1">Bessere Zusammenarbeit</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="z2"><label for="z2">Mehr Transparenz</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="z3"><label for="z3">Klarere Aufgabenverteilung</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="z4"><label for="z4">Schnellere Lieferung</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="z5"><label for="z5">Mitarbeiterzufriedenheit</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="z6"><label for="z6">Skalierung</label></div>
+          <div class="fch"><div class="fci" style="background:var(--teal-light)">🎯</div><div class="fct">5 · Ziele <span style="color:var(--teal)">✱</span></div></div>
+          <div class="ff"><label>Was wollt ihr erreichen?</label>
+            <div class="cbg">
+              <div class="cbi"><input type="checkbox" id="z1"><label for="z1">Bessere Zusammenarbeit</label></div>
+              <div class="cbi"><input type="checkbox" id="z2"><label for="z2">Mehr Transparenz</label></div>
+              <div class="cbi"><input type="checkbox" id="z3"><label for="z3">Klarere Aufgabenverteilung</label></div>
+              <div class="cbi"><input type="checkbox" id="z4"><label for="z4">Schnellere Lieferung</label></div>
+              <div class="cbi"><input type="checkbox" id="z5"><label for="z5">Mitarbeiterzufriedenheit</label></div>
+              <div class="cbi"><input type="checkbox" id="z6"><label for="z6">Skalierung</label></div>
             </div>
           </div>
-          <div class="form-field">
-            <label>Ergänzung</label>
-            <textarea id="f-ziele" placeholder="Weitere Ziele..."></textarea>
-          </div>
+          <div class="ff"><label>Ergänzung</label><textarea id="f-ziele" placeholder="Weitere Ziele..."></textarea></div>
         </div>
 
-        <!-- 6. Herausforderungen -->
         <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--red-light)">⚠️</div>
-            <div class="form-card-title">6 · Herausforderungen</div>
-          </div>
-          <div class="form-field">
-            <label>Aktuelle Pain Points</label>
-            <div class="checkbox-group">
-              <div class="checkbox-item"><input type="checkbox" id="h1"><label for="h1">Silo-Denken</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="h2"><label for="h2">Unklare Prioritäten</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="h3"><label for="h3">Aufgaben fallen durch</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="h4"><label for="h4">Unklar Deadlines</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="h5"><label for="h5">Kommunikation</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="h6"><label for="h6">Fehlende Rollen</label></div>
+          <div class="fch"><div class="fci" style="background:var(--red-light)">⚠️</div><div class="fct">6 · Herausforderungen <span style="color:var(--teal)">✱</span></div></div>
+          <div class="ff"><label>Aktuelle Pain Points</label>
+            <div class="cbg">
+              <div class="cbi"><input type="checkbox" id="h1"><label for="h1">Silo-Denken</label></div>
+              <div class="cbi"><input type="checkbox" id="h2"><label for="h2">Unklare Prioritäten</label></div>
+              <div class="cbi"><input type="checkbox" id="h3"><label for="h3">Aufgaben fallen durch</label></div>
+              <div class="cbi"><input type="checkbox" id="h4"><label for="h4">Unklare Deadlines</label></div>
+              <div class="cbi"><input type="checkbox" id="h5"><label for="h5">Kommunikation</label></div>
+              <div class="cbi"><input type="checkbox" id="h6"><label for="h6">Fehlende Rollen</label></div>
             </div>
           </div>
-          <div class="form-field">
-            <label>Ergänzung</label>
-            <textarea id="f-heraus" placeholder="Weitere Herausforderungen..."></textarea>
-          </div>
+          <div class="ff"><label>Größte Herausforderung</label><textarea id="f-heraus" placeholder="Beschreibe die drängendste Herausforderung..."></textarea></div>
         </div>
 
-        <!-- 7. Rahmenbedingungen -->
-        <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--purple-light)">⚖️</div>
-            <div class="form-card-title">7 · Rahmenbedingungen</div>
-          </div>
-          <div class="form-field">
-            <label>Zeitrahmen Einführung</label>
-            <select id="f-zeitrahmen">
-              <option value="">– Wählen –</option>
-              <option>1 Monat</option>
-              <option>2–3 Monate</option>
-              <option>3–6 Monate</option>
-              <option>Offen</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Budget</label>
-            <select id="f-budget">
-              <option value="">– Wählen –</option>
-              <option>Sehr begrenzt</option>
-              <option>Begrenzt</option>
-              <option>Moderat</option>
-              <option>Ausreichend</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Führungsunterstützung</label>
-            <select id="f-fuehrung">
-              <option value="">– Wählen –</option>
-              <option>Nicht vorhanden</option>
-              <option>Teilweise</option>
-              <option>Vorhanden</option>
-              <option>Stark</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>DSGVO-Relevanz</label>
-            <select id="f-dsgvo">
-              <option value="">– Wählen –</option>
-              <option>Nicht relevant</option>
-              <option>Relevant</option>
-              <option>Kritisch</option>
-            </select>
-          </div>
+        <div class="form-card ext">
+          <div class="fch"><div class="fci" style="background:var(--purple-light)">⚖️</div><div class="fct">7 · Rahmenbedingungen</div></div>
+          <div class="ff"><label>Zeitrahmen Einführung</label>
+            <select id="f-zeitrahmen"><option value="">– Wählen –</option><option>1 Monat</option><option>2–3 Monate</option><option>3–6 Monate</option><option>Offen</option></select></div>
+          <div class="ff"><label>Budget</label>
+            <select id="f-budget"><option value="">– Wählen –</option><option>Sehr begrenzt</option><option>Begrenzt</option><option>Moderat</option><option>Ausreichend</option></select></div>
+          <div class="ff"><label>Führungsunterstützung</label>
+            <select id="f-fuehrung"><option value="">– Wählen –</option><option>Nicht vorhanden</option><option>Teilweise</option><option>Vorhanden</option><option>Stark</option></select></div>
+          <div class="ff"><label>DSGVO-Relevanz</label>
+            <select id="f-dsgvo"><option value="">– Wählen –</option><option>Nicht relevant</option><option>Relevant</option><option>Kritisch</option></select></div>
         </div>
 
-        <!-- 8. Sonstiges -->
-        <div class="form-card">
-          <div class="form-card-header">
-            <div class="form-card-icon" style="background:var(--paper-warm)">💬</div>
-            <div class="form-card-title">8 · Sonstiges</div>
-          </div>
-          <div class="form-field">
-            <label>Weitere Informationen</label>
-            <textarea id="f-sonstiges" style="min-height:180px" placeholder="Bewährte Abläufe die bleiben sollen, besondere Anforderungen, Vorgeschichte..."></textarea>
-          </div>
+        <div class="form-card ext">
+          <div class="fch"><div class="fci" style="background:var(--paper-warm)">💬</div><div class="fct">8 · Sonstiges</div></div>
+          <div class="ff"><label>Weitere Informationen</label>
+            <textarea id="f-sonstiges" style="min-height:180px" placeholder="Bewährte Abläufe die bleiben sollen, besondere Anforderungen, Vorgeschichte..."></textarea></div>
         </div>
 
-        <!-- Submit -->
-        <div class="form-submit-row">
-          <button type="button" class="btn-analyze" onclick="generatePrompt()">
-            🚀 WM-Analyse Prompt generieren
+        <div class="fsr">
+          <button type="button" class="btn-analyze" id="analyze-btn" onclick="generateAndOpen()">
+            🚀 Prompt generieren → Claude Project öffnen
           </button>
         </div>
 
-      </div><!-- /form-grid -->
+      </div>
     </form>
 
-    <!-- Result Box -->
-    <div id="result-box">
-      <div class="result-header">
-        <h3>✅ WM-Analyse Prompt</h3>
-        <span class="result-mode-badge" id="result-mode-badge">📋 Statisch</span>
-      </div>
-      <div class="result-body">
-        <p style="font-size:0.82rem;color:var(--ink-soft);margin-bottom:1rem;">
-          Kopiere diesen Prompt und füge ihn in dein <strong>Claude Project (WM)</strong> ein:
-        </p>
-        <div class="prompt-box" id="prompt-output"></div>
-        <div class="result-actions">
-          <button class="btn-copy" onclick="copyPrompt()">📋 Prompt kopieren</button>
-          <button class="btn-copy" style="border-color:var(--orange);color:var(--orange);background:var(--orange-light)" onclick="document.getElementById('scoring').scrollIntoView({behavior:'smooth'})">→ Weiter zu Scoring</button>
+    <!-- Paste-Back -->
+    <div id="paste-section">
+      <div class="paste-box">
+        <div class="paste-header">
+          <h3>📥 Schritt 2: Claude-Antwort einfügen</h3>
+          <span class="ph-badge">⚡ JSON wird automatisch erkannt – kein Klick nötig</span>
+        </div>
+        <div class="paste-body">
+          <div class="paste-hint">
+            <strong>Wichtig:</strong> Kopiere die <strong>vollständige Antwort</strong> aus dem Claude Project (WM) inkl. dem JSON-Block am Ende. Füge <strong>nichts davor</strong> ein – sonst erscheint das WM-Eingabe-Widget statt der Analyse.
+          </div>
+          <label>Vollständige WM-Antwort hier einfügen:</label>
+          <textarea id="wm-paste"
+            placeholder="Füge hier Claudes vollständige Antwort ein.&#10;&#10;Das Scoring wird automatisch erkannt sobald der JSON-Block vorhanden ist.&#10;&#10;Die Antwort endet mit:&#10;===SCORING_START===&#10;{ &quot;tools&quot;: [...] }&#10;===SCORING_END==="
+            oninput="autoDetect(this)"></textarea>
+          <div id="paste-feedback"></div>
         </div>
       </div>
     </div>
@@ -1330,467 +442,481 @@
   </div>
 </div>
 
-<!-- ── SCORING ──────────────────────────────────────────── -->
+<!-- SCORING -->
 <div id="scoring">
-  <div class="scoring-inner">
-    <div class="section-label"><span class="dot"></span> Schritt 2 – Bewertung</div>
-    <h2 class="section-title">Tool-Scoring Matrix</h2>
-    <p class="section-sub">Bewertet eure Tool-Kandidaten anhand von 4 Kriterien. Der Compliance-Score folgt durch Juri.</p>
+  <div class="si">
+    <div class="sl"><span class="dot"></span> Schritt 2 – Automatisches Scoring</div>
+    <h2 class="st">Tool-Scoring Matrix</h2>
+    <p class="ss">Wird automatisch aus der WM-Antwort befüllt. Compliance-Score folgt durch Juri (Modus C).</p>
 
-    <div class="criteria-grid">
-      <div class="criteria-card c-teal">
-        <div class="c-icon">🎯</div>
-        <div class="c-name">Agiler Mehrwert</div>
-        <div class="c-scale">0 – 10 Punkte</div>
-        <div class="c-question">Unterstützt das Tool unsere agile Arbeitsweise?</div>
-      </div>
-      <div class="criteria-card c-orange">
-        <div class="c-icon">🔗</div>
-        <div class="c-name">Integrations-potenzial</div>
-        <div class="c-scale">0 – 10 Punkte</div>
-        <div class="c-question">Passt es zu unseren bestehenden Tools?</div>
-      </div>
-      <div class="criteria-card c-green">
-        <div class="c-icon">👥</div>
-        <div class="c-name">Einführungsreife</div>
-        <div class="c-scale">0 – 10 Punkte</div>
-        <div class="c-question">Kann unser Team damit sofort arbeiten?</div>
-      </div>
-      <div class="criteria-card c-yellow">
-        <div class="c-icon">💶</div>
-        <div class="c-name">Wirtschaftlichkeit</div>
-        <div class="c-scale">0 – 10 Punkte</div>
-        <div class="c-question">Steht Nutzen im Verhältnis zum Aufwand?</div>
+    <div class="scoring-status" id="scoring-status">
+      <span class="ss-icon">⏳</span>
+      <div><div class="ss-h4">Warte auf WM-Analyse</div><div class="ss-p">Formular ausfüllen → Prompt kopieren → Antwort einfügen</div></div>
+    </div>
+
+    <div class="crit-grid">
+      <div class="cc cc-t"><div class="ci">🎯</div><div class="cn">Agiler Mehrwert</div><div class="csc">0–10 Punkte</div><div class="cq">Unterstützt das Tool unsere agile Arbeitsweise?</div></div>
+      <div class="cc cc-o"><div class="ci">🔗</div><div class="cn">Integrationspotenzial</div><div class="csc">0–10 Punkte</div><div class="cq">Passt es zu unseren bestehenden Tools?</div></div>
+      <div class="cc cc-g"><div class="ci">👥</div><div class="cn">Einführungsreife</div><div class="csc">0–10 Punkte</div><div class="cq">Kann unser Team damit sofort arbeiten?</div></div>
+      <div class="cc cc-y"><div class="ci">💶</div><div class="cn">Wirtschaftlichkeit</div><div class="csc">0–10 Punkte</div><div class="cq">Steht Nutzen im Verhältnis zum Aufwand?</div></div>
+    </div>
+
+    <div class="juri-band">
+      <div class="jbi">⚖️</div>
+      <div><h4>+ Compliance-Score (Juri · Modus C)</h4><p>Faktenbasiert aus den offiziellen ToS – nicht subjektiv. Format: 🔢 Compliance-Score für [Unternehmen]: X/10</p></div>
+      <span class="jbb">Folgt in Schritt 3</span>
+    </div>
+
+    <div class="sc-cards" id="sc-cards">
+      <div class="tsc-ph"><span class="tsc-ph-icon">🤖</span><strong>Tool A</strong><br>Wird nach WM-Analyse automatisch befüllt</div>
+      <div class="tsc-ph"><span class="tsc-ph-icon">🤖</span><strong>Tool B</strong><br>Wird nach WM-Analyse automatisch befüllt</div>
+    </div>
+
+    <div class="mt3" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <button class="set-btn" onclick="toggleEdit()">✏️ Scores manuell anpassen</button>
+      <span style="font-size:.78rem;color:var(--ink-soft)">WM-Scores können bei Bedarf überschrieben werden</span>
+    </div>
+    <div id="edit-panel">
+      <div class="info-note mt2">✏️ Änderungen aktualisieren die Balken oben automatisch.</div>
+      <div class="stw mt2">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:220px">Kriterium</th>
+              <th><input type="text" id="tn-a" placeholder="Tool A" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:white;width:120px;padding:.3rem .5rem;border-radius:6px;font-size:.82rem" oninput="syncNames()"></th>
+              <th><input type="text" id="tn-b" placeholder="Tool B" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:white;width:120px;padding:.3rem .5rem;border-radius:6px;font-size:.82rem" oninput="syncNames()"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>🎯 Agiler Mehrwert</td><td><input type="number" class="si-input" id="s-a1" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b1" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
+            <tr><td>🔗 Integrationspotenzial</td><td><input type="number" class="si-input" id="s-a2" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b2" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
+            <tr><td>👥 Einführungsreife</td><td><input type="number" class="si-input" id="s-a3" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b3" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
+            <tr><td>💶 Wirtschaftlichkeit</td><td><input type="number" class="si-input" id="s-a4" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b4" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
+            <tr class="juri-row"><td>⚖️ Compliance (Juri) <span style="font-size:.7rem;color:var(--purple);font-weight:600">Modus C</span></td><td><input type="number" class="si-input" id="s-a5" min="0" max="10" placeholder="–" oninput="syncTable()" style="border-color:var(--purple)"></td><td><input type="number" class="si-input" id="s-b5" min="0" max="10" placeholder="–" oninput="syncTable()" style="border-color:var(--purple)"></td></tr>
+            <tr class="total-row"><td>GESAMT</td><td><span class="total-score" id="tot-a">–</span> <span id="pot-a"></span></td><td><span class="total-score" id="tot-b">–</span> <span id="pot-b"></span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <div class="juri-criteria">
-      <div class="jc-icon">⚖️</div>
-      <div class="jc-text">
-        <h4>+ Compliance-Profil (Juri)</h4>
-        <p>Einziger Score der nicht subjektiv bewertet wird. Juri analysiert direkt aus den offiziellen ToS und liefert einen faktenbasierten Wert.</p>
-      </div>
-      <span class="jc-badge">Optional</span>
+    <div class="leg-grid mt3">
+      <div class="leg-item" style="background:var(--green-light)"><div class="leg-dot" style="background:#065F46"></div><div><strong>40–50 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Hohes Potenzial · Direkt vertiefen</span></div></div>
+      <div class="leg-item" style="background:var(--yellow-light)"><div class="leg-dot" style="background:#92400E"></div><div><strong>30–39 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Mittleres Potenzial · Voraussetzungen klären</span></div></div>
+      <div class="leg-item" style="background:var(--orange-light)"><div class="leg-dot" style="background:#9A3412"></div><div><strong>20–29 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Eingeschränkt · Kontext entscheidend</span></div></div>
+      <div class="leg-item" style="background:var(--red-light)"><div class="leg-dot" style="background:#991B1B"></div><div><strong>unter 20 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Geringes Potenzial · Wesentliche Lücken</span></div></div>
     </div>
 
-    <div class="info-note">
-      📌 Trage eure Tool-Namen ein und bewertet jeden Score. Begründungen direkt im Gespräch mit dem Berater dokumentieren.
-    </div>
-
-    <div class="scoring-table-wrapper mt-3">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:220px">Kriterium</th>
-            <th>
-              <input type="text" id="tool-a-name" placeholder="Tool A" 
-                style="background:transparent;border:1px solid rgba(255,255,255,0.3);color:white;width:120px;padding:0.3rem 0.5rem;border-radius:6px;font-size:0.82rem;">
-            </th>
-            <th>
-              <input type="text" id="tool-b-name" placeholder="Tool B"
-                style="background:transparent;border:1px solid rgba(255,255,255,0.3);color:white;width:120px;padding:0.3rem 0.5rem;border-radius:6px;font-size:0.82rem;">
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>🎯 Agiler Mehrwert</td>
-            <td><input type="number" class="score-input" id="s-a1" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-            <td><input type="number" class="score-input" id="s-b1" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-          </tr>
-          <tr>
-            <td>🔗 Integrationspotenzial</td>
-            <td><input type="number" class="score-input" id="s-a2" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-            <td><input type="number" class="score-input" id="s-b2" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-          </tr>
-          <tr>
-            <td>👥 Einführungsreife</td>
-            <td><input type="number" class="score-input" id="s-a3" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-            <td><input type="number" class="score-input" id="s-b3" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-          </tr>
-          <tr>
-            <td>💶 Wirtschaftlichkeit</td>
-            <td><input type="number" class="score-input" id="s-a4" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-            <td><input type="number" class="score-input" id="s-b4" min="0" max="10" placeholder="0-10" oninput="updateTotal()"></td>
-          </tr>
-          <tr class="juri-row">
-            <td>⚖️ Compliance (Juri) <span style="font-size:0.7rem;color:var(--purple);font-weight:600">Optional</span></td>
-            <td><input type="number" class="score-input" id="s-a5" min="0" max="10" placeholder="0-10" oninput="updateTotal()" style="border-color:var(--purple)"></td>
-            <td><input type="number" class="score-input" id="s-b5" min="0" max="10" placeholder="0-10" oninput="updateTotal()" style="border-color:var(--purple)"></td>
-          </tr>
-          <tr class="total-row">
-            <td>GESAMT</td>
-            <td><span class="total-score" id="total-a">–</span> <span id="pot-a"></span></td>
-            <td><span class="total-score" id="total-b">–</span> <span id="pot-b"></span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="legend-grid mt-3">
-      <div class="legend-item" style="background:var(--green-light)">
-        <div class="legend-dot" style="background:#065F46"></div>
-        <div>
-          <strong>40 – 50 Punkte</strong><br>
-          <span style="font-size:0.75rem;color:var(--ink-soft)">Hohes Potenzial · Direkt vertiefen</span>
-        </div>
-      </div>
-      <div class="legend-item" style="background:var(--yellow-light)">
-        <div class="legend-dot" style="background:#92400E"></div>
-        <div>
-          <strong>30 – 39 Punkte</strong><br>
-          <span style="font-size:0.75rem;color:var(--ink-soft)">Mittleres Potenzial · Voraussetzungen klären</span>
-        </div>
-      </div>
-      <div class="legend-item" style="background:var(--orange-light)">
-        <div class="legend-dot" style="background:#9A3412"></div>
-        <div>
-          <strong>20 – 29 Punkte</strong><br>
-          <span style="font-size:0.75rem;color:var(--ink-soft)">Eingeschränkt · Kontext entscheidend</span>
-        </div>
-      </div>
-      <div class="legend-item" style="background:var(--red-light)">
-        <div class="legend-dot" style="background:#991B1B"></div>
-        <div>
-          <strong>unter 20 Punkte</strong><br>
-          <span style="font-size:0.75rem;color:var(--ink-soft)">Geringes Potenzial · Wesentliche Lücken</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:2rem;">
-      <button class="btn-analyze" onclick="generateJuriPrompt()" style="background:var(--purple)">
-        ⚖️ Weiter zu Juri – Übergabe-Prompt generieren
+    <div style="text-align:center;margin-top:2rem">
+      <button class="btn-analyze" onclick="buildJuriPrompt()" style="background:var(--purple)">
+        ⚖️ Weiter zu Juri – Modus-C-Prompt generieren
       </button>
     </div>
-
   </div>
 </div>
 
-<!-- ── JURI ─────────────────────────────────────────────── -->
+<!-- JURI -->
 <div id="juri">
-  <div class="juri-inner">
-    <div class="section-label"><span class="dot"></span> Schritt 3 – Lizenz & Compliance</div>
-    <h2 class="section-title">Juri – ToS Analyse</h2>
-    <p class="section-sub">Juri analysiert die Nutzungsbedingungen eurer Top-Tools – gefiltert auf euren Unternehmenskontext.</p>
+  <div class="si">
+    <div class="sl"><span class="dot"></span> Schritt 3 – Lizenz & Compliance</div>
+    <h2 class="st">Juri – ToS Analyse</h2>
+    <p class="ss">Juri (Custom GPT) analysiert die Nutzungsbedingungen der Top-Tools kontextualisiert für euer Unternehmen (Modus C).</p>
 
-    <div class="juri-what-grid mt-3">
-      <div class="juri-what-card">
-        <div class="jw-icon">🔑</div>
-        <div class="jw-title">Output-Ownership</div>
-        <div class="jw-q">Wem gehören die Daten die wir einpflegen?</div>
-      </div>
-      <div class="juri-what-card">
-        <div class="jw-icon">💶</div>
-        <div class="jw-title">Kommerzielle Nutzung</div>
-        <div class="jw-q">Dürfen wir das Tool für Kundenprojekte nutzen?</div>
-      </div>
-      <div class="juri-what-card">
-        <div class="jw-icon">🖥️</div>
-        <div class="jw-title">Datenspeicherung</div>
-        <div class="jw-q">Wo landen unsere Daten – EU oder außerhalb?</div>
-      </div>
-      <div class="juri-what-card">
-        <div class="jw-icon">🛡️</div>
-        <div class="jw-title">DSGVO & Datenschutz</div>
-        <div class="jw-q">Was müssen wir als deutsches Unternehmen beachten?</div>
-      </div>
-      <div class="juri-what-card">
-        <div class="jw-icon">📄</div>
-        <div class="jw-title">DPA & Verträge</div>
-        <div class="jw-q">Welche Vereinbarungen müssen aktiv abgeschlossen werden?</div>
-      </div>
-      <div class="juri-what-card">
-        <div class="jw-icon">🚫</div>
-        <div class="jw-title">Verbotene Nutzung</div>
-        <div class="jw-q">Was darf explizit nicht ins Tool eingetragen werden?</div>
-      </div>
+    <div class="jw-grid mt3">
+      <div class="jw-card"><div class="jwi">🔑</div><div class="jwt">Output-Ownership</div><div class="jwq">Wem gehören die Daten die wir einpflegen?</div></div>
+      <div class="jw-card"><div class="jwi">💶</div><div class="jwt">Kommerzielle Nutzung</div><div class="jwq">Dürfen wir das Tool für Kundenprojekte nutzen?</div></div>
+      <div class="jw-card"><div class="jwi">🖥️</div><div class="jwt">Datenspeicherung</div><div class="jwq">Wo landen unsere Daten – EU oder außerhalb?</div></div>
+      <div class="jw-card"><div class="jwi">🛡️</div><div class="jwt">DSGVO & Datenschutz</div><div class="jwq">Was müssen wir als deutsches Unternehmen beachten?</div></div>
+      <div class="jw-card"><div class="jwi">📄</div><div class="jwt">DPA & Verträge</div><div class="jwq">Welche Vereinbarungen müssen aktiv abgeschlossen werden?</div></div>
+      <div class="jw-card"><div class="jwi">🚫</div><div class="jwt">Verbotene Nutzung</div><div class="jwq">Was darf explizit nicht eingetragen werden?</div></div>
     </div>
 
-    <div class="juri-prompt-section" id="juri-prompt-section">
-      <div class="juri-prompt-header">
-        <h3>⚖️ Übergabe-Prompt für Juri</h3>
-        <button class="btn-copy" onclick="copyJuriPrompt()" style="border-color:var(--purple);color:var(--purple);background:white">📋 Kopieren</button>
+    <div class="jp-section">
+      <div class="jp-hdr">
+        <h3>⚖️ Modus-C-Übergabe-Prompt für Juri</h3>
+        <button class="btn-copy" onclick="copyJuri()" style="border-color:var(--purple);color:var(--purple);background:white">📋 Kopieren</button>
       </div>
-      <div class="juri-prompt-box" id="juri-prompt-output">
-Fülle zuerst das WM-Formular aus und klicke auf
-"Weiter zu Juri" im Scoring-Bereich –
-dann erscheint hier dein fertiger Übergabe-Prompt
-für Juri (Custom GPT).
+      <div class="jp-box" id="juri-out">Scoring zuerst befüllen (Schritt 2) und auf „Weiter zu Juri" klicken – dann erscheint hier der fertige Modus-C-Prompt.</div>
+      <div class="jp-actions">
+        <a href="https://chat.openai.com" target="_blank" class="btn-juri">→ Juri in ChatGPT öffnen ↗</a>
+        <span style="font-size:.78rem;color:var(--ink-soft)">Prompt kopieren → in Juri einfügen → Compliance-Score in Scoring-Tabelle eintragen</span>
       </div>
-      <div class="disclaimer">
-        ⚠️ <strong>Hinweis:</strong> Juri ist kein Anwalt und gibt keine Rechtsberatung. Die Analyse fasst zusammen was in den ToS steht. Für verbindliche Aussagen wende dich an einen Fachanwalt.
-      </div>
+      <div class="disclaimer">⚠️ <strong>Hinweis:</strong> Juri ist kein Anwalt und gibt keine Rechtsberatung. Die Analyse fasst zusammen was in den ToS steht. Für verbindliche Aussagen wende dich an einen Fachanwalt.</div>
     </div>
-
   </div>
 </div>
 
-<!-- ── FOOTER ───────────────────────────────────────────── -->
+<!-- FUTURE VISION -->
+<div id="vision">
+  <div class="si">
+    <div class="sl"><span class="dot"></span> Ausblick</div>
+    <h2 class="st">So sieht der Workflow in Zukunft aus</h2>
+    <p class="ss">Drei Ausbaustufen – von heute bis zur vollautomatisierten Pipeline.</p>
+
+    <div class="v-stages">
+      <div class="vc now">
+        <div class="vc-stage"><span class="vc-dot"></span> Stufe 1 · Jetzt</div>
+        <div class="vc-title">Hybrid-Modus</div>
+        <div class="vc-sub">Manuelle Eingabe + Paste-Back. Scoring und Juri-Prompt automatisch.</div>
+        <ul class="vc-steps">
+          <li><span class="vc-n">1</span><span>Formular ausfüllen<span class="vc-m">Manuell</span></span></li>
+          <li><span class="vc-n">2</span><span>Prompt generieren → Claude öffnet sich<span class="vc-m">1 Klick</span></span></li>
+          <li><span class="vc-n">3</span><span>WM-Antwort einfügen → JSON auto-erkannt<span class="vc-m">Paste</span></span></li>
+          <li><span class="vc-n">4</span><span>Scoring + Juri-Prompt erscheinen automatisch<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">5</span><span>Juri-Prompt in ChatGPT einfügen<span class="vc-m">Manuell</span></span></li>
+        </ul>
+        <div class="vc-footer">Manuelle Aktionen: 3 · KI-Systeme: WM + Juri · Laufende Kosten: keine</div>
+      </div>
+
+      <div class="vc next">
+        <div class="vc-stage"><span class="vc-dot"></span> Stufe 2 · Nächster Schritt</div>
+        <div class="vc-title">API-Integration</div>
+        <div class="vc-sub">Claude API direkt im Browser. Kein Copy-Paste – Scoring nach einem Klick.</div>
+        <ul class="vc-steps">
+          <li><span class="vc-n">1</span><span>Formular ausfüllen<span class="vc-m">Manuell</span></span></li>
+          <li><span class="vc-n">2</span><span>„Analyse starten" klicken<span class="vc-m">1 Klick</span></span></li>
+          <li><span class="vc-n">3</span><span>WM-API gibt Analyse + Scoring zurück<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">4</span><span>Scoring Matrix befüllt sich sofort<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">5</span><span>Juri-Prompt in ChatGPT einfügen<span class="vc-m">Manuell</span></span></li>
+        </ul>
+        <div class="vc-footer">Manuelle Aktionen: 2 · Voraussetzung: Claude API-Key · Kosten: ~0,005 € / Analyse</div>
+      </div>
+
+      <div class="vc future">
+        <div class="vc-stage"><span class="vc-dot"></span> Stufe 3 · Vollautomatisierung</div>
+        <div class="vc-title">Vollständige Pipeline</div>
+        <div class="vc-sub">WM + Juri + Report vollautomatisch. Ein Klick – vollständiger Entscheidungsreport.</div>
+        <ul class="vc-steps">
+          <li><span class="vc-n">1</span><span>Formular ausfüllen<span class="vc-m">Manuell</span></span></li>
+          <li><span class="vc-n">2</span><span>„Analyse starten" klicken<span class="vc-m">1 Klick</span></span></li>
+          <li><span class="vc-n">3</span><span>WM analysiert → Scoring automatisch<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">4</span><span>Juri analysiert ToS → Compliance-Score<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">5</span><span>Entscheidungsreport als PDF exportierbar<span class="vc-m vc-a">Auto</span></span></li>
+        </ul>
+        <div class="vc-footer">Manuelle Aktionen: 1 · Voraussetzung: Backend + Juri-API · Zeithorizont: 2–3 Monate</div>
+      </div>
+    </div>
+
+    <div class="v-prereqs">
+      <h4>🗺️ Was für Stufe 3 noch gebraucht wird</h4>
+      <div class="pr-grid">
+        <div class="pr"><span class="pri">🔌</span><span><strong>Juri als API</strong><br>Custom GPT braucht eine eigene Schnittstelle oder wird als eigenständiges Projekt mit programmatischem Zugriff umgebaut</span></div>
+        <div class="pr"><span class="pri">🖥️</span><span><strong>Kleines Backend</strong><br>Node.js oder Python-Server der beide API-Calls orchestriert und den Report zusammenführt – kein großes Projekt</span></div>
+        <div class="pr"><span class="pri">📄</span><span><strong>Report-Template</strong><br>Definiertes Dokument-Format (PDF/Word) in das WM-Analyse, Scoring und Juri-Output automatisch eingefügt werden</span></div>
+        <div class="pr"><span class="pri">🔒</span><span><strong>Auth & Zugriffsschutz</strong><br>Login oder Token-Schutz wenn die App öffentlich erreichbar sein soll – verhindert API-Missbrauch</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <strong>Agile WM Workflow</strong> · KI-gestütztes Wissensmanagement & Tool-Entscheidung<br>
-  <span style="margin-top:0.5rem;display:block">
-    WM · Claude Project &nbsp;+&nbsp; Juri · Custom GPT &nbsp;·&nbsp; Pilotunternehmen: Buildwise GmbH
-  </span>
+  <span style="margin-top:.5rem;display:block">WM · Claude Project &nbsp;+&nbsp; Juri · Custom GPT &nbsp;·&nbsp; Pilotunternehmen: Buildwise GmbH</span>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════════════════════
-   WM SERVICE
-   ─────────────────────────────────────────────────────────
-   STATISCH:  generatePrompt() baut einen Prompt-String
-   AUF LIVE UMSTELLEN:
-     1. api key in WMService.apiKey eintragen
-     2. WMService.mode = 'live' setzen
-     3. Fertig – alles andere bleibt gleich
-   ═══════════════════════════════════════════════════════════ */
+let fd = {}, sd = null, mode = 'voll';
 
-const WMService = {
+/* MODE */
+function setMode(m){
+  mode = m;
+  document.getElementById('mode-voll').classList.toggle('active', m==='voll');
+  document.getElementById('mode-berater').classList.toggle('active', m==='berater');
+  document.getElementById('berater-hint').style.display = m==='berater'?'block':'none';
+  document.querySelectorAll('.ext').forEach(el => el.style.display = m==='berater'?'none':'');
+  document.getElementById('analyze-btn').textContent =
+    m==='berater' ? '⚡ Schnell-Analyse → Claude Project öffnen' : '🚀 Prompt generieren → Claude Project öffnen';
+}
 
-  mode: 'static', // 'static' | 'live'
-  apiKey: '',     // Hier Claude API Key eintragen für Live-Modus
-  model: 'claude-sonnet-4-20250514',
+/* DEMO */
+function loadDemo(){
+  const set = (id,val) => { const el=document.getElementById(id); if(el) el.value=val; };
+  set('f-name','Buildwise GmbH'); set('f-branche','Bauplanung & Architektur');
+  set('f-ma','28'); set('f-standort','München');
+  set('f-teamgroesse','6–10 Personen'); set('f-modell','Hybrid');
+  set('f-hierarchie','Mittlere Hierarchie'); set('f-methode','Klassisch, Excel, E-Mail');
+  set('f-agile','Grundkenntnisse'); set('f-tools','Excel, Outlook, Microsoft Teams');
+  set('f-projektart','Hochbau, Innenausbau'); set('f-laufzeit','6–18 Monate');
+  set('f-parallel','8'); set('f-regulatorik','VOB, HOAI');
+  set('f-zeitrahmen','2–3 Monate'); set('f-budget','Begrenzt');
+  set('f-fuehrung','Teilweise'); set('f-dsgvo','Relevant');
+  set('f-sonstiges','Bestehende Projektdokumentation soll beibehalten werden. Team ist technikaffin, agile Methoden aber unbekannt. Pilotprojekt als Proof of Concept für weitere Standorte.');
+  ['z1','z2','z3','z5'].forEach(id => document.getElementById(id).checked=true);
+  ['h2','h3','h5'].forEach(id => document.getElementById(id).checked=true);
+  fd = collect();
+  applyScoring({
+    tools:[
+      {name:'Trello',agilerMehrwert:7,integration:7,einfuehrung:9,wirtschaft:8,
+       begruendung:'Sehr niedrige Einstiegshürde. Visuelles Kanban ideal für den ersten Schritt. Free-Tier ausreichend für Pilot. Integration mit Outlook und Teams möglich.'},
+      {name:'Jira',agilerMehrwert:9,integration:8,einfuehrung:5,wirtschaft:6,
+       begruendung:'Mächtiger als Trello, aber höhere Einführungskomplexität. Empfehlenswert wenn Buildwise nach dem Pilot skalieren will. Lizenzkosten bei 28 MA überschaubar.'}
+    ],
+    empfohleneMethode:'Kanban (Einstieg)',
+    naechsterSchritt:'Pilot-Board in Trello mit einem Projektteam aufsetzen und 4 Wochen testen'
+  });
+  document.getElementById('paste-section').style.display='block';
+  setTimeout(()=>document.getElementById('scoring').scrollIntoView({behavior:'smooth'}),400);
+}
 
-  async analyze(formData) {
-    if (this.mode === 'static') {
-      return this._buildPrompt(formData);
-    }
-    // ── LIVE MODE ──────────────────────────────────────
-    // Nur diese Funktion muss für Live geändert werden:
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': this.apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: this.model,
-        max_tokens: 1000,
-        system: `Du bist ein spezialisierter Wissensmanager für Agiles Projektmanagement. 
-Analysiere den Unternehmenskontext und gib fundierte, priorisierte Empfehlungen 
-für agile Methoden und passende Tools. Antworte auf Deutsch.`,
-        messages: [{
-          role: 'user',
-          content: this._buildPrompt(formData)
-        }]
-      })
-    });
-    const data = await response.json();
-    return data.content[0].text;
-    // ── END LIVE MODE ──────────────────────────────────
-  },
+/* GENERATE + OPEN */
+function generateAndOpen(){
+  fd = collect();
+  const prompt = buildPrompt(fd);
+  navigator.clipboard.writeText(prompt).catch(()=>{});
+  document.getElementById('paste-section').style.display='block';
+  window.open('https://claude.ai','_blank');
+  setTimeout(()=>document.getElementById('paste-section').scrollIntoView({behavior:'smooth'}),300);
+}
 
-  _buildPrompt(d) {
-    const ziele = ['Bessere Zusammenarbeit','Mehr Transparenz',
-      'Klarere Aufgabenverteilung','Schnellere Lieferung',
-      'Mitarbeiterzufriedenheit','Skalierung']
-      .filter((_,i) => document.getElementById(`z${i+1}`)?.checked)
-      .join(', ') || 'Keine ausgewählt';
+/* AUTO-DETECT */
+function autoDetect(ta){
+  const text = ta.value;
+  const fb = document.getElementById('paste-feedback');
+  if(!text.includes('===SCORING_START===')){fb.style.display='none';return;}
+  const parsed = parseJSON(text);
+  fb.style.display='block';
+  if(parsed && parsed.tools && parsed.tools.length>=1){
+    applyScoring(parsed);
+    fb.innerHTML=`<div class="auto-detect-ok">⚡ JSON erkannt und ausgewertet – Scoring befüllt. <a href="#scoring" style="color:inherit;margin-left:.5rem">→ Zum Scoring</a></div>`;
+    setTimeout(()=>document.getElementById('scoring').scrollIntoView({behavior:'smooth'}),600);
+  } else {
+    fb.innerHTML=`<div style="font-size:.78rem;color:var(--ink-soft);padding:.5rem 0">JSON erkannt aber noch unvollständig – warte auf vollständige Antwort…</div>`;
+  }
+}
 
-    const heraus = ['Silo-Denken','Unklare Prioritäten','Aufgaben fallen durch',
-      'Unklar Deadlines','Kommunikation','Fehlende Rollen']
-      .filter((_,i) => document.getElementById(`h${i+1}`)?.checked)
-      .join(', ') || 'Keine ausgewählt';
+/* COLLECT FORM */
+function collect(){
+  const g = id => document.getElementById(id)?.value||'';
+  const ziele=['Bessere Zusammenarbeit','Mehr Transparenz','Klarere Aufgabenverteilung','Schnellere Lieferung','Mitarbeiterzufriedenheit','Skalierung']
+    .filter((_,i)=>document.getElementById(`z${i+1}`)?.checked).join(', ')||'Keine ausgewählt';
+  const heraus=['Silo-Denken','Unklare Prioritäten','Aufgaben fallen durch','Unklare Deadlines','Kommunikation','Fehlende Rollen']
+    .filter((_,i)=>document.getElementById(`h${i+1}`)?.checked).join(', ')||'Keine ausgewählt';
+  return {name:g('f-name'),branche:g('f-branche'),ma:g('f-ma'),standort:g('f-standort'),
+    teamgroesse:g('f-teamgroesse'),modell:g('f-modell'),hierarchie:g('f-hierarchie'),
+    methode:g('f-methode'),agile:g('f-agile'),tools:g('f-tools'),
+    projektart:g('f-projektart'),laufzeit:g('f-laufzeit'),parallel:g('f-parallel'),regulatorik:g('f-regulatorik'),
+    ziele,heraus,extra_ziele:g('f-ziele'),extra_heraus:g('f-heraus'),
+    zeitrahmen:g('f-zeitrahmen'),budget:g('f-budget'),fuehrung:g('f-fuehrung'),dsgvo:g('f-dsgvo'),sonstiges:g('f-sonstiges')};
+}
 
-    return `Analysiere folgenden Unternehmenskontext und leite daraus fundierte Empfehlungen für agile Methoden und passende Tools ab.
+/* BUILD WM PROMPT */
+function buildPrompt(d){
+  const schnell = mode==='berater' ? '\n⚡ Berater-Schnellmodus: Fehlende Felder bitte aus dem Kontext ableiten.\n' : '';
+  return `${schnell}Analysiere den folgenden Unternehmenskontext und erstelle eine strukturierte Empfehlung.
+
+Beginne direkt mit der Analyse – zeige kein Eingabe-Template.
 
 ## Unternehmensprofil
-- Name: ${d.name || 'nicht angegeben'}
-- Branche: ${d.branche || 'nicht angegeben'}
-- Mitarbeitende: ${d.ma || 'nicht angegeben'}
-- Standort: ${d.standort || 'nicht angegeben'}
+- Name: ${d.name||'nicht angegeben'}
+- Branche: ${d.branche||'nicht angegeben'}
+- Mitarbeitende: ${d.ma||'nicht angegeben'}
+- Standort: ${d.standort||'nicht angegeben'}
 
 ## Teamstruktur
-- Teamgröße: ${d.teamgroesse || 'nicht angegeben'}
-- Arbeitsmodell: ${d.modell || 'nicht angegeben'}
-- Hierarchie: ${d.hierarchie || 'nicht angegeben'}
+- Teamgröße: ${d.teamgroesse||'nicht angegeben'}
+- Arbeitsmodell: ${d.modell||'nicht angegeben'}
+- Hierarchie: ${d.hierarchie||'nicht angegeben'}
 
 ## Aktuelle Arbeitsweise
-- PM-Methode: ${d.methode || 'nicht angegeben'}
-- Agile Erfahrung: ${d.agile || 'nicht angegeben'}
-- Bestehende Tools: ${d.tools || 'nicht angegeben'}
+- PM-Methode: ${d.methode||'nicht angegeben'}
+- Agile Erfahrung: ${d.agile||'nicht angegeben'}
+- Bestehende Tools: ${d.tools||'nicht angegeben'}
 
 ## Projektkontext
-- Projektart: ${d.projektart || 'nicht angegeben'}
-- Laufzeit: ${d.laufzeit || 'nicht angegeben'}
-- Parallele Projekte: ${d.parallel || 'nicht angegeben'}
-- Regulatorik: ${d.regulatorik || 'nicht angegeben'}
+- Projektart: ${d.projektart||'nicht angegeben'}
+- Laufzeit: ${d.laufzeit||'nicht angegeben'}
+- Parallele Projekte: ${d.parallel||'nicht angegeben'}
+- Regulatorik: ${d.regulatorik||'nicht angegeben'}
 
 ## Ziele
-${ziele}
-${d.ziele ? '+ ' + d.ziele : ''}
+${d.ziele}${d.extra_ziele?'\n+ '+d.extra_ziele:''}
 
 ## Herausforderungen
-${heraus}
-${d.heraus ? '+ ' + d.heraus : ''}
+${d.heraus}${d.extra_heraus?'\n+ '+d.extra_heraus:''}
 
 ## Rahmenbedingungen
-- Zeitrahmen: ${d.zeitrahmen || 'nicht angegeben'}
-- Budget: ${d.budget || 'nicht angegeben'}
-- Führungsunterstützung: ${d.fuehrung || 'nicht angegeben'}
-- DSGVO-Relevanz: ${d.dsgvo || 'nicht angegeben'}
+- Zeitrahmen: ${d.zeitrahmen||'nicht angegeben'}
+- Budget: ${d.budget||'nicht angegeben'}
+- Führungsunterstützung: ${d.fuehrung||'nicht angegeben'}
+- DSGVO-Relevanz: ${d.dsgvo||'nicht angegeben'}
 
 ## Sonstiges
-${d.sonstiges || 'keine weiteren Angaben'}
+${d.sonstiges||'keine weiteren Angaben'}
 
-## Deine Aufgabe
-1. Analysiere den Kontext entlang der genannten Dimensionen
-2. Empfehle die passenden agilen Methoden/Frameworks mit Begründung
-3. Schlage 2–3 konkrete Tool-Kandidaten vor die zu diesem Kontext passen
-4. Benenne was NICHT passt und warum
-5. Schlage passende Liberating Structures vor wenn relevant`;
-  }
-};
+## Erwarteter Output
+1. Kontextanalyse (Branche, Team, Reifegrad, Ziele)
+2. Empfohlene agile Methoden/Frameworks mit Begründung und Priorisierung
+3. Nicht empfohlene Ansätze mit Begründung
+4. Genau 2 konkrete Tool-Kandidaten die zu diesem Kontext passen
+5. Konkrete erste Schritte zur Einführung
+6. Passende Liberating Structures wenn relevant für diesen Kontext
 
-/* ═══════════════════════════════════════════════════
-   JURI SERVICE
-   ─────────────────────────────────────────────────
-   Gleiche Logik – statisch generiert Übergabe-Prompt,
-   live würde Juri-API direkt ansprechen
-   ═══════════════════════════════════════════════════ */
+## PFLICHT: Scoring-JSON am Ende
+Schließe die Antwort immer mit exakt diesem Block ab:
 
-const JuriService = {
-  buildHandoffPrompt(firmenprofil, topTools) {
-    return `Modus C – Kontextualisierte Tool-Analyse
+===SCORING_START===
+{
+  "tools": [
+    {
+      "name": "Tool-Name-1",
+      "agilerMehrwert": 0,
+      "integration": 0,
+      "einfuehrung": 0,
+      "wirtschaft": 0,
+      "begruendung": "Kontextbezogene Begründung"
+    },
+    {
+      "name": "Tool-Name-2",
+      "agilerMehrwert": 0,
+      "integration": 0,
+      "einfuehrung": 0,
+      "wirtschaft": 0,
+      "begruendung": "Kontextbezogene Begründung"
+    }
+  ],
+  "empfohleneMethode": "Name der Methode",
+  "naechsterSchritt": "Erster konkreter Schritt"
+}
+===SCORING_END===`;
+}
+
+/* JURI PROMPT (Modus C) */
+function buildJuriPrompt(){
+  const nA = document.getElementById('tn-a').value || sd?.tools?.[0]?.name || 'Tool A';
+  const nB = document.getElementById('tn-b').value || sd?.tools?.[1]?.name || 'Tool B';
+  const tA = document.getElementById('tot-a').textContent;
+  const tB = document.getElementById('tot-b').textContent;
+  const firma = fd.name || 'das Unternehmen';
+  const kontext = fd.name
+    ? `- Unternehmen: ${fd.name}\n- Branche: ${fd.branche||'–'}\n- Mitarbeitende: ${fd.ma||'–'}\n- Standort: ${fd.standort||'–'}\n- Arbeitsmodell: ${fd.modell||'–'}\n- DSGVO-Relevanz: ${fd.dsgvo||'–'}\n- Budget: ${fd.budget||'–'}\n- Regulatorik: ${fd.regulatorik||'–'}\n- Projektart: ${fd.projektart||'–'}`
+    : '(Bitte zuerst das Formular ausfüllen)';
+
+  const prompt=`Modus C – Kontextualisierte Unternehmensanalyse
 
 ## Unternehmenskontext
-${firmenprofil}
+${kontext}
 
-## Top-Tools aus Scoring
-${topTools}
+## Top-Tools aus WM-Scoring
+1. ${nA} – Scoring-Gesamt: ${tA}
+2. ${nB} – Scoring-Gesamt: ${tB}
 
-## Deine Aufgabe
-Führe für jedes Tool eine kontextualisierte ToS-Analyse durch:
-- Filtere die ToS-Punkte die für dieses Unternehmen konkret relevant sind
-- Benenne was das Unternehmen vor Einführung klären oder tun muss (max. 5 Punkte, Checkliste)
-- Weise auf Graubereiche und Risiken hin
-- Kein Score – die Analyse dient als Entscheidungsgrundlage
+## Aufgabe
+Analysiere beide Tools kontextualisiert für ${firma}.
+
+Priorisiere:
+- Welche ToS-Punkte sind für genau dieses Unternehmen kritisch?
+- Welche sind irrelevant und können weggelassen werden?
+- Was muss ${firma} konkret tun bevor es das Tool einführt?
 
 ## Struktur pro Tool
 1. Output-Ownership
-2. Kommerzielle Nutzung
-3. Datenspeicherung & Transfer
+2. Kommerzielle Nutzung (inkl. Kundenprojekte)
+3. Datenspeicherung & Transfer (EU-Konformität)
 4. DSGVO & Datenschutz
 5. DPA & Verträge
 6. Verbotene Nutzungsarten
-7. Was dieses Unternehmen konkret tun muss (Checkliste)
+7. Was ${firma} konkret tun muss (Checkliste, max. 5 Punkte)
 
-⚠️ Kein Rechtsbeistand. Für verbindliche Aussagen: Fachanwalt.`;
+## Compliance-Score
+Vergib am Ende für jedes Tool:
+🔢 Compliance-Score für ${firma}: X/10
+Begründung: [2–3 Sätze warum dieser Wert]
+
+Hinweis: Juris Scope umfasst alle digitalen Arbeitstools – nicht nur KI-Tools.`;
+
+  document.getElementById('juri-out').textContent=prompt;
+  document.getElementById('juri').scrollIntoView({behavior:'smooth'});
+}
+
+/* PARSE JSON */
+function parseJSON(text){
+  const m=text.match(/===SCORING_START===([\s\S]*?)===SCORING_END===/);
+  if(!m) return null;
+  try{ return JSON.parse(m[1].trim()); }
+  catch{
+    try{
+      const c=m[1].trim().replace(/,(\s*[}\]])/g,'$1').replace(/([{,]\s*)(\w+):/g,'$1"$2":');
+      return JSON.parse(c);
+    }catch{ return null; }
   }
-};
-
-/* ═══════════════════════════════════════════════════
-   UI LOGIC
-   ═══════════════════════════════════════════════════ */
-
-let lastFormData = {};
-let lastWMOutput = '';
-
-async function generatePrompt() {
-  const formData = {
-    name:        document.getElementById('f-name').value,
-    branche:     document.getElementById('f-branche').value,
-    ma:          document.getElementById('f-ma').value,
-    standort:    document.getElementById('f-standort').value,
-    teamgroesse: document.getElementById('f-teamgroesse').value,
-    modell:      document.getElementById('f-modell').value,
-    hierarchie:  document.getElementById('f-hierarchie').value,
-    methode:     document.getElementById('f-methode').value,
-    agile:       document.getElementById('f-agile').value,
-    tools:       document.getElementById('f-tools').value,
-    projektart:  document.getElementById('f-projektart').value,
-    laufzeit:    document.getElementById('f-laufzeit').value,
-    parallel:    document.getElementById('f-parallel').value,
-    regulatorik: document.getElementById('f-regulatorik').value,
-    ziele:       document.getElementById('f-ziele').value,
-    heraus:      document.getElementById('f-heraus').value,
-    zeitrahmen:  document.getElementById('f-zeitrahmen').value,
-    budget:      document.getElementById('f-budget').value,
-    fuehrung:    document.getElementById('f-fuehrung').value,
-    dsgvo:       document.getElementById('f-dsgvo').value,
-    sonstiges:   document.getElementById('f-sonstiges').value,
-  };
-
-  lastFormData = formData;
-
-  const result = await WMService.analyze(formData);
-  lastWMOutput = result;
-
-  document.getElementById('prompt-output').textContent = result;
-  document.getElementById('result-mode-badge').textContent =
-    WMService.mode === 'live' ? '🤖 Live · Claude API' : '📋 Statisch · Prompt';
-
-  const box = document.getElementById('result-box');
-  box.style.display = 'block';
-  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function generateJuriPrompt() {
-  const toolA = document.getElementById('tool-a-name').value || 'Tool A';
-  const toolB = document.getElementById('tool-b-name').value || 'Tool B';
-  const totalA = document.getElementById('total-a').textContent;
-  const totalB = document.getElementById('total-b').textContent;
-
-  const firmenprofil = lastFormData.name
-    ? `- Unternehmen: ${lastFormData.name}
-- Branche: ${lastFormData.branche || '–'}
-- Mitarbeitende: ${lastFormData.ma || '–'}
-- Standort: ${lastFormData.standort || '–'}
-- DSGVO-Relevanz: ${lastFormData.dsgvo || '–'}
-- Budget: ${lastFormData.budget || '–'}
-- Regulatorik: ${lastFormData.regulatorik || '–'}`
-    : '(Bitte zuerst das WM-Formular ausfüllen)';
-
-  const topTools = `1. ${toolA} – Gesamt-Score: ${totalA}
-2. ${toolB} – Gesamt-Score: ${totalB}`;
-
-  const prompt = JuriService.buildHandoffPrompt(firmenprofil, topTools);
-  document.getElementById('juri-prompt-output').textContent = prompt;
-  document.getElementById('juri').scrollIntoView({ behavior: 'smooth' });
+/* APPLY SCORING */
+function applyScoring(data){
+  sd=data;
+  const container=document.getElementById('sc-cards');
+  container.innerHTML='';
+  data.tools.forEach((tool,idx)=>{
+    const sc=[
+      {l:'🎯 Agiler Mehrwert',v:+tool.agilerMehrwert||0},
+      {l:'🔗 Integrationspotenzial',v:+tool.integration||0},
+      {l:'👥 Einführungsreife',v:+tool.einfuehrung||0},
+      {l:'💶 Wirtschaftlichkeit',v:+tool.wirtschaft||0}
+    ];
+    const tot=sc.reduce((s,x)=>s+x.v,0);
+    const [pc,pl]=tot>=32?['ph','🟢 Hohes Potenzial']:tot>=24?['pm','🟡 Mittleres Potenzial']:tot>=16?['pl','🟠 Eingeschränkt']:['pn','🔴 Geringes Potenzial'];
+    const bc=v=>v>=7?'var(--green)':v>=5?'var(--teal)':v>=3?'var(--orange)':'#e53e3e';
+    container.innerHTML+=`<div class="tsc populated">
+      <div class="tsc-hdr"><span class="tsc-name">${tool.name}</span><div style="text-align:right"><div class="tsc-total">${tot}/40</div><span class="pot-label ${pc}">${pl}</span></div></div>
+      <div class="tsc-bars">${sc.map(x=>`<div class="tsc-bar"><span class="tsc-bl">${x.l}</span><div class="tsc-bt"><div class="tsc-bf" style="width:${x.v*10}%;background:${bc(x.v)}"></div></div><span class="tsc-bv">${x.v}</span></div>`).join('')}</div>
+      ${tool.begruendung?`<div class="tsc-reason">💬 ${tool.begruendung}</div>`:''}
+    </div>`;
+    const p=idx===0?'a':'b';
+    document.getElementById(`tn-${p}`).value=tool.name;
+    document.getElementById(`s-${p}1`).value=tool.agilerMehrwert;
+    document.getElementById(`s-${p}2`).value=tool.integration;
+    document.getElementById(`s-${p}3`).value=tool.einfuehrung;
+    document.getElementById(`s-${p}4`).value=tool.wirtschaft;
+  });
+  calcTotals();
+  const el=document.getElementById('scoring-status');
+  el.className='scoring-status populated';
+  el.innerHTML=`<span class="ss-icon">✅</span><div><div class="ss-h4">✅ Scoring befüllt: ${data.tools.map(t=>t.name).join(' vs ')}</div><div class="ss-p">${data.tools.length} Tools bewertet${data.empfohleneMethode?' · Methode: '+data.empfohleneMethode:''}</div></div><div class="ss-actions"><button class="set-btn" onclick="toggleEdit()">✏️ Anpassen</button></div>`;
 }
 
-function updateTotal() {
-  ['a','b'].forEach(t => {
-    const scores = [1,2,3,4,5].map(i => {
-      const val = parseInt(document.getElementById(`s-${t}${i}`)?.value) || 0;
-      return Math.min(10, Math.max(0, val));
-    });
-    const total = scores.reduce((a,b) => a+b, 0);
-    const max = scores[4] > 0 ? 50 : 40;
-    document.getElementById(`total-${t}`).textContent = `${total}/${max}`;
-
-    const potEl = document.getElementById(`pot-${t}`);
-    if (total === 0) { potEl.innerHTML = ''; return; }
-
-    let cls, label;
-    if (total >= 40)      { cls='pot-high';  label='🟢 Hohes Potenzial'; }
-    else if (total >= 30) { cls='pot-mid';   label='🟡 Mittleres Potenzial'; }
-    else if (total >= 20) { cls='pot-low';   label='🟠 Eingeschränkt'; }
-    else                  { cls='pot-none';  label='🔴 Geringes Potenzial'; }
-
-    potEl.innerHTML = `<span class="potenzial-label ${cls}">${label}</span>`;
+/* TABLE SYNC */
+function calcTotals(){
+  ['a','b'].forEach(t=>{
+    const vals=[1,2,3,4,5].map(i=>Math.min(10,Math.max(0,+document.getElementById(`s-${t}${i}`)?.value||0)));
+    const tot=vals.reduce((a,b)=>a+b,0);
+    const hasJ=vals[4]>0, max=hasJ?50:40;
+    document.getElementById(`tot-${t}`).textContent=`${tot}/${max}`;
+    const pe=document.getElementById(`pot-${t}`);
+    if(!tot){pe.innerHTML='';return;}
+    const thr=hasJ?[40,30,20]:[32,24,16];
+    const [c,l]=tot>=thr[0]?['ph','🟢 Hohes Potenzial']:tot>=thr[1]?['pm','🟡 Mittleres Potenzial']:tot>=thr[2]?['pl','🟠 Eingeschränkt']:['pn','🔴 Geringes Potenzial'];
+    pe.innerHTML=`<span class="pot-label ${c}">${l}</span>`;
   });
 }
-
-function copyPrompt() {
-  const text = document.getElementById('prompt-output').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    btn.textContent = '✅ Kopiert!';
-    setTimeout(() => btn.textContent = '📋 Prompt kopieren', 2000);
+function syncTable(){
+  calcTotals();
+  if(!sd) return;
+  ['a','b'].forEach((t,idx)=>{
+    const card=document.getElementById('sc-cards').children[idx];
+    if(!card||!card.classList.contains('populated')) return;
+    const vals=[1,2,3,4].map(i=>+document.getElementById(`s-${t}${i}`)?.value||0);
+    const tot=vals.reduce((a,b)=>a+b,0);
+    const te=card.querySelector('.tsc-total'); if(te) te.textContent=`${tot}/40`;
+    card.querySelectorAll('.tsc-bf').forEach((b,i)=>{if(i<vals.length) b.style.width=`${vals[i]*10}%`;});
+    card.querySelectorAll('.tsc-bv').forEach((e,i)=>{if(i<vals.length) e.textContent=vals[i];});
   });
 }
+function syncNames(){
+  if(!sd) return;
+  const ns=document.getElementById('sc-cards').querySelectorAll('.tsc-name');
+  ['a','b'].forEach((t,i)=>{const v=document.getElementById(`tn-${t}`).value; if(ns[i]&&v) ns[i].textContent=v;});
+}
+function toggleEdit(){
+  const p=document.getElementById('edit-panel');
+  p.style.display=p.style.display==='none'?'block':'none';
+}
 
-function copyJuriPrompt() {
-  const text = document.getElementById('juri-prompt-output').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    btn.textContent = '✅ Kopiert!';
-    setTimeout(() => btn.textContent = '📋 Kopieren', 2000);
+/* COPY */
+function copyJuri(){
+  navigator.clipboard.writeText(document.getElementById('juri-out').textContent).then(()=>{
+    const b=event.target; b.textContent='✅ Kopiert!';
+    setTimeout(()=>b.textContent='📋 Kopieren',2000);
   });
 }
 </script>
 </body>
 </html>
-```
