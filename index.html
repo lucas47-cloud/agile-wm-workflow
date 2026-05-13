@@ -11,19 +11,16 @@
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6}
 h1,h2,h3{font-family:'Caveat',cursive}
-
 nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.95);backdrop-filter:blur(8px);border-bottom:2px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px}
 .nav-logo{font-family:'Caveat',cursive;font-size:1.4rem;font-weight:700;color:var(--teal)}
 .nav-links{display:flex;gap:.25rem;list-style:none}
 .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.85rem;font-weight:500;padding:.4rem .9rem;border-radius:20px;transition:all .2s}
 .nav-links a:hover{background:var(--teal-light);color:var(--teal)}
-
 .si{max-width:960px;margin:0 auto;padding:4rem 2rem}
 .sl{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.75rem}
 .sl .dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
 .st{font-size:2.6rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
 .ss{color:var(--ink-soft);font-size:1rem;max-width:560px}
-
 #hero{min-height:calc(100vh - 60px);display:flex;align-items:center;background:linear-gradient(135deg,var(--teal-light) 0%,var(--paper) 50%,var(--orange-light) 100%);position:relative;overflow:hidden}
 #hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(42,140,140,.12) 0%,transparent 70%);border-radius:50%}
 #hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(232,131,74,.1) 0%,transparent 70%);border-radius:50%}
@@ -40,22 +37,18 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.95);backdrop-
 .btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
 .hero-tags{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:3rem}
 .tag{display:inline-flex;align-items:center;gap:.4rem;background:white;border:1.5px solid var(--border);border-radius:8px;padding:.35rem .85rem;font-size:.8rem;font-weight:500;color:var(--ink-soft)}
-
 #workflow{background:var(--paper-warm)}
 .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2.5rem}
 .zone-label{grid-column:1/-1;display:flex;align-items:center;gap:.75rem;margin:1rem 0 .25rem}
 .zone-pill{padding:.3rem 1rem;border-radius:20px;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-.zone-teal .zone-pill{background:var(--teal);color:white}
-.zone-orange .zone-pill{background:var(--orange);color:white}
-.zone-purple .zone-pill{background:var(--purple);color:white}
-.zone-auto .zone-pill{background:var(--green);color:white}
+.zone-teal .zone-pill{background:var(--teal);color:white}.zone-orange .zone-pill{background:var(--orange);color:white}.zone-purple .zone-pill{background:var(--purple);color:white}.zone-auto .zone-pill{background:var(--green);color:white}
 .zone-line{flex:1;height:2px;border-top:2px dashed var(--border)}
 .handoff-bar{grid-column:1/-1;color:white;border-radius:10px;padding:.65rem 1.25rem;display:flex;align-items:center;justify-content:center;gap:.75rem;font-size:.82rem;font-weight:600;margin:.5rem 0}
 .handoff-bar.teal{background:var(--teal)}.handoff-bar.orange{background:var(--orange)}.handoff-bar.green{background:var(--green)}
 .step-card{background:white;border-radius:var(--radius);padding:1.25rem;border:2px solid var(--border);position:relative;transition:transform .2s,box-shadow .2s}
 .step-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin-bottom:.75rem;color:white}
-.step-num.t{background:var(--teal)}.step-num.o{background:var(--orange)}.step-num.p{background:var(--purple)}.step-num.g{background:var(--green)}
+.sn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin-bottom:.75rem;color:white}
+.sn.t{background:var(--teal)}.sn.o{background:var(--orange)}.sn.p{background:var(--purple)}.sn.g{background:var(--green)}
 .step-title{font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
 .step-action{font-size:.78rem;color:var(--ink-soft);margin-bottom:.75rem;line-height:1.5}
 .step-meta{display:flex;flex-direction:column;gap:.2rem}
@@ -63,7 +56,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.95);backdrop-
 .step-meta strong{color:var(--ink);font-weight:600}
 .step-badge{position:absolute;top:.75rem;right:.75rem;font-size:.65rem;font-weight:700;padding:.2rem .5rem;border-radius:6px;text-transform:uppercase;letter-spacing:.05em}
 .bki{background:var(--teal-light);color:var(--teal)}.bm{background:var(--orange-light);color:var(--orange)}.ba{background:var(--green-light);color:var(--green)}
-
 #formular{background:white}
 .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:1.5rem}
 .form-card{background:var(--paper-warm);border:2px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;transition:border-color .2s}
@@ -80,41 +72,31 @@ textarea{resize:vertical;min-height:80px}
 .cbi{display:flex;align-items:center;gap:.4rem}
 .cbi input[type=checkbox]{width:auto}
 .cbi label{font-size:.8rem;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink);margin:0;cursor:pointer}
-
 .mode-toggle{display:flex;background:var(--paper-warm);border:2px solid var(--border);border-radius:12px;padding:.35rem;gap:.35rem;width:fit-content;margin-bottom:1.5rem}
 .mode-btn{padding:.5rem 1.25rem;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--ink-soft);background:transparent}
 .mode-btn.active{background:white;color:var(--teal);box-shadow:var(--shadow)}
-
 .demo-banner{background:linear-gradient(135deg,var(--orange-light),var(--yellow-light));border:2px solid var(--orange);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap}
 .db-text h4{font-family:'Caveat',cursive;font-size:1.2rem;font-weight:700;color:var(--ink)}
 .db-text p{font-size:.8rem;color:var(--ink-soft)}
 .btn-demo{background:var(--orange);color:white;border:none;padding:.65rem 1.5rem;border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
 .btn-demo:hover{background:#c96835;transform:translateY(-1px)}
-
 .fsr{grid-column:1/-1;display:flex;justify-content:center;padding-top:1rem}
 .btn-analyze{background:var(--teal);color:white;border:none;padding:1rem 2.5rem;font-size:1rem;font-weight:600;border-radius:12px;cursor:pointer;display:flex;align-items:center;gap:.75rem;transition:all .2s;font-family:'DM Sans',sans-serif}
 .btn-analyze:hover{background:#1f6e6e;transform:translateY(-2px);box-shadow:0 6px 20px rgba(42,140,140,.3)}
-
 #paste-section{display:none;margin-top:1.5rem}
 .paste-box{border:2.5px solid var(--orange);border-radius:var(--radius-lg);overflow:hidden}
-.paste-header{background:var(--orange);color:white;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-.paste-header h3{font-family:'Caveat',cursive;font-size:1.3rem}
+.paste-hdr{background:var(--orange);color:white;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.paste-hdr h3{font-family:'Caveat',cursive;font-size:1.3rem}
 .ph-badge{background:rgba(255,255,255,.2);font-size:.72rem;font-weight:700;padding:.25rem .75rem;border-radius:20px}
 .paste-body{background:white;padding:1.5rem}
 .paste-hint{background:var(--orange-light);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.8rem;color:#7a3a14;margin-bottom:1rem}
 .paste-body textarea{min-height:160px;font-size:.82rem}
 .paste-body textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,131,74,.12)}
-#paste-feedback{margin-top:.75rem;display:none}
-.auto-detect-ok{background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:.85rem 1.25rem;display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--green);font-weight:600;animation:fadeIn .4s ease}
+.auto-ok{background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:.85rem 1.25rem;display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--green);font-weight:600;margin-top:.75rem;animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
-
 #scoring{background:var(--paper-warm)}
-.scoring-status{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border-radius:var(--radius);border:2px solid var(--border);background:white;margin-bottom:1.5rem;transition:all .3s;flex-wrap:wrap}
-.scoring-status.populated{border-color:var(--green);background:var(--green-light)}
-.ss-icon{font-size:1.5rem}
-.ss-h4{font-size:.9rem;font-weight:600;color:var(--ink)}
-.ss-p{font-size:.78rem;color:var(--ink-soft)}
-.ss-actions{margin-left:auto}
+.score-status{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border-radius:var(--radius);border:2px solid var(--border);background:white;margin-bottom:1.5rem;transition:all .3s;flex-wrap:wrap}
+.score-status.ok{border-color:var(--green);background:var(--green-light)}
 .crit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:2rem 0}
 .cc{border-radius:var(--radius);padding:1.25rem;border:2px solid transparent;text-align:center}
 .cc-t{background:var(--teal-light);border-color:var(--teal)}.cc-o{background:var(--orange-light);border-color:var(--orange)}.cc-g{background:var(--green-light);border-color:var(--green)}.cc-y{background:var(--yellow-light);border-color:var(--yellow)}
@@ -126,7 +108,7 @@ textarea{resize:vertical;min-height:80px}
 .juri-band .jbb{margin-left:auto;background:var(--purple);color:white;font-size:.7rem;font-weight:700;padding:.35rem .85rem;border-radius:20px;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
 .sc-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem}
 .tsc{background:white;border:2px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;transition:all .3s}
-.tsc.populated{border-color:var(--teal)}
+.tsc.ok{border-color:var(--teal)}
 .tsc-ph{text-align:center;padding:2.5rem 1rem;color:var(--ink-soft);font-size:.85rem;border:2px dashed var(--border);border-radius:var(--radius-lg);background:var(--paper-warm)}
 .tsc-ph-icon{font-size:2rem;display:block;margin-bottom:.5rem}
 .tsc-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
@@ -135,9 +117,9 @@ textarea{resize:vertical;min-height:80px}
 .tsc-bars{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
 .tsc-bar{display:flex;align-items:center;gap:.75rem}
 .tsc-bl{font-size:.75rem;font-weight:600;color:var(--ink-soft);width:130px;flex-shrink:0}
-.tsc-bt{flex:1;height:8px;background:var(--paper-warm);border-radius:4px;overflow:hidden}
-.tsc-bf{height:100%;border-radius:4px;transition:width .7s ease}
-.tsc-bv{font-size:.78rem;font-weight:700;color:var(--ink);width:20px;text-align:right}
+.tsc-bt{flex:1;height:10px;background:var(--paper-warm);border-radius:5px;overflow:hidden;position:relative}
+.tsc-bf{height:100%;border-radius:5px;transition:width .7s ease;min-width:3px}
+.tsc-bv{font-size:.85rem;font-weight:700;color:var(--ink);width:28px;text-align:right}
 .tsc-reason{font-size:.78rem;color:var(--ink-soft);line-height:1.5;border-top:1.5px solid var(--border);padding-top:.75rem}
 .pot-label{display:inline-block;padding:.25rem .75rem;border-radius:20px;font-size:.72rem;font-weight:700}
 .ph{background:#D1FAE5;color:#065F46}.pm{background:#FEF3C7;color:#92400E}.pl{background:#FFEDD5;color:#9A3412}.pn{background:#FEE2E2;color:#991B1B}
@@ -150,7 +132,7 @@ th{background:var(--ink);color:white;padding:.85rem 1.25rem;text-align:left;font
 td{padding:.85rem 1.25rem;border-bottom:1.5px solid var(--border);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:nth-child(even) td{background:var(--paper-warm)}
-.si-input{width:60px;padding:.4rem .5rem;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-weight:600;font-family:'DM Sans',sans-serif}
+.si-input{width:65px;padding:.4rem .5rem;border:1.5px solid var(--border);border-radius:6px;text-align:center;font-weight:600;font-family:'DM Sans',sans-serif}
 .si-input:focus{border-color:var(--teal);outline:none}
 .juri-row td{background:#EEF2FF !important}
 .total-row td{background:var(--ink) !important;color:white;font-weight:700}
@@ -158,8 +140,16 @@ tr:nth-child(even) td{background:var(--paper-warm)}
 .leg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:1.5rem}
 .leg-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-radius:10px;font-size:.82rem}
 .leg-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
-
 #juri{background:white}
+.juri-url-config{background:var(--paper-warm);border:2px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.juri-url-config label{margin:0;text-transform:none;letter-spacing:0;font-size:.82rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.juri-url-config input{flex:1;min-width:200px;font-family:monospace;font-size:.82rem}
+.juri-url-config input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(123,94,167,.12)}
+.btn-save-url{background:var(--purple);color:white;border:none;padding:.5rem 1rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .2s}
+.btn-save-url:hover{background:#5e4282}
+.url-status{font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:10px}
+.url-status.ok{background:var(--green-light);color:var(--green)}
+.url-status.empty{background:var(--orange-light);color:var(--orange)}
 .jw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:2rem 0}
 .jw-card{background:var(--paper-warm);border:2px solid var(--border);border-radius:var(--radius);padding:1rem;text-align:center;transition:all .2s}
 .jw-card:hover{border-color:var(--purple);transform:translateY(-2px)}
@@ -168,13 +158,55 @@ tr:nth-child(even) td{background:var(--paper-warm)}
 .jp-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.75rem}
 .jp-hdr h3{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--purple)}
 .jp-box{background:white;border:1.5px solid var(--border);border-radius:10px;padding:1.25rem;font-size:.82rem;line-height:1.7;white-space:pre-wrap;font-family:'DM Sans',sans-serif;color:var(--ink);max-height:320px;overflow-y:auto;margin-bottom:1rem}
-.jp-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.juri-instruction{background:white;border:2px solid var(--purple);border-radius:var(--radius);padding:1rem 1.25rem;margin-top:1rem;display:flex;align-items:flex-start;gap:1rem}
+.ji-step{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--ink);padding:.3rem 0}
+.ji-num{width:22px;height:22px;border-radius:50%;background:var(--purple);color:white;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ji-code{background:#EEF2FF;border:1px solid var(--purple);border-radius:4px;padding:.15rem .4rem;font-family:monospace;font-size:.85rem;color:var(--purple);font-weight:700}
+.jp-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem}
 .btn-juri{background:var(--purple);color:white;border:none;padding:.65rem 1.5rem;border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
 .btn-juri:hover{background:#5e4282}
 .btn-copy{background:var(--teal-light);color:var(--teal);border:2px solid var(--teal);padding:.6rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
 .btn-copy:hover{background:var(--teal);color:white}
+.juri-paste-section{margin-top:1.5rem;border:2px solid var(--purple);border-radius:var(--radius-lg);overflow:hidden}
+.juri-paste-hdr{background:var(--purple);color:white;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.juri-paste-hdr h3{font-family:'Caveat',cursive;font-size:1.2rem}
+.juri-paste-body{background:white;padding:1.5rem}
+.juri-paste-body textarea{min-height:140px;font-size:.82rem}
+.juri-paste-body textarea:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(123,94,167,.12)}
 .disclaimer{background:var(--red-light);border-left:4px solid #E53E3E;border-radius:0 8px 8px 0;padding:.75rem 1rem;font-size:.78rem;color:#742A2A;margin-top:1rem}
 
+/* POTENZIAL OVERVIEW */
+#bericht{background:var(--paper-warm);display:none}
+.bericht-header{background:var(--ink);color:white;border-radius:var(--radius-lg);padding:1.5rem 2rem;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.bericht-header h3{font-family:'Caveat',cursive;font-size:1.8rem}
+.bericht-header .bh-meta{font-size:.8rem;color:rgba(255,255,255,.6)}
+.bericht-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.bericht-card{background:white;border-radius:var(--radius-lg);overflow:hidden;border:2px solid var(--border)}
+.bc-head{padding:1.25rem 1.5rem;border-bottom:2px solid var(--border)}
+.bc-name{font-family:'Caveat',cursive;font-size:1.6rem;font-weight:700}
+.bc-total{display:flex;align-items:baseline;gap:.4rem;margin-top:.25rem}
+.bc-pts{font-family:'Caveat',cursive;font-size:2.2rem;font-weight:700}
+.bc-max{font-size:.85rem;color:var(--ink-soft)}
+.bc-body{padding:1.25rem 1.5rem}
+.bc-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.bc-label{font-size:.78rem;font-weight:600;color:var(--ink-soft);width:145px;flex-shrink:0}
+.bc-track{flex:1;height:10px;background:var(--paper-warm);border-radius:5px;overflow:hidden}
+.bc-fill{height:100%;border-radius:5px;transition:width .8s ease}
+.bc-val{font-size:.85rem;font-weight:700;width:24px;text-align:right}
+.bc-compliance{margin-top:1rem;padding-top:1rem;border-top:1.5px solid var(--border)}
+.bc-compliance-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--purple);margin-bottom:.4rem}
+.bc-compliance-score{font-family:'Caveat',cursive;font-size:1.8rem;font-weight:700;color:var(--purple)}
+.bc-tos-points{margin-top:1rem}
+.bc-tos-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:.5rem}
+.bc-tos-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.bc-tos-list li{display:flex;align-items:flex-start;gap:.5rem;font-size:.78rem;color:var(--ink);line-height:1.4}
+.bc-tos-list li::before{content:'•';color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px}
+.bericht-footer{margin-top:1.5rem;background:white;border:2px solid var(--border);border-radius:var(--radius);padding:1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.bf-note{font-size:.82rem;color:var(--ink-soft);flex:1}
+.btn-print{background:var(--ink);color:white;border:none;padding:.65rem 1.5rem;border-radius:10px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;gap:.5rem}
+.btn-print:hover{background:#2e3d4f}
+
+/* VISION */
 #vision{background:var(--ink)}
 #vision .sl{color:rgba(255,255,255,.5)}
 #vision .sl .dot{background:var(--teal-mid)}
@@ -182,9 +214,7 @@ tr:nth-child(even) td{background:var(--paper-warm)}
 #vision .ss{color:rgba(255,255,255,.6)}
 .v-stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2.5rem}
 .vc{border-radius:var(--radius-lg);padding:1.75rem;border:2px solid rgba(255,255,255,.1)}
-.vc.now{background:rgba(42,140,140,.15);border-color:var(--teal-mid)}
-.vc.next{background:rgba(232,131,74,.12);border-color:rgba(232,131,74,.4)}
-.vc.future{background:rgba(123,94,167,.15);border-color:rgba(123,94,167,.4)}
+.vc.now{background:rgba(42,140,140,.15);border-color:var(--teal-mid)}.vc.next{background:rgba(232,131,74,.12);border-color:rgba(232,131,74,.4)}.vc.future{background:rgba(123,94,167,.15);border-color:rgba(123,94,167,.4)}
 .vc-stage{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
 .vc.now .vc-stage{color:var(--teal-mid)}.vc.next .vc-stage{color:var(--orange)}.vc.future .vc-stage{color:#a78bde}
 .vc-dot{width:8px;height:8px;border-radius:50%;background:currentColor}
@@ -207,7 +237,7 @@ tr:nth-child(even) td{background:var(--paper-warm)}
 footer{background:#111820;color:rgba(255,255,255,.5);text-align:center;padding:2rem;font-size:.8rem}
 footer strong{color:white}
 .mt2{margin-top:1rem}.mt3{margin-top:1.5rem}.mt4{margin-top:2rem}
-
+@media print{nav,#workflow,#formular,#paste-section,#scoring,#juri,#vision,footer{display:none!important}#bericht{display:block!important;background:white}body{background:white}}
 @media(max-width:640px){.nav-links{display:none}.hero-title{font-size:2.4rem}.juri-band,.demo-banner{flex-direction:column}.juri-band .jbb{margin-left:0}.mode-toggle{width:100%}}
 </style>
 </head>
@@ -221,6 +251,7 @@ footer strong{color:white}
     <li><a href="#formular">Analyse</a></li>
     <li><a href="#scoring">Scoring</a></li>
     <li><a href="#juri">Juri</a></li>
+    <li><a href="#bericht">Bericht</a></li>
     <li><a href="#vision">Vision</a></li>
   </ul>
 </nav>
@@ -239,7 +270,7 @@ footer strong{color:white}
       <span class="tag">🤖 WM · Claude Project</span>
       <span class="tag">⚖️ Juri · Custom GPT</span>
       <span class="tag">📊 Auto-Scoring</span>
-      <span class="tag">🏗️ Buildwise GmbH · Demo</span>
+      <span class="tag">🏗️ Demo: Buildwise GmbH</span>
       <span class="tag">🔒 DSGVO-relevant</span>
     </div>
   </div>
@@ -250,55 +281,20 @@ footer strong{color:white}
   <div class="si">
     <div class="sl"><span class="dot"></span> Prozessübersicht</div>
     <h2 class="st">Der Workflow</h2>
-    <p class="ss">3 Zonen – von der Dateneingabe bis zum Entscheidungsreport.</p>
+    <p class="ss">3 Zonen – von der Dateneingabe bis zur Potenzial-Übersicht.</p>
     <div class="steps-grid">
       <div class="zone-label zone-orange"><span class="zone-pill">🖐 Manueller Input</span><span class="zone-line"></span></div>
-      <div class="step-card">
-        <div class="step-num o">1</div><span class="step-badge bm">Manuell</span>
-        <div class="step-title">Firmendaten eingeben</div>
-        <div class="step-action">Vollanalyse oder Berater-Schnellmodus – Formular ausfüllen</div>
-        <div class="step-meta"><span><strong>IN:</strong> Leeres Formular</span><span><strong>OUT:</strong> Firmenprofil</span><span><strong>WER:</strong> Nutzer/Berater</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num o">2</div><span class="step-badge bm">1 Klick</span>
-        <div class="step-title">Prompt → Claude öffnen</div>
-        <div class="step-action">Prompt wird generiert + in Zwischenablage kopiert. Claude Project öffnet sich automatisch.</div>
-        <div class="step-meta"><span><strong>IN:</strong> Firmenprofil</span><span><strong>OUT:</strong> WM-Analyse + JSON</span><span><strong>WER:</strong> Nutzer + WM</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num o">3</div><span class="step-badge bm">Paste</span>
-        <div class="step-title">Antwort einfügen</div>
-        <div class="step-action">Vollständige Claude-Antwort einfügen – JSON wird automatisch erkannt, kein weiterer Klick.</div>
-        <div class="step-meta"><span><strong>IN:</strong> WM-Antwort</span><span><strong>OUT:</strong> Scoring befüllt</span><span><strong>WER:</strong> Nutzer</span></div>
-      </div>
-      <div class="handoff-bar green">⚡ Automatisch: JSON erkannt → Scoring + Juri-Prompt generiert</div>
+      <div class="step-card"><div class="sn o">1</div><span class="step-badge bm">Manuell</span><div class="step-title">Firmendaten eingeben</div><div class="step-action">Vollanalyse oder Berater-Schnellmodus</div><div class="step-meta"><span><strong>IN:</strong> Leeres Formular</span><span><strong>OUT:</strong> Firmenprofil</span><span><strong>WER:</strong> Nutzer/Berater</span></div></div>
+      <div class="step-card"><div class="sn o">2</div><span class="step-badge bm">1 Klick</span><div class="step-title">Prompt → Claude öffnen</div><div class="step-action">Prompt generiert + Zwischenablage. Claude Project öffnet sich automatisch.</div><div class="step-meta"><span><strong>IN:</strong> Firmenprofil</span><span><strong>OUT:</strong> WM-Analyse + Scoring</span><span><strong>WER:</strong> Nutzer + WM</span></div></div>
+      <div class="step-card"><div class="sn o">3</div><span class="step-badge bm">Paste</span><div class="step-title">Antwort einfügen</div><div class="step-action">Claude-Antwort einfügen → JSON auto-erkannt → Scoring befüllt</div><div class="step-meta"><span><strong>IN:</strong> WM-Antwort</span><span><strong>OUT:</strong> Scoring befüllt</span><span><strong>WER:</strong> Nutzer</span></div></div>
+      <div class="handoff-bar green">⚡ Automatisch: Scoring + Juri-Prompt generiert</div>
       <div class="zone-label zone-auto"><span class="zone-pill">⚡ Automatisch</span><span class="zone-line"></span></div>
-      <div class="step-card">
-        <div class="step-num g">4</div><span class="step-badge ba">Auto</span>
-        <div class="step-title">Scoring Matrix</div>
-        <div class="step-action">Tool-Scores, Balkengrafiken, Potenzial-Labels erscheinen automatisch aus WM-Ausgabe</div>
-        <div class="step-meta"><span><strong>IN:</strong> WM JSON-Block</span><span><strong>OUT:</strong> Scoring Matrix</span><span><strong>WER:</strong> App</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num g">5</div><span class="step-badge ba">Auto</span>
-        <div class="step-title">Juri Modus-C-Prompt</div>
-        <div class="step-action">Übergabe-Prompt für Juri wird automatisch aus Scoring und Firmenprofil generiert</div>
-        <div class="step-meta"><span><strong>IN:</strong> Scoring + Profil</span><span><strong>OUT:</strong> Modus-C-Prompt</span><span><strong>WER:</strong> App</span></div>
-      </div>
+      <div class="step-card"><div class="sn g">4</div><span class="step-badge ba">Auto</span><div class="step-title">Scoring Matrix</div><div class="step-action">Tool-Scores mit Balken und Potenzial-Labels erscheinen automatisch</div><div class="step-meta"><span><strong>IN:</strong> WM JSON-Block</span><span><strong>OUT:</strong> Scoring Matrix</span><span><strong>WER:</strong> App</span></div></div>
+      <div class="step-card"><div class="sn g">5</div><span class="step-badge ba">Auto</span><div class="step-title">Juri Modus-C-Prompt</div><div class="step-action">Übergabe-Prompt für Juri aus Scoring + Profil generiert</div><div class="step-meta"><span><strong>IN:</strong> Scoring + Profil</span><span><strong>OUT:</strong> Modus-C-Prompt</span><span><strong>WER:</strong> App</span></div></div>
       <div class="handoff-bar orange">▸ Übergabe: App → Juri (Custom GPT)</div>
       <div class="zone-label zone-purple"><span class="zone-pill">⚖️ Juri · Custom GPT</span><span class="zone-line"></span></div>
-      <div class="step-card">
-        <div class="step-num p">6</div><span class="step-badge bki">KI</span>
-        <div class="step-title">ToS-Analyse Modus C</div>
-        <div class="step-action">Juri analysiert Nutzungsbedingungen der Top-Tools kontextualisiert für dieses Unternehmen + Compliance-Score</div>
-        <div class="step-meta"><span><strong>IN:</strong> Tools + Firmenprofil</span><span><strong>OUT:</strong> ToS + Score X/10</span><span><strong>WER:</strong> Juri</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num o">7</div><span class="step-badge bm">Manuell</span>
-        <div class="step-title">Report zusammenführen</div>
-        <div class="step-action">WM-Analyse, Scoring und Juris Compliance-Score zu einem Entscheidungsdokument bündeln</div>
-        <div class="step-meta"><span><strong>IN:</strong> WM + Scoring + Juri</span><span><strong>OUT:</strong> Entscheidungsreport</span><span><strong>WER:</strong> Berater</span></div>
-      </div>
+      <div class="step-card"><div class="sn p">6</div><span class="step-badge bki">KI</span><div class="step-title">ToS-Analyse Modus C</div><div class="step-action">Juri analysiert Nutzungsbedingungen kontextualisiert + Compliance-Potenzial X/10</div><div class="step-meta"><span><strong>IN:</strong> Tools + Firmenprofil</span><span><strong>OUT:</strong> ToS + Potenzial X/10</span><span><strong>WER:</strong> Juri</span></div></div>
+      <div class="step-card"><div class="sn g">7</div><span class="step-badge ba">Auto</span><div class="step-title">Potenzial-Übersicht</div><div class="step-action">Juri-Antwort einfügen → Compliance-Potenzial wird erkannt → vollständiger Bericht generiert</div><div class="step-meta"><span><strong>IN:</strong> Juri-Antwort</span><span><strong>OUT:</strong> Potenzial-Übersicht</span><span><strong>WER:</strong> App</span></div></div>
     </div>
   </div>
 </div>
@@ -314,56 +310,46 @@ footer strong{color:white}
       <button class="mode-btn active" id="mode-voll" onclick="setMode('voll')">📋 Vollanalyse</button>
       <button class="mode-btn" id="mode-berater" onclick="setMode('berater')">⚡ Berater-Schnellmodus</button>
     </div>
-    <div id="berater-hint" class="info-note" style="display:none">⚡ <strong>Berater-Schnellmodus:</strong> 5 Kernfelder für eine fundierte Ersteinschätzung. WM leitet fehlende Infos aus dem Kontext ab – ideal fürs Erstgespräch.</div>
+    <div id="berater-hint" class="info-note" style="display:none">⚡ <strong>Berater-Schnellmodus:</strong> 5 Kernfelder für eine fundierte Ersteinschätzung. WM leitet fehlende Infos aus dem Kontext ab.</div>
 
     <div class="demo-banner">
       <div class="db-text">
         <h4>🏗️ Demo: Buildwise GmbH laden</h4>
-        <p>Für Präsentationen – Formular wird mit Beispieldaten befüllt und Scoring sofort angezeigt. Kein Claude Project nötig.</p>
+        <p>Für Präsentationen – Formular + Scoring + Juri-Bericht werden sofort mit realistischen Beispieldaten befüllt.</p>
       </div>
       <button class="btn-demo" onclick="loadDemo()">Demo starten →</button>
     </div>
 
     <form id="wm-form">
       <div class="form-grid">
-
         <div class="form-card">
           <div class="fch"><div class="fci" style="background:var(--teal-light)">🏢</div><div class="fct">1 · Unternehmensprofil</div></div>
-          <div class="ff"><label>Unternehmensname <span style="color:var(--teal)">✱</span></label><input type="text" id="f-name" placeholder="z.B. Buildwise GmbH"></div>
-          <div class="ff"><label>Branche <span style="color:var(--teal)">✱</span></label><input type="text" id="f-branche" placeholder="z.B. Bauplanung, IT, Handel"></div>
+          <div class="ff"><label>Unternehmensname ✱</label><input type="text" id="f-name" placeholder="z.B. Buildwise GmbH"></div>
+          <div class="ff"><label>Branche ✱</label><input type="text" id="f-branche" placeholder="z.B. Bauplanung, IT, Handel"></div>
           <div class="ff ext"><label>Mitarbeitende</label><input type="number" id="f-ma" placeholder="z.B. 28" min="1"></div>
           <div class="ff ext"><label>Standort</label><input type="text" id="f-standort" placeholder="z.B. München"></div>
         </div>
-
         <div class="form-card">
           <div class="fch"><div class="fci" style="background:var(--orange-light)">👥</div><div class="fct">2 · Teamstruktur</div></div>
-          <div class="ff"><label>Teamgröße <span style="color:var(--teal)">✱</span></label>
-            <select id="f-teamgroesse"><option value="">– Wählen –</option><option>1–5 Personen</option><option>6–10 Personen</option><option>11–20 Personen</option><option>20+ Personen</option></select></div>
-          <div class="ff"><label>Arbeitsmodell <span style="color:var(--teal)">✱</span></label>
-            <select id="f-modell"><option value="">– Wählen –</option><option>Vor Ort</option><option>Hybrid</option><option>Remote</option></select></div>
-          <div class="ff ext"><label>Hierarchie</label>
-            <select id="f-hierarchie"><option value="">– Wählen –</option><option>Flach</option><option>Mittlere Hierarchie</option><option>Stark hierarchisch</option></select></div>
+          <div class="ff"><label>Teamgröße ✱</label><select id="f-teamgroesse"><option value="">– Wählen –</option><option>1–5 Personen</option><option>6–10 Personen</option><option>11–20 Personen</option><option>20+ Personen</option></select></div>
+          <div class="ff"><label>Arbeitsmodell ✱</label><select id="f-modell"><option value="">– Wählen –</option><option>Vor Ort</option><option>Hybrid</option><option>Remote</option></select></div>
+          <div class="ff ext"><label>Hierarchie</label><select id="f-hierarchie"><option value="">– Wählen –</option><option>Flach</option><option>Mittlere Hierarchie</option><option>Stark hierarchisch</option></select></div>
         </div>
-
         <div class="form-card ext">
           <div class="fch"><div class="fci" style="background:var(--green-light)">⚙️</div><div class="fct">3 · Arbeitsweise</div></div>
           <div class="ff"><label>Aktuelle PM-Methode</label><input type="text" id="f-methode" placeholder="z.B. klassisch, Excel, E-Mail"></div>
-          <div class="ff"><label>Agile Erfahrung</label>
-            <select id="f-agile"><option value="">– Wählen –</option><option>Keine</option><option>Grundkenntnisse</option><option>Erste Erfahrungen</option><option>Fortgeschritten</option></select></div>
+          <div class="ff"><label>Agile Erfahrung</label><select id="f-agile"><option value="">– Wählen –</option><option>Keine</option><option>Grundkenntnisse</option><option>Erste Erfahrungen</option><option>Fortgeschritten</option></select></div>
           <div class="ff"><label>Bestehende Tools</label><input type="text" id="f-tools" placeholder="z.B. Excel, Outlook, Teams"></div>
         </div>
-
         <div class="form-card ext">
           <div class="fch"><div class="fci" style="background:var(--yellow-light)">📋</div><div class="fct">4 · Projektkontext</div></div>
           <div class="ff"><label>Projektart</label><input type="text" id="f-projektart" placeholder="z.B. Hochbau, Software, Marketing"></div>
-          <div class="ff"><label>Typische Laufzeit</label>
-            <select id="f-laufzeit"><option value="">– Wählen –</option><option>unter 3 Monate</option><option>3–6 Monate</option><option>6–18 Monate</option><option>über 18 Monate</option></select></div>
+          <div class="ff"><label>Typische Laufzeit</label><select id="f-laufzeit"><option value="">– Wählen –</option><option>unter 3 Monate</option><option>3–6 Monate</option><option>6–18 Monate</option><option>über 18 Monate</option></select></div>
           <div class="ff"><label>Parallele Projekte</label><input type="number" id="f-parallel" placeholder="z.B. 8" min="0"></div>
           <div class="ff"><label>Regulatorik</label><input type="text" id="f-regulatorik" placeholder="z.B. VOB, HOAI, ISO, keine"></div>
         </div>
-
         <div class="form-card">
-          <div class="fch"><div class="fci" style="background:var(--teal-light)">🎯</div><div class="fct">5 · Ziele <span style="color:var(--teal)">✱</span></div></div>
+          <div class="fch"><div class="fci" style="background:var(--teal-light)">🎯</div><div class="fct">5 · Ziele ✱</div></div>
           <div class="ff"><label>Was wollt ihr erreichen?</label>
             <div class="cbg">
               <div class="cbi"><input type="checkbox" id="z1"><label for="z1">Bessere Zusammenarbeit</label></div>
@@ -376,9 +362,8 @@ footer strong{color:white}
           </div>
           <div class="ff"><label>Ergänzung</label><textarea id="f-ziele" placeholder="Weitere Ziele..."></textarea></div>
         </div>
-
         <div class="form-card">
-          <div class="fch"><div class="fci" style="background:var(--red-light)">⚠️</div><div class="fct">6 · Herausforderungen <span style="color:var(--teal)">✱</span></div></div>
+          <div class="fch"><div class="fci" style="background:var(--red-light)">⚠️</div><div class="fct">6 · Herausforderungen ✱</div></div>
           <div class="ff"><label>Aktuelle Pain Points</label>
             <div class="cbg">
               <div class="cbi"><input type="checkbox" id="h1"><label for="h1">Silo-Denken</label></div>
@@ -391,54 +376,44 @@ footer strong{color:white}
           </div>
           <div class="ff"><label>Größte Herausforderung</label><textarea id="f-heraus" placeholder="Beschreibe die drängendste Herausforderung..."></textarea></div>
         </div>
-
         <div class="form-card ext">
           <div class="fch"><div class="fci" style="background:var(--purple-light)">⚖️</div><div class="fct">7 · Rahmenbedingungen</div></div>
-          <div class="ff"><label>Zeitrahmen Einführung</label>
-            <select id="f-zeitrahmen"><option value="">– Wählen –</option><option>1 Monat</option><option>2–3 Monate</option><option>3–6 Monate</option><option>Offen</option></select></div>
-          <div class="ff"><label>Budget</label>
-            <select id="f-budget"><option value="">– Wählen –</option><option>Sehr begrenzt</option><option>Begrenzt</option><option>Moderat</option><option>Ausreichend</option></select></div>
-          <div class="ff"><label>Führungsunterstützung</label>
-            <select id="f-fuehrung"><option value="">– Wählen –</option><option>Nicht vorhanden</option><option>Teilweise</option><option>Vorhanden</option><option>Stark</option></select></div>
-          <div class="ff"><label>DSGVO-Relevanz</label>
-            <select id="f-dsgvo"><option value="">– Wählen –</option><option>Nicht relevant</option><option>Relevant</option><option>Kritisch</option></select></div>
+          <div class="ff"><label>Zeitrahmen</label><select id="f-zeitrahmen"><option value="">– Wählen –</option><option>1 Monat</option><option>2–3 Monate</option><option>3–6 Monate</option><option>Offen</option></select></div>
+          <div class="ff"><label>Budget</label><select id="f-budget"><option value="">– Wählen –</option><option>Sehr begrenzt</option><option>Begrenzt</option><option>Moderat</option><option>Ausreichend</option></select></div>
+          <div class="ff"><label>Führungsunterstützung</label><select id="f-fuehrung"><option value="">– Wählen –</option><option>Nicht vorhanden</option><option>Teilweise</option><option>Vorhanden</option><option>Stark</option></select></div>
+          <div class="ff"><label>DSGVO-Relevanz</label><select id="f-dsgvo"><option value="">– Wählen –</option><option>Nicht relevant</option><option>Relevant</option><option>Kritisch</option></select></div>
         </div>
-
         <div class="form-card ext">
           <div class="fch"><div class="fci" style="background:var(--paper-warm)">💬</div><div class="fct">8 · Sonstiges</div></div>
-          <div class="ff"><label>Weitere Informationen</label>
-            <textarea id="f-sonstiges" style="min-height:180px" placeholder="Bewährte Abläufe die bleiben sollen, besondere Anforderungen, Vorgeschichte..."></textarea></div>
+          <div class="ff"><label>Weitere Informationen</label><textarea id="f-sonstiges" style="min-height:180px" placeholder="Bewährte Abläufe die bleiben sollen, besondere Anforderungen, Vorgeschichte..."></textarea></div>
         </div>
-
         <div class="fsr">
           <button type="button" class="btn-analyze" id="analyze-btn" onclick="generateAndOpen()">
             🚀 Prompt generieren → Claude Project öffnen
           </button>
         </div>
-
       </div>
     </form>
 
-    <!-- Paste-Back -->
+    <!-- Paste-Back WM -->
     <div id="paste-section">
       <div class="paste-box">
-        <div class="paste-header">
+        <div class="paste-hdr">
           <h3>📥 Schritt 2: Claude-Antwort einfügen</h3>
-          <span class="ph-badge">⚡ JSON wird automatisch erkannt – kein Klick nötig</span>
+          <span class="ph-badge">⚡ JSON wird automatisch erkannt</span>
         </div>
         <div class="paste-body">
           <div class="paste-hint">
-            <strong>Wichtig:</strong> Kopiere die <strong>vollständige Antwort</strong> aus dem Claude Project (WM) inkl. dem JSON-Block am Ende. Füge <strong>nichts davor</strong> ein – sonst erscheint das WM-Eingabe-Widget statt der Analyse.
+            <strong>Wichtig:</strong> Kopiere die <strong>vollständige Antwort</strong> aus dem Claude Project (WM) inkl. JSON-Block am Ende. <strong>Nichts davor eingeben</strong> – sonst erscheint das WM-Eingabe-Widget statt der Analyse.
           </div>
           <label>Vollständige WM-Antwort hier einfügen:</label>
           <textarea id="wm-paste"
-            placeholder="Füge hier Claudes vollständige Antwort ein.&#10;&#10;Das Scoring wird automatisch erkannt sobald der JSON-Block vorhanden ist.&#10;&#10;Die Antwort endet mit:&#10;===SCORING_START===&#10;{ &quot;tools&quot;: [...] }&#10;===SCORING_END==="
-            oninput="autoDetect(this)"></textarea>
-          <div id="paste-feedback"></div>
+            placeholder="Füge hier Claudes vollständige Antwort ein.&#10;&#10;Das Scoring wird automatisch erkannt sobald der JSON-Block vorhanden ist.&#10;&#10;Beispiel-Ende der Antwort:&#10;===SCORING_START===&#10;{ &quot;tools&quot;: [{ &quot;name&quot;: &quot;Trello&quot;, &quot;agilerMehrwert&quot;: 7, ... }] }&#10;===SCORING_END==="
+            oninput="autoDetectWM(this)"></textarea>
+          <div id="wm-feedback"></div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -447,69 +422,59 @@ footer strong{color:white}
   <div class="si">
     <div class="sl"><span class="dot"></span> Schritt 2 – Automatisches Scoring</div>
     <h2 class="st">Tool-Scoring Matrix</h2>
-    <p class="ss">Wird automatisch aus der WM-Antwort befüllt. Compliance-Score folgt durch Juri (Modus C).</p>
-
-    <div class="scoring-status" id="scoring-status">
-      <span class="ss-icon">⏳</span>
-      <div><div class="ss-h4">Warte auf WM-Analyse</div><div class="ss-p">Formular ausfüllen → Prompt kopieren → Antwort einfügen</div></div>
+    <p class="ss">Wird automatisch aus der WM-Antwort befüllt. Compliance-Potenzial folgt durch Juri (Modus C).</p>
+    <div class="score-status" id="score-status">
+      <span style="font-size:1.5rem">⏳</span>
+      <div><div style="font-size:.9rem;font-weight:600;color:var(--ink)">Warte auf WM-Analyse</div><div style="font-size:.78rem;color:var(--ink-soft)">Formular ausfüllen → Prompt kopieren → Antwort einfügen</div></div>
     </div>
-
     <div class="crit-grid">
       <div class="cc cc-t"><div class="ci">🎯</div><div class="cn">Agiler Mehrwert</div><div class="csc">0–10 Punkte</div><div class="cq">Unterstützt das Tool unsere agile Arbeitsweise?</div></div>
       <div class="cc cc-o"><div class="ci">🔗</div><div class="cn">Integrationspotenzial</div><div class="csc">0–10 Punkte</div><div class="cq">Passt es zu unseren bestehenden Tools?</div></div>
       <div class="cc cc-g"><div class="ci">👥</div><div class="cn">Einführungsreife</div><div class="csc">0–10 Punkte</div><div class="cq">Kann unser Team damit sofort arbeiten?</div></div>
       <div class="cc cc-y"><div class="ci">💶</div><div class="cn">Wirtschaftlichkeit</div><div class="csc">0–10 Punkte</div><div class="cq">Steht Nutzen im Verhältnis zum Aufwand?</div></div>
     </div>
-
     <div class="juri-band">
       <div class="jbi">⚖️</div>
-      <div><h4>+ Compliance-Score (Juri · Modus C)</h4><p>Faktenbasiert aus den offiziellen ToS – nicht subjektiv. Format: 🔢 Compliance-Score für [Unternehmen]: X/10</p></div>
+      <div><h4>+ Compliance-Potenzial (Juri · Modus C)</h4><p>Faktenbasiert aus offiziellen ToS – zeigt was bei der Tool-Einführung zu beachten ist. Format: 🔢 Compliance-Potenzial für [Unternehmen]: X/10</p></div>
       <span class="jbb">Folgt in Schritt 3</span>
     </div>
-
     <div class="sc-cards" id="sc-cards">
       <div class="tsc-ph"><span class="tsc-ph-icon">🤖</span><strong>Tool A</strong><br>Wird nach WM-Analyse automatisch befüllt</div>
       <div class="tsc-ph"><span class="tsc-ph-icon">🤖</span><strong>Tool B</strong><br>Wird nach WM-Analyse automatisch befüllt</div>
     </div>
-
     <div class="mt3" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
       <button class="set-btn" onclick="toggleEdit()">✏️ Scores manuell anpassen</button>
       <span style="font-size:.78rem;color:var(--ink-soft)">WM-Scores können bei Bedarf überschrieben werden</span>
     </div>
     <div id="edit-panel">
-      <div class="info-note mt2">✏️ Änderungen aktualisieren die Balken oben automatisch.</div>
+      <div class="info-note mt2">✏️ Änderungen aktualisieren die Balken automatisch.</div>
       <div class="stw mt2">
         <table>
-          <thead>
-            <tr>
-              <th style="width:220px">Kriterium</th>
-              <th><input type="text" id="tn-a" placeholder="Tool A" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:white;width:120px;padding:.3rem .5rem;border-radius:6px;font-size:.82rem" oninput="syncNames()"></th>
-              <th><input type="text" id="tn-b" placeholder="Tool B" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:white;width:120px;padding:.3rem .5rem;border-radius:6px;font-size:.82rem" oninput="syncNames()"></th>
-            </tr>
-          </thead>
+          <thead><tr><th style="width:220px">Kriterium</th>
+            <th><input type="text" id="tn-a" placeholder="Tool A" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:white;width:120px;padding:.3rem .5rem;border-radius:6px;font-size:.82rem" oninput="syncNames()"></th>
+            <th><input type="text" id="tn-b" placeholder="Tool B" style="background:transparent;border:1px solid rgba(255,255,255,.3);color:white;width:120px;padding:.3rem .5rem;border-radius:6px;font-size:.82rem" oninput="syncNames()"></th>
+          </tr></thead>
           <tbody>
             <tr><td>🎯 Agiler Mehrwert</td><td><input type="number" class="si-input" id="s-a1" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b1" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
             <tr><td>🔗 Integrationspotenzial</td><td><input type="number" class="si-input" id="s-a2" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b2" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
             <tr><td>👥 Einführungsreife</td><td><input type="number" class="si-input" id="s-a3" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b3" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
             <tr><td>💶 Wirtschaftlichkeit</td><td><input type="number" class="si-input" id="s-a4" min="0" max="10" placeholder="–" oninput="syncTable()"></td><td><input type="number" class="si-input" id="s-b4" min="0" max="10" placeholder="–" oninput="syncTable()"></td></tr>
-            <tr class="juri-row"><td>⚖️ Compliance (Juri) <span style="font-size:.7rem;color:var(--purple);font-weight:600">Modus C</span></td><td><input type="number" class="si-input" id="s-a5" min="0" max="10" placeholder="–" oninput="syncTable()" style="border-color:var(--purple)"></td><td><input type="number" class="si-input" id="s-b5" min="0" max="10" placeholder="–" oninput="syncTable()" style="border-color:var(--purple)"></td></tr>
+            <tr class="juri-row"><td>⚖️ Compliance-Potenzial (Juri) <span style="font-size:.7rem;color:var(--purple);font-weight:600">Modus C</span></td>
+              <td><input type="number" class="si-input" id="s-a5" min="0" max="10" placeholder="–" oninput="syncTable()" style="border-color:var(--purple)"></td>
+              <td><input type="number" class="si-input" id="s-b5" min="0" max="10" placeholder="–" oninput="syncTable()" style="border-color:var(--purple)"></td></tr>
             <tr class="total-row"><td>GESAMT</td><td><span class="total-score" id="tot-a">–</span> <span id="pot-a"></span></td><td><span class="total-score" id="tot-b">–</span> <span id="pot-b"></span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
     <div class="leg-grid mt3">
-      <div class="leg-item" style="background:var(--green-light)"><div class="leg-dot" style="background:#065F46"></div><div><strong>40–50 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Hohes Potenzial · Direkt vertiefen</span></div></div>
-      <div class="leg-item" style="background:var(--yellow-light)"><div class="leg-dot" style="background:#92400E"></div><div><strong>30–39 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Mittleres Potenzial · Voraussetzungen klären</span></div></div>
-      <div class="leg-item" style="background:var(--orange-light)"><div class="leg-dot" style="background:#9A3412"></div><div><strong>20–29 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Eingeschränkt · Kontext entscheidend</span></div></div>
-      <div class="leg-item" style="background:var(--red-light)"><div class="leg-dot" style="background:#991B1B"></div><div><strong>unter 20 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Geringes Potenzial · Wesentliche Lücken</span></div></div>
+      <div class="leg-item" style="background:var(--green-light)"><div class="leg-dot" style="background:#065F46"></div><div><strong>40–50 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Hohes Potenzial</span></div></div>
+      <div class="leg-item" style="background:var(--yellow-light)"><div class="leg-dot" style="background:#92400E"></div><div><strong>30–39 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Mittleres Potenzial</span></div></div>
+      <div class="leg-item" style="background:var(--orange-light)"><div class="leg-dot" style="background:#9A3412"></div><div><strong>20–29 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Eingeschränktes Potenzial</span></div></div>
+      <div class="leg-item" style="background:var(--red-light)"><div class="leg-dot" style="background:#991B1B"></div><div><strong>unter 20 Punkte</strong><br><span style="font-size:.75rem;color:var(--ink-soft)">Geringes Potenzial</span></div></div>
     </div>
-
     <div style="text-align:center;margin-top:2rem">
-      <button class="btn-analyze" onclick="buildJuriPrompt()" style="background:var(--purple)">
-        ⚖️ Weiter zu Juri – Modus-C-Prompt generieren
-      </button>
+      <button class="btn-analyze" onclick="buildJuriPrompt()" style="background:var(--purple)">⚖️ Weiter zu Juri – Modus-C-Prompt generieren</button>
     </div>
   </div>
 </div>
@@ -517,17 +482,25 @@ footer strong{color:white}
 <!-- JURI -->
 <div id="juri">
   <div class="si">
-    <div class="sl"><span class="dot"></span> Schritt 3 – Lizenz & Compliance</div>
+    <div class="sl"><span class="dot"></span> Schritt 3 – Compliance-Potenzial</div>
     <h2 class="st">Juri – ToS Analyse</h2>
-    <p class="ss">Juri (Custom GPT) analysiert die Nutzungsbedingungen der Top-Tools kontextualisiert für euer Unternehmen (Modus C).</p>
+    <p class="ss">Juri (Custom GPT) zeigt was bei der Tool-Einführung aus Lizenz- und Compliance-Sicht zu beachten ist (Modus C).</p>
+
+    <!-- Juri URL Config -->
+    <div class="juri-url-config mt3">
+      <label>🔗 Dein Juri Custom GPT Link:</label>
+      <input type="text" id="juri-url-input" placeholder="https://chatgpt.com/g/g-XXXXXXXX-juri">
+      <button class="btn-save-url" onclick="saveJuriUrl()">Speichern</button>
+      <span class="url-status empty" id="juri-url-status">Nicht konfiguriert</span>
+    </div>
 
     <div class="jw-grid mt3">
-      <div class="jw-card"><div class="jwi">🔑</div><div class="jwt">Output-Ownership</div><div class="jwq">Wem gehören die Daten die wir einpflegen?</div></div>
-      <div class="jw-card"><div class="jwi">💶</div><div class="jwt">Kommerzielle Nutzung</div><div class="jwq">Dürfen wir das Tool für Kundenprojekte nutzen?</div></div>
-      <div class="jw-card"><div class="jwi">🖥️</div><div class="jwt">Datenspeicherung</div><div class="jwq">Wo landen unsere Daten – EU oder außerhalb?</div></div>
-      <div class="jw-card"><div class="jwi">🛡️</div><div class="jwt">DSGVO & Datenschutz</div><div class="jwq">Was müssen wir als deutsches Unternehmen beachten?</div></div>
-      <div class="jw-card"><div class="jwi">📄</div><div class="jwt">DPA & Verträge</div><div class="jwq">Welche Vereinbarungen müssen aktiv abgeschlossen werden?</div></div>
-      <div class="jw-card"><div class="jwi">🚫</div><div class="jwt">Verbotene Nutzung</div><div class="jwq">Was darf explizit nicht eingetragen werden?</div></div>
+      <div class="jw-card"><div class="jwi">🔑</div><div class="jwt">Output-Ownership</div><div class="jwq">Wem gehören die Daten?</div></div>
+      <div class="jw-card"><div class="jwi">💶</div><div class="jwt">Kommerzielle Nutzung</div><div class="jwq">Erlaubt für Kundenprojekte?</div></div>
+      <div class="jw-card"><div class="jwi">🖥️</div><div class="jwt">Datenspeicherung</div><div class="jwq">EU oder außerhalb?</div></div>
+      <div class="jw-card"><div class="jwi">🛡️</div><div class="jwt">DSGVO & Datenschutz</div><div class="jwq">Was ist als deutsches Unternehmen zu beachten?</div></div>
+      <div class="jw-card"><div class="jwi">📄</div><div class="jwt">DPA & Verträge</div><div class="jwq">Welche Vereinbarungen sind nötig?</div></div>
+      <div class="jw-card"><div class="jwi">🚫</div><div class="jwt">Verbotene Nutzung</div><div class="jwq">Was darf nicht eingetragen werden?</div></div>
     </div>
 
     <div class="jp-section">
@@ -535,13 +508,56 @@ footer strong{color:white}
         <h3>⚖️ Modus-C-Übergabe-Prompt für Juri</h3>
         <button class="btn-copy" onclick="copyJuri()" style="border-color:var(--purple);color:var(--purple);background:white">📋 Kopieren</button>
       </div>
-      <div class="jp-box" id="juri-out">Scoring zuerst befüllen (Schritt 2) und auf „Weiter zu Juri" klicken – dann erscheint hier der fertige Modus-C-Prompt.</div>
-      <div class="jp-actions">
-        <a href="https://chat.openai.com" target="_blank" class="btn-juri">→ Juri in ChatGPT öffnen ↗</a>
-        <span style="font-size:.78rem;color:var(--ink-soft)">Prompt kopieren → in Juri einfügen → Compliance-Score in Scoring-Tabelle eintragen</span>
+      <div class="jp-box" id="juri-out">Scoring zuerst befüllen und auf „Weiter zu Juri" klicken – dann erscheint hier der Modus-C-Prompt.</div>
+
+      <!-- Instructions -->
+      <div class="juri-instruction">
+        <div style="flex:1">
+          <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);margin-bottom:.75rem">So verwendest du den Prompt in Juri:</div>
+          <div class="ji-step"><span class="ji-num">1</span><span>Prompt kopieren (Button oben rechts)</span></div>
+          <div class="ji-step"><span class="ji-num">2</span><span>Juri Custom GPT über den Link unten öffnen</span></div>
+          <div class="ji-step"><span class="ji-num">3</span><span>Den kopierten Prompt direkt als erste Nachricht einfügen und senden</span></div>
+          <div class="ji-step" style="background:var(--purple-light);border-radius:6px;padding:.5rem .75rem;margin-top:.4rem">
+            <span class="ji-num">⚠️</span>
+            <span>Juri befindet sich in einem eigenen Chat – <strong>kein @Mention nötig</strong>. Einfach den Prompt direkt einfügen.</span>
+          </div>
+        </div>
       </div>
-      <div class="disclaimer">⚠️ <strong>Hinweis:</strong> Juri ist kein Anwalt und gibt keine Rechtsberatung. Die Analyse fasst zusammen was in den ToS steht. Für verbindliche Aussagen wende dich an einen Fachanwalt.</div>
+
+      <div class="jp-actions">
+        <button class="btn-juri" id="juri-open-btn" onclick="openJuri()">→ Juri öffnen ↗</button>
+        <span style="font-size:.78rem;color:var(--ink-soft)">Nach Juri-Analyse: Antwort unten einfügen → Compliance-Potenzial wird automatisch erkannt</span>
+      </div>
+      <div class="disclaimer">⚠️ <strong>Hinweis:</strong> Juri ist kein Anwalt und gibt keine Rechtsberatung. Die Analyse zeigt was in den ToS steht und was bei der Einführung zu beachten ist. Für verbindliche Aussagen: Fachanwalt.</div>
     </div>
+
+    <!-- Juri Paste-Back -->
+    <div class="juri-paste-section mt3">
+      <div class="juri-paste-hdr">
+        <h3>📥 Juri-Antwort einfügen → Bericht generieren</h3>
+        <span class="ph-badge" style="background:rgba(255,255,255,.2);font-size:.72rem;font-weight:700;padding:.25rem .75rem;border-radius:20px;color:white">⚡ Compliance-Potenzial wird automatisch erkannt</span>
+      </div>
+      <div class="juri-paste-body">
+        <div class="paste-hint" style="border-color:var(--purple);background:var(--purple-light);color:#4a3570">
+          Füge Juris vollständige Antwort ein. Die App erkennt automatisch den <strong>Compliance-Potenzial-Score (X/10)</strong> pro Tool und generiert die Potenzial-Übersicht.
+        </div>
+        <label>Vollständige Juri-Antwort (Modus C) einfügen:</label>
+        <textarea id="juri-paste"
+          placeholder="Füge hier Juris vollständige Antwort ein.&#10;&#10;Die App sucht automatisch nach dem Format:&#10;🔢 Compliance-Potenzial für [Unternehmen]: X/10&#10;&#10;und befüllt damit die Scoring-Matrix und den Abschlussbericht."
+          oninput="autoDetectJuri(this)"></textarea>
+        <div id="juri-feedback"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POTENZIAL-ÜBERSICHT / BERICHT -->
+<div id="bericht">
+  <div class="si">
+    <div class="sl"><span class="dot"></span> Abschluss – Potenzial-Übersicht</div>
+    <h2 class="st">Potenzial-Übersicht</h2>
+    <p class="ss">Zusammenfassung aller Kriterien als Entscheidungsgrundlage für die Tiefenanalyse.</p>
+    <div id="bericht-content" class="mt3"></div>
   </div>
 </div>
 
@@ -551,58 +567,52 @@ footer strong{color:white}
     <div class="sl"><span class="dot"></span> Ausblick</div>
     <h2 class="st">So sieht der Workflow in Zukunft aus</h2>
     <p class="ss">Drei Ausbaustufen – von heute bis zur vollautomatisierten Pipeline.</p>
-
     <div class="v-stages">
       <div class="vc now">
         <div class="vc-stage"><span class="vc-dot"></span> Stufe 1 · Jetzt</div>
         <div class="vc-title">Hybrid-Modus</div>
-        <div class="vc-sub">Manuelle Eingabe + Paste-Back. Scoring und Juri-Prompt automatisch.</div>
+        <div class="vc-sub">Manuelle Eingabe + Paste-Back. Scoring, Juri-Prompt und Bericht automatisch.</div>
         <ul class="vc-steps">
           <li><span class="vc-n">1</span><span>Formular ausfüllen<span class="vc-m">Manuell</span></span></li>
           <li><span class="vc-n">2</span><span>Prompt generieren → Claude öffnet sich<span class="vc-m">1 Klick</span></span></li>
-          <li><span class="vc-n">3</span><span>WM-Antwort einfügen → JSON auto-erkannt<span class="vc-m">Paste</span></span></li>
-          <li><span class="vc-n">4</span><span>Scoring + Juri-Prompt erscheinen automatisch<span class="vc-m vc-a">Auto</span></span></li>
-          <li><span class="vc-n">5</span><span>Juri-Prompt in ChatGPT einfügen<span class="vc-m">Manuell</span></span></li>
+          <li><span class="vc-n">3</span><span>WM-Antwort einfügen → Scoring auto<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">4</span><span>Juri-Antwort einfügen → Bericht auto<span class="vc-m vc-a">Auto</span></span></li>
         </ul>
-        <div class="vc-footer">Manuelle Aktionen: 3 · KI-Systeme: WM + Juri · Laufende Kosten: keine</div>
+        <div class="vc-footer">Manuelle Aktionen: 3 · Kosten: keine</div>
       </div>
-
       <div class="vc next">
         <div class="vc-stage"><span class="vc-dot"></span> Stufe 2 · Nächster Schritt</div>
         <div class="vc-title">API-Integration</div>
-        <div class="vc-sub">Claude API direkt im Browser. Kein Copy-Paste – Scoring nach einem Klick.</div>
+        <div class="vc-sub">Claude API direkt im Browser. Kein Copy-Paste für WM-Analyse.</div>
         <ul class="vc-steps">
           <li><span class="vc-n">1</span><span>Formular ausfüllen<span class="vc-m">Manuell</span></span></li>
           <li><span class="vc-n">2</span><span>„Analyse starten" klicken<span class="vc-m">1 Klick</span></span></li>
-          <li><span class="vc-n">3</span><span>WM-API gibt Analyse + Scoring zurück<span class="vc-m vc-a">Auto</span></span></li>
-          <li><span class="vc-n">4</span><span>Scoring Matrix befüllt sich sofort<span class="vc-m vc-a">Auto</span></span></li>
-          <li><span class="vc-n">5</span><span>Juri-Prompt in ChatGPT einfügen<span class="vc-m">Manuell</span></span></li>
+          <li><span class="vc-n">3</span><span>WM → Scoring automatisch<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">4</span><span>Juri-Antwort einfügen → Bericht auto<span class="vc-m vc-a">Auto</span></span></li>
         </ul>
-        <div class="vc-footer">Manuelle Aktionen: 2 · Voraussetzung: Claude API-Key · Kosten: ~0,005 € / Analyse</div>
+        <div class="vc-footer">Manuelle Aktionen: 2 · Kosten: ~0,005 € / Analyse</div>
       </div>
-
       <div class="vc future">
         <div class="vc-stage"><span class="vc-dot"></span> Stufe 3 · Vollautomatisierung</div>
         <div class="vc-title">Vollständige Pipeline</div>
-        <div class="vc-sub">WM + Juri + Report vollautomatisch. Ein Klick – vollständiger Entscheidungsreport.</div>
+        <div class="vc-sub">WM + Juri + Bericht vollautomatisch. Ein Klick – vollständige Potenzial-Übersicht.</div>
         <ul class="vc-steps">
           <li><span class="vc-n">1</span><span>Formular ausfüllen<span class="vc-m">Manuell</span></span></li>
-          <li><span class="vc-n">2</span><span>„Analyse starten" klicken<span class="vc-m">1 Klick</span></span></li>
-          <li><span class="vc-n">3</span><span>WM analysiert → Scoring automatisch<span class="vc-m vc-a">Auto</span></span></li>
-          <li><span class="vc-n">4</span><span>Juri analysiert ToS → Compliance-Score<span class="vc-m vc-a">Auto</span></span></li>
-          <li><span class="vc-n">5</span><span>Entscheidungsreport als PDF exportierbar<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">2</span><span>„Analyse starten"<span class="vc-m">1 Klick</span></span></li>
+          <li><span class="vc-n">3</span><span>WM → Scoring<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">4</span><span>Juri → Compliance-Potenzial<span class="vc-m vc-a">Auto</span></span></li>
+          <li><span class="vc-n">5</span><span>Potenzial-Übersicht als PDF<span class="vc-m vc-a">Auto</span></span></li>
         </ul>
-        <div class="vc-footer">Manuelle Aktionen: 1 · Voraussetzung: Backend + Juri-API · Zeithorizont: 2–3 Monate</div>
+        <div class="vc-footer">Manuelle Aktionen: 1 · Zeithorizont: 2–3 Monate</div>
       </div>
     </div>
-
     <div class="v-prereqs">
       <h4>🗺️ Was für Stufe 3 noch gebraucht wird</h4>
       <div class="pr-grid">
-        <div class="pr"><span class="pri">🔌</span><span><strong>Juri als API</strong><br>Custom GPT braucht eine eigene Schnittstelle oder wird als eigenständiges Projekt mit programmatischem Zugriff umgebaut</span></div>
-        <div class="pr"><span class="pri">🖥️</span><span><strong>Kleines Backend</strong><br>Node.js oder Python-Server der beide API-Calls orchestriert und den Report zusammenführt – kein großes Projekt</span></div>
-        <div class="pr"><span class="pri">📄</span><span><strong>Report-Template</strong><br>Definiertes Dokument-Format (PDF/Word) in das WM-Analyse, Scoring und Juri-Output automatisch eingefügt werden</span></div>
-        <div class="pr"><span class="pri">🔒</span><span><strong>Auth & Zugriffsschutz</strong><br>Login oder Token-Schutz wenn die App öffentlich erreichbar sein soll – verhindert API-Missbrauch</span></div>
+        <div class="pr"><span class="pri">🔌</span><span><strong>Juri als API</strong><br>Custom GPT braucht eine eigene Schnittstelle oder wird als eigenständiges Projekt umgebaut</span></div>
+        <div class="pr"><span class="pri">🖥️</span><span><strong>Kleines Backend</strong><br>Node.js oder Python-Server der beide API-Calls orchestriert</span></div>
+        <div class="pr"><span class="pri">📄</span><span><strong>Report-Template</strong><br>Definiertes Format in das alle Outputs automatisch fließen</span></div>
+        <div class="pr"><span class="pri">🔒</span><span><strong>Auth & Zugriffsschutz</strong><br>Token-Schutz für öffentlichen Einsatz</span></div>
       </div>
     </div>
   </div>
@@ -614,93 +624,347 @@ footer strong{color:white}
 </footer>
 
 <script>
-let fd = {}, sd = null, mode = 'voll';
+/* ═══════════════════════════════════
+   STATE
+═══════════════════════════════════ */
+let fd = {}, sd = null, juriData = null, mode = 'voll';
 
-/* MODE */
-function setMode(m){
+window.addEventListener('DOMContentLoaded', () => {
+  const url = sessionStorage.getItem('juri_url');
+  if (url) { document.getElementById('juri-url-input').value = url; setUrlStatus(true); }
+});
+
+/* ═══════════════════════════════════
+   JURI URL CONFIG
+═══════════════════════════════════ */
+function saveJuriUrl() {
+  const url = document.getElementById('juri-url-input').value.trim();
+  if (!url) return;
+  sessionStorage.setItem('juri_url', url);
+  setUrlStatus(true);
+}
+function setUrlStatus(ok) {
+  const el = document.getElementById('juri-url-status');
+  el.className = 'url-status ' + (ok ? 'ok' : 'empty');
+  el.textContent = ok ? '✅ Konfiguriert' : 'Nicht konfiguriert';
+}
+function openJuri() {
+  const url = sessionStorage.getItem('juri_url') || 'https://chat.openai.com';
+  window.open(url, '_blank');
+}
+
+/* ═══════════════════════════════════
+   MODE
+═══════════════════════════════════ */
+function setMode(m) {
   mode = m;
-  document.getElementById('mode-voll').classList.toggle('active', m==='voll');
-  document.getElementById('mode-berater').classList.toggle('active', m==='berater');
-  document.getElementById('berater-hint').style.display = m==='berater'?'block':'none';
-  document.querySelectorAll('.ext').forEach(el => el.style.display = m==='berater'?'none':'');
+  document.getElementById('mode-voll').classList.toggle('active', m === 'voll');
+  document.getElementById('mode-berater').classList.toggle('active', m === 'berater');
+  document.getElementById('berater-hint').style.display = m === 'berater' ? 'block' : 'none';
+  document.querySelectorAll('.ext').forEach(el => el.style.display = m === 'berater' ? 'none' : '');
   document.getElementById('analyze-btn').textContent =
-    m==='berater' ? '⚡ Schnell-Analyse → Claude Project öffnen' : '🚀 Prompt generieren → Claude Project öffnen';
+    m === 'berater' ? '⚡ Schnell-Analyse → Claude Project öffnen' : '🚀 Prompt generieren → Claude Project öffnen';
 }
 
-/* DEMO */
-function loadDemo(){
-  const set = (id,val) => { const el=document.getElementById(id); if(el) el.value=val; };
-  set('f-name','Buildwise GmbH'); set('f-branche','Bauplanung & Architektur');
-  set('f-ma','28'); set('f-standort','München');
-  set('f-teamgroesse','6–10 Personen'); set('f-modell','Hybrid');
-  set('f-hierarchie','Mittlere Hierarchie'); set('f-methode','Klassisch, Excel, E-Mail');
-  set('f-agile','Grundkenntnisse'); set('f-tools','Excel, Outlook, Microsoft Teams');
-  set('f-projektart','Hochbau, Innenausbau'); set('f-laufzeit','6–18 Monate');
-  set('f-parallel','8'); set('f-regulatorik','VOB, HOAI');
-  set('f-zeitrahmen','2–3 Monate'); set('f-budget','Begrenzt');
-  set('f-fuehrung','Teilweise'); set('f-dsgvo','Relevant');
-  set('f-sonstiges','Bestehende Projektdokumentation soll beibehalten werden. Team ist technikaffin, agile Methoden aber unbekannt. Pilotprojekt als Proof of Concept für weitere Standorte.');
-  ['z1','z2','z3','z5'].forEach(id => document.getElementById(id).checked=true);
-  ['h2','h3','h5'].forEach(id => document.getElementById(id).checked=true);
+/* ═══════════════════════════════════
+   DEMO
+═══════════════════════════════════ */
+function loadDemo() {
+  const s = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+  s('f-name','Buildwise GmbH'); s('f-branche','Bauplanung & Architektur');
+  s('f-ma','28'); s('f-standort','München');
+  s('f-teamgroesse','6–10 Personen'); s('f-modell','Hybrid');
+  s('f-hierarchie','Mittlere Hierarchie'); s('f-methode','Klassisch, Excel, E-Mail');
+  s('f-agile','Grundkenntnisse'); s('f-tools','Excel, Outlook, Microsoft Teams');
+  s('f-projektart','Hochbau, Innenausbau'); s('f-laufzeit','6–18 Monate');
+  s('f-parallel','8'); s('f-regulatorik','VOB, HOAI');
+  s('f-zeitrahmen','2–3 Monate'); s('f-budget','Begrenzt');
+  s('f-fuehrung','Teilweise'); s('f-dsgvo','Relevant');
+  s('f-sonstiges','Bestehende Projektdokumentation soll beibehalten werden. Team ist technikaffin, agile Methoden aber unbekannt. Pilotprojekt als Proof of Concept für weitere Standorte.');
+  ['z1','z2','z3','z5'].forEach(id => document.getElementById(id).checked = true);
+  ['h2','h3','h5'].forEach(id => document.getElementById(id).checked = true);
   fd = collect();
+
   applyScoring({
-    tools:[
-      {name:'Trello',agilerMehrwert:7,integration:7,einfuehrung:9,wirtschaft:8,
-       begruendung:'Sehr niedrige Einstiegshürde. Visuelles Kanban ideal für den ersten Schritt. Free-Tier ausreichend für Pilot. Integration mit Outlook und Teams möglich.'},
-      {name:'Jira',agilerMehrwert:9,integration:8,einfuehrung:5,wirtschaft:6,
-       begruendung:'Mächtiger als Trello, aber höhere Einführungskomplexität. Empfehlenswert wenn Buildwise nach dem Pilot skalieren will. Lizenzkosten bei 28 MA überschaubar.'}
+    tools: [
+      { name: 'Trello', agilerMehrwert: 7, integration: 7, einfuehrung: 9, wirtschaft: 8,
+        begruendung: 'Sehr niedrige Einstiegshürde. Visuelles Kanban ideal für den ersten Schritt. Free-Tier ausreichend für Pilot. Integration mit Outlook und Teams möglich.' },
+      { name: 'Jira', agilerMehrwert: 9, integration: 8, einfuehrung: 5, wirtschaft: 6,
+        begruendung: 'Mächtiger als Trello, aber höhere Einführungskomplexität. Empfehlenswert wenn Buildwise nach dem Pilot skalieren will.' }
     ],
-    empfohleneMethode:'Kanban (Einstieg)',
-    naechsterSchritt:'Pilot-Board in Trello mit einem Projektteam aufsetzen und 4 Wochen testen'
+    empfohleneMethode: 'Kanban (Einstieg)',
+    naechsterSchritt: 'Pilot-Board in Trello mit einem Projektteam aufsetzen und 4 Wochen testen'
   });
-  document.getElementById('paste-section').style.display='block';
-  setTimeout(()=>document.getElementById('scoring').scrollIntoView({behavior:'smooth'}),400);
+
+  // Load demo Juri data
+  const demoJuri = {
+    scores: { 'Trello': 5.5, 'Jira': 8.0 },
+    points: {
+      'Trello': [
+        'US-Datenspeicherung – keine belastbare EU-Datenresidenz vorhanden',
+        'Öffentliche Boards möglich – organisatorisches Verbot notwendig',
+        'Power-Ups unterliegen eigenen ToS – separate Prüfung erforderlich',
+        'DPA, SCCs und Transfer Impact Assessment dokumentieren',
+        'Keine sensiblen Kundendokumente oder Grundrisse in Trello speichern'
+      ],
+      'Jira': [
+        'Datenresidenz auf Germany/Frankfurt setzen (Standard-Plan oder höher)',
+        'DPA, SCCs und TOMs vor Produktivstart dokumentieren',
+        'Marketplace-Apps erst nach eigenem Datenschutz-Check freigeben',
+        'Berechtigungskonzept für interne Teams, Bauherren und Fachplaner definieren',
+        'Export- und Archivkonzept für VOB-/HOAI-relevante Projektakten festlegen'
+      ]
+    }
+  };
+
+  document.getElementById('s-a5').value = 5.5;
+  document.getElementById('s-b5').value = 8.0;
+  calcTotals();
+
+  // Sync cards with compliance scores
+  syncTable();
+
+  document.getElementById('paste-section').style.display = 'block';
+  juriData = demoJuri;
+  renderBericht(demoJuri);
+  setTimeout(() => document.getElementById('scoring').scrollIntoView({ behavior: 'smooth' }), 400);
 }
 
-/* GENERATE + OPEN */
-function generateAndOpen(){
+/* ═══════════════════════════════════
+   GENERATE + OPEN CLAUDE
+═══════════════════════════════════ */
+function generateAndOpen() {
   fd = collect();
-  const prompt = buildPrompt(fd);
-  navigator.clipboard.writeText(prompt).catch(()=>{});
-  document.getElementById('paste-section').style.display='block';
-  window.open('https://claude.ai','_blank');
-  setTimeout(()=>document.getElementById('paste-section').scrollIntoView({behavior:'smooth'}),300);
+  navigator.clipboard.writeText(buildWMPrompt(fd)).catch(() => {});
+  document.getElementById('paste-section').style.display = 'block';
+  window.open('https://claude.ai', '_blank');
+  setTimeout(() => document.getElementById('paste-section').scrollIntoView({ behavior: 'smooth' }), 300);
 }
 
-/* AUTO-DETECT */
-function autoDetect(ta){
+/* ═══════════════════════════════════
+   AUTO-DETECT WM JSON
+═══════════════════════════════════ */
+function autoDetectWM(ta) {
   const text = ta.value;
-  const fb = document.getElementById('paste-feedback');
-  if(!text.includes('===SCORING_START===')){fb.style.display='none';return;}
-  const parsed = parseJSON(text);
-  fb.style.display='block';
-  if(parsed && parsed.tools && parsed.tools.length>=1){
+  const fb = document.getElementById('wm-feedback');
+  if (!text.includes('===SCORING_START===')) { fb.innerHTML = ''; return; }
+  const parsed = parseWMJson(text);
+  if (parsed && parsed.tools && parsed.tools.length >= 1) {
     applyScoring(parsed);
-    fb.innerHTML=`<div class="auto-detect-ok">⚡ JSON erkannt und ausgewertet – Scoring befüllt. <a href="#scoring" style="color:inherit;margin-left:.5rem">→ Zum Scoring</a></div>`;
-    setTimeout(()=>document.getElementById('scoring').scrollIntoView({behavior:'smooth'}),600);
+    fb.innerHTML = `<div class="auto-ok">⚡ Scoring erkannt und befüllt: ${parsed.tools.map(t => t.name).join(' vs ')} <a href="#scoring" style="color:inherit;margin-left:.5rem">→ Zum Scoring</a></div>`;
+    setTimeout(() => document.getElementById('scoring').scrollIntoView({ behavior: 'smooth' }), 600);
   } else {
-    fb.innerHTML=`<div style="font-size:.78rem;color:var(--ink-soft);padding:.5rem 0">JSON erkannt aber noch unvollständig – warte auf vollständige Antwort…</div>`;
+    fb.innerHTML = `<div style="font-size:.78rem;color:var(--ink-soft);padding:.5rem 0">JSON-Block erkannt – warte auf vollständige Antwort…</div>`;
   }
 }
 
-/* COLLECT FORM */
-function collect(){
-  const g = id => document.getElementById(id)?.value||'';
-  const ziele=['Bessere Zusammenarbeit','Mehr Transparenz','Klarere Aufgabenverteilung','Schnellere Lieferung','Mitarbeiterzufriedenheit','Skalierung']
-    .filter((_,i)=>document.getElementById(`z${i+1}`)?.checked).join(', ')||'Keine ausgewählt';
-  const heraus=['Silo-Denken','Unklare Prioritäten','Aufgaben fallen durch','Unklare Deadlines','Kommunikation','Fehlende Rollen']
-    .filter((_,i)=>document.getElementById(`h${i+1}`)?.checked).join(', ')||'Keine ausgewählt';
-  return {name:g('f-name'),branche:g('f-branche'),ma:g('f-ma'),standort:g('f-standort'),
+/* ═══════════════════════════════════
+   AUTO-DETECT JURI COMPLIANCE SCORE
+═══════════════════════════════════ */
+function autoDetectJuri(ta) {
+  const text = ta.value;
+  const fb = document.getElementById('juri-feedback');
+  if (!text || text.length < 50) { fb.innerHTML = ''; return; }
+
+  // Extract compliance scores – match "X/10" patterns near tool names
+  // Pattern: "Compliance-Score/Potenzial für [name]: X/10" or "X/10\nBegründung"
+  const scorePattern = /(?:Compliance[-\s](?:Score|Potenzial)[^\n]*?:\s*)(\d+(?:[.,]\d+)?)\s*\/\s*10/gi;
+  const scores = [];
+  let m;
+  while ((m = scorePattern.exec(text)) !== null) {
+    scores.push(parseFloat(m[1].replace(',', '.')));
+  }
+
+  if (scores.length === 0) { fb.innerHTML = `<div style="font-size:.78rem;color:var(--ink-soft);padding:.5rem 0">Warte auf Juri-Antwort mit Compliance-Potenzial-Score…</div>`; return; }
+
+  // Extract tool-specific ToS points (lines starting with numbers near each tool section)
+  const toolNames = [
+    document.getElementById('tn-a').value || sd?.tools?.[0]?.name || 'Tool A',
+    document.getElementById('tn-b').value || sd?.tools?.[1]?.name || 'Tool B'
+  ];
+
+  const tosPoints = {};
+  toolNames.forEach((name, idx) => {
+    const toolSection = extractToolSection(text, name);
+    tosPoints[name] = extractChecklistPoints(toolSection);
+  });
+
+  // Apply compliance scores to table
+  if (scores[0] !== undefined) {
+    document.getElementById('s-a5').value = scores[0];
+    // Update card display
+    updateComplianceInCard(0, scores[0]);
+  }
+  if (scores[1] !== undefined) {
+    document.getElementById('s-b5').value = scores[1];
+    updateComplianceInCard(1, scores[1]);
+  }
+  calcTotals();
+
+  const juriResult = { scores: {}, points: {} };
+  toolNames.forEach((name, i) => {
+    if (scores[i] !== undefined) juriResult.scores[name] = scores[i];
+    juriResult.points[name] = tosPoints[name] || [];
+  });
+  juriData = juriResult;
+
+  fb.innerHTML = `<div class="auto-ok">⚡ Compliance-Potenzial erkannt: ${toolNames.map((n,i) => scores[i] !== undefined ? `${n} ${scores[i]}/10` : '').filter(Boolean).join(' · ')} → <a href="#bericht" style="color:inherit">Potenzial-Übersicht ansehen ↓</a></div>`;
+
+  renderBericht(juriResult);
+  setTimeout(() => document.getElementById('bericht').scrollIntoView({ behavior: 'smooth' }), 600);
+}
+
+function extractToolSection(text, toolName) {
+  const idx = text.indexOf(toolName);
+  if (idx === -1) return '';
+  const nextTool = text.indexOf('\n2.', idx + toolName.length);
+  return nextTool > -1 ? text.slice(idx, nextTool) : text.slice(idx);
+}
+
+function extractChecklistPoints(section) {
+  const lines = section.split('\n');
+  const points = [];
+  lines.forEach(line => {
+    const clean = line.replace(/^[\d\-\•\*\s\.]+/, '').trim();
+    if (clean.length > 20 && clean.length < 200 && !clean.startsWith('http')) {
+      points.push(clean);
+    }
+  });
+  return points.slice(0, 5);
+}
+
+function updateComplianceInCard(idx, score) {
+  const cards = document.getElementById('sc-cards').querySelectorAll('.tsc.ok');
+  if (!cards[idx]) return;
+  // Add or update compliance row in card
+  let compEl = cards[idx].querySelector('.tsc-compliance');
+  if (!compEl) {
+    compEl = document.createElement('div');
+    compEl.className = 'tsc-compliance';
+    compEl.style.cssText = 'margin-top:.75rem;padding-top:.75rem;border-top:1.5px solid var(--border)';
+    cards[idx].appendChild(compEl);
+  }
+  const bColor = score >= 7 ? 'var(--green)' : score >= 5 ? 'var(--teal)' : score >= 3 ? 'var(--orange)' : '#e53e3e';
+  compEl.innerHTML = `
+    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--purple);margin-bottom:.4rem">⚖️ Compliance-Potenzial (Juri)</div>
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <div style="flex:1;height:10px;background:var(--paper-warm);border-radius:5px;overflow:hidden">
+        <div style="height:100%;border-radius:5px;width:${score*10}%;background:${bColor};transition:width .7s ease"></div>
+      </div>
+      <span style="font-family:'Caveat',cursive;font-size:1.3rem;font-weight:700;color:var(--purple)">${score}/10</span>
+    </div>`;
+}
+
+/* ═══════════════════════════════════
+   RENDER BERICHT
+═══════════════════════════════════ */
+function renderBericht(jData) {
+  if (!sd || !sd.tools) return;
+
+  const berichtEl = document.getElementById('bericht');
+  const contentEl = document.getElementById('bericht-content');
+  berichtEl.style.display = 'block';
+
+  const firma = fd.name || 'Unternehmen';
+  const datum = new Date().toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' });
+
+  const criteria = [
+    { label: '🎯 Agiler Mehrwert',      keys: ['agilerMehrwert'] },
+    { label: '🔗 Integrationspotenzial', keys: ['integration'] },
+    { label: '👥 Einführungsreife',      keys: ['einfuehrung'] },
+    { label: '💶 Wirtschaftlichkeit',    keys: ['wirtschaft'] },
+  ];
+  const barColor = v => v >= 7 ? 'var(--green)' : v >= 5 ? 'var(--teal)' : v >= 3 ? 'var(--orange)' : '#e53e3e';
+  const potLabel = (t,m) => {
+    const r=t/m;
+    if(r>=.8) return '<span class="pot-label ph">🟢 Hohes Potenzial</span>';
+    if(r>=.6) return '<span class="pot-label pm">🟡 Mittleres Potenzial</span>';
+    if(r>=.4) return '<span class="pot-label pl">🟠 Eingeschränktes Potenzial</span>';
+    return '<span class="pot-label pn">🔴 Geringes Potenzial</span>';
+  };
+
+  const cardsHTML = sd.tools.map((tool, idx) => {
+    const compScore = parseFloat(document.getElementById(`s-${idx===0?'a':'b'}5`).value) || null;
+    const wmScores = criteria.map(c => ({ label: c.label, val: Number(tool[c.keys[0]]) || 0 }));
+    const wmTotal = wmScores.reduce((s,x) => s + x.val, 0);
+    const fullTotal = compScore !== null ? wmTotal + compScore : wmTotal;
+    const maxTotal  = compScore !== null ? 50 : 40;
+    const tosPoints = jData?.points?.[tool.name] || [];
+    const cScore    = jData?.scores?.[tool.name];
+
+    return `<div class="bericht-card">
+      <div class="bc-head" style="border-color:${barColor(wmTotal/4)}">
+        <div class="bc-name">${tool.name}</div>
+        <div class="bc-total">
+          <span class="bc-pts" style="color:${barColor(fullTotal/maxTotal*10)}">${fullTotal.toFixed(1)}</span>
+          <span class="bc-max">/ ${maxTotal} Punkte</span>
+          &nbsp;${potLabel(fullTotal, maxTotal)}
+        </div>
+      </div>
+      <div class="bc-body">
+        ${wmScores.map(sc => `
+          <div class="bc-row">
+            <span class="bc-label">${sc.label}</span>
+            <div class="bc-track"><div class="bc-fill" style="width:${sc.val*10}%;background:${barColor(sc.val)}"></div></div>
+            <span class="bc-val" style="color:${barColor(sc.val)}">${sc.val}</span>
+          </div>`).join('')}
+        ${cScore !== undefined ? `
+        <div class="bc-compliance">
+          <div class="bc-compliance-label">⚖️ Compliance-Potenzial (Juri · Modus C)</div>
+          <div style="display:flex;align-items:center;gap:.75rem">
+            <div class="bc-track" style="flex:1"><div class="bc-fill" style="width:${cScore*10}%;background:${barColor(cScore)}"></div></div>
+            <span class="bc-compliance-score">${cScore}/10</span>
+          </div>
+        </div>` : ''}
+        ${tosPoints.length > 0 ? `
+        <div class="bc-tos-points">
+          <div class="bc-tos-label">Was bei Einführung zu beachten ist</div>
+          <ul class="bc-tos-list">${tosPoints.map(p => `<li>${p}</li>`).join('')}</ul>
+        </div>` : ''}
+        ${tool.begruendung ? `<div class="tsc-reason" style="margin-top:1rem;padding-top:.75rem;border-top:1.5px solid var(--border)">💬 ${tool.begruendung}</div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+
+  contentEl.innerHTML = `
+    <div class="bericht-header">
+      <div>
+        <h3>📊 Potenzial-Übersicht</h3>
+        <div class="bh-meta">${firma} · ${fd.branche || ''} · ${datum}${fd.modell?' · '+fd.modell:''}</div>
+      </div>
+      <div style="font-size:.78rem;color:rgba(255,255,255,.5);text-align:right">WM · Claude Project + Juri · Custom GPT<br>Erste Einschätzungsgrundlage – keine Kaufempfehlung</div>
+    </div>
+    <div class="bericht-grid">${cardsHTML}</div>
+    <div class="bericht-footer">
+      <div class="bf-note">Diese Übersicht dient als erste Einschätzungsgrundlage für eine fundierte Tiefenanalyse. Sie enthält keine Kauf- oder Produktempfehlung. Compliance-Hinweise basieren auf einer ToS-Zusammenfassung – kein Rechtsbeistand.</div>
+      <button class="btn-print" onclick="window.print()">🖨️ Drucken / PDF</button>
+    </div>`;
+}
+
+/* ═══════════════════════════════════
+   COLLECT FORM DATA
+═══════════════════════════════════ */
+function collect() {
+  const g = id => document.getElementById(id)?.value || '';
+  const ziele = ['Bessere Zusammenarbeit','Mehr Transparenz','Klarere Aufgabenverteilung','Schnellere Lieferung','Mitarbeiterzufriedenheit','Skalierung']
+    .filter((_,i) => document.getElementById(`z${i+1}`)?.checked).join(', ') || 'Keine ausgewählt';
+  const heraus = ['Silo-Denken','Unklare Prioritäten','Aufgaben fallen durch','Unklare Deadlines','Kommunikation','Fehlende Rollen']
+    .filter((_,i) => document.getElementById(`h${i+1}`)?.checked).join(', ') || 'Keine ausgewählt';
+  return {
+    name:g('f-name'),branche:g('f-branche'),ma:g('f-ma'),standort:g('f-standort'),
     teamgroesse:g('f-teamgroesse'),modell:g('f-modell'),hierarchie:g('f-hierarchie'),
     methode:g('f-methode'),agile:g('f-agile'),tools:g('f-tools'),
     projektart:g('f-projektart'),laufzeit:g('f-laufzeit'),parallel:g('f-parallel'),regulatorik:g('f-regulatorik'),
-    ziele,heraus,extra_ziele:g('f-ziele'),extra_heraus:g('f-heraus'),
-    zeitrahmen:g('f-zeitrahmen'),budget:g('f-budget'),fuehrung:g('f-fuehrung'),dsgvo:g('f-dsgvo'),sonstiges:g('f-sonstiges')};
+    ziele, heraus, extra_ziele:g('f-ziele'), extra_heraus:g('f-heraus'),
+    zeitrahmen:g('f-zeitrahmen'),budget:g('f-budget'),fuehrung:g('f-fuehrung'),dsgvo:g('f-dsgvo'),sonstiges:g('f-sonstiges')
+  };
 }
 
-/* BUILD WM PROMPT */
-function buildPrompt(d){
-  const schnell = mode==='berater' ? '\n⚡ Berater-Schnellmodus: Fehlende Felder bitte aus dem Kontext ableiten.\n' : '';
+/* ═══════════════════════════════════
+   BUILD WM PROMPT
+═══════════════════════════════════ */
+function buildWMPrompt(d) {
+  const schnell = mode === 'berater' ? '\n⚡ Berater-Schnellmodus: Fehlende Felder bitte aus dem Kontext ableiten.\n' : '';
   return `${schnell}Analysiere den folgenden Unternehmenskontext und erstelle eine strukturierte Empfehlung.
 
 Beginne direkt mit der Analyse – zeige kein Eingabe-Template.
@@ -728,10 +992,10 @@ Beginne direkt mit der Analyse – zeige kein Eingabe-Template.
 - Regulatorik: ${d.regulatorik||'nicht angegeben'}
 
 ## Ziele
-${d.ziele}${d.extra_ziele?'\n+ '+d.extra_ziele:''}
+${d.ziele}${d.extra_ziele ? '\n+ ' + d.extra_ziele : ''}
 
 ## Herausforderungen
-${d.heraus}${d.extra_heraus?'\n+ '+d.extra_heraus:''}
+${d.heraus}${d.extra_heraus ? '\n+ ' + d.extra_heraus : ''}
 
 ## Rahmenbedingungen
 - Zeitrahmen: ${d.zeitrahmen||'nicht angegeben'}
@@ -748,39 +1012,43 @@ ${d.sonstiges||'keine weiteren Angaben'}
 3. Nicht empfohlene Ansätze mit Begründung
 4. Genau 2 konkrete Tool-Kandidaten die zu diesem Kontext passen
 5. Konkrete erste Schritte zur Einführung
-6. Passende Liberating Structures wenn relevant für diesen Kontext
+6. Passende Liberating Structures wenn relevant
 
-## PFLICHT: Scoring-JSON am Ende
-Schließe die Antwort immer mit exakt diesem Block ab:
+## PFLICHT: Scoring-JSON am Ende der Antwort
+Schließe deine Antwort IMMER mit exakt diesem Block ab.
+Ersetze ALLE Zahlenwerte (aktuell 0) durch deine tatsächliche Bewertung von 1–10.
+Beispiel für eine ausgefüllte Zeile: "agilerMehrwert": 8
 
 ===SCORING_START===
 {
   "tools": [
     {
-      "name": "Tool-Name-1",
+      "name": "HIER TOOL-NAME EINSETZEN",
       "agilerMehrwert": 0,
       "integration": 0,
       "einfuehrung": 0,
       "wirtschaft": 0,
-      "begruendung": "Kontextbezogene Begründung"
+      "begruendung": "HIER KURZE KONTEXTBEZOGENE BEGRÜNDUNG EINSETZEN"
     },
     {
-      "name": "Tool-Name-2",
+      "name": "HIER TOOL-NAME EINSETZEN",
       "agilerMehrwert": 0,
       "integration": 0,
       "einfuehrung": 0,
       "wirtschaft": 0,
-      "begruendung": "Kontextbezogene Begründung"
+      "begruendung": "HIER KURZE KONTEXTBEZOGENE BEGRÜNDUNG EINSETZEN"
     }
   ],
-  "empfohleneMethode": "Name der Methode",
-  "naechsterSchritt": "Erster konkreter Schritt"
+  "empfohleneMethode": "HIER METHODE EINSETZEN",
+  "naechsterSchritt": "HIER ERSTEN SCHRITT EINSETZEN"
 }
 ===SCORING_END===`;
 }
 
-/* JURI PROMPT (Modus C) */
-function buildJuriPrompt(){
+/* ═══════════════════════════════════
+   BUILD JURI PROMPT (Modus C)
+═══════════════════════════════════ */
+function buildJuriPrompt() {
   const nA = document.getElementById('tn-a').value || sd?.tools?.[0]?.name || 'Tool A';
   const nB = document.getElementById('tn-b').value || sd?.tools?.[1]?.name || 'Tool B';
   const tA = document.getElementById('tot-a').textContent;
@@ -790,22 +1058,24 @@ function buildJuriPrompt(){
     ? `- Unternehmen: ${fd.name}\n- Branche: ${fd.branche||'–'}\n- Mitarbeitende: ${fd.ma||'–'}\n- Standort: ${fd.standort||'–'}\n- Arbeitsmodell: ${fd.modell||'–'}\n- DSGVO-Relevanz: ${fd.dsgvo||'–'}\n- Budget: ${fd.budget||'–'}\n- Regulatorik: ${fd.regulatorik||'–'}\n- Projektart: ${fd.projektart||'–'}`
     : '(Bitte zuerst das Formular ausfüllen)';
 
-  const prompt=`Modus C – Kontextualisierte Unternehmensanalyse
+  const prompt = `Modus C – Kontextualisierte Unternehmensanalyse
 
 ## Unternehmenskontext
 ${kontext}
 
-## Top-Tools aus WM-Scoring
-1. ${nA} – Scoring-Gesamt: ${tA}
-2. ${nB} – Scoring-Gesamt: ${tB}
+## Tools aus WM-Scoring
+1. ${nA} – WM-Score: ${tA}
+2. ${nB} – WM-Score: ${tB}
 
 ## Aufgabe
 Analysiere beide Tools kontextualisiert für ${firma}.
 
-Priorisiere:
-- Welche ToS-Punkte sind für genau dieses Unternehmen kritisch?
+Zeige für jedes Tool auf:
+- Welche ToS-Punkte sind für genau dieses Unternehmen relevant?
 - Welche sind irrelevant und können weggelassen werden?
-- Was muss ${firma} konkret tun bevor es das Tool einführt?
+- Was muss ${firma} vor der Einführung konkret klären oder tun?
+
+Verwende Potenzial-Sprache: Beschreibe was möglich ist und was zu beachten ist – keine Kauf- oder Produktempfehlungen.
 
 ## Struktur pro Tool
 1. Output-Ownership
@@ -814,107 +1084,150 @@ Priorisiere:
 4. DSGVO & Datenschutz
 5. DPA & Verträge
 6. Verbotene Nutzungsarten
-7. Was ${firma} konkret tun muss (Checkliste, max. 5 Punkte)
+7. Was ${firma} vor Einführung konkret tun muss (Checkliste, max. 5 Punkte)
 
-## Compliance-Score
-Vergib am Ende für jedes Tool:
-🔢 Compliance-Score für ${firma}: X/10
-Begründung: [2–3 Sätze warum dieser Wert]
+## Compliance-Potenzial
+Schließe für jedes Tool mit exakt diesem Format ab:
+🔢 Compliance-Potenzial für ${firma}: X/10
+Begründung: [2–3 Sätze – was den Wert bestimmt, keine Empfehlung]
 
 Hinweis: Juris Scope umfasst alle digitalen Arbeitstools – nicht nur KI-Tools.`;
 
-  document.getElementById('juri-out').textContent=prompt;
-  document.getElementById('juri').scrollIntoView({behavior:'smooth'});
+  document.getElementById('juri-out').textContent = prompt;
+  document.getElementById('juri').scrollIntoView({ behavior: 'smooth' });
 }
 
-/* PARSE JSON */
-function parseJSON(text){
-  const m=text.match(/===SCORING_START===([\s\S]*?)===SCORING_END===/);
-  if(!m) return null;
-  try{ return JSON.parse(m[1].trim()); }
-  catch{
-    try{
-      const c=m[1].trim().replace(/,(\s*[}\]])/g,'$1').replace(/([{,]\s*)(\w+):/g,'$1"$2":');
+/* ═══════════════════════════════════
+   PARSE WM JSON
+═══════════════════════════════════ */
+function parseWMJson(text) {
+  const m = text.match(/===SCORING_START===([\s\S]*?)===SCORING_END===/);
+  if (!m) return null;
+  try { return JSON.parse(m[1].trim()); }
+  catch {
+    try {
+      const c = m[1].trim().replace(/,(\s*[}\]])/g,'$1').replace(/([{,]\s*)(\w+):/g,'$1"$2":');
       return JSON.parse(c);
-    }catch{ return null; }
+    } catch { return null; }
   }
 }
 
-/* APPLY SCORING */
-function applyScoring(data){
-  sd=data;
-  const container=document.getElementById('sc-cards');
-  container.innerHTML='';
-  data.tools.forEach((tool,idx)=>{
-    const sc=[
-      {l:'🎯 Agiler Mehrwert',v:+tool.agilerMehrwert||0},
-      {l:'🔗 Integrationspotenzial',v:+tool.integration||0},
-      {l:'👥 Einführungsreife',v:+tool.einfuehrung||0},
-      {l:'💶 Wirtschaftlichkeit',v:+tool.wirtschaft||0}
+/* ═══════════════════════════════════
+   APPLY SCORING (bug-fixed: always show values)
+═══════════════════════════════════ */
+function applyScoring(data) {
+  sd = data;
+  const container = document.getElementById('sc-cards');
+  container.innerHTML = '';
+
+  const barColor = v => v >= 7 ? 'var(--green)' : v >= 5 ? 'var(--teal)' : v >= 3 ? 'var(--orange)' : '#e53e3e';
+
+  data.tools.forEach((tool, idx) => {
+    const name = String(tool.name || `Tool ${idx+1}`);
+    // Ensure numeric values – default to 0 but SHOW them
+    const am = Number(tool.agilerMehrwert) || 0;
+    const it = Number(tool.integration)    || 0;
+    const ef = Number(tool.einfuehrung)    || 0;
+    const wi = Number(tool.wirtschaft)     || 0;
+    const scores = [
+      { label: '🎯 Agiler Mehrwert',      v: am },
+      { label: '🔗 Integrationspotenzial', v: it },
+      { label: '👥 Einführungsreife',      v: ef },
+      { label: '💶 Wirtschaftlichkeit',    v: wi },
     ];
-    const tot=sc.reduce((s,x)=>s+x.v,0);
-    const [pc,pl]=tot>=32?['ph','🟢 Hohes Potenzial']:tot>=24?['pm','🟡 Mittleres Potenzial']:tot>=16?['pl','🟠 Eingeschränkt']:['pn','🔴 Geringes Potenzial'];
-    const bc=v=>v>=7?'var(--green)':v>=5?'var(--teal)':v>=3?'var(--orange)':'#e53e3e';
-    container.innerHTML+=`<div class="tsc populated">
-      <div class="tsc-hdr"><span class="tsc-name">${tool.name}</span><div style="text-align:right"><div class="tsc-total">${tot}/40</div><span class="pot-label ${pc}">${pl}</span></div></div>
-      <div class="tsc-bars">${sc.map(x=>`<div class="tsc-bar"><span class="tsc-bl">${x.l}</span><div class="tsc-bt"><div class="tsc-bf" style="width:${x.v*10}%;background:${bc(x.v)}"></div></div><span class="tsc-bv">${x.v}</span></div>`).join('')}</div>
-      ${tool.begruendung?`<div class="tsc-reason">💬 ${tool.begruendung}</div>`:''}
-    </div>`;
-    const p=idx===0?'a':'b';
-    document.getElementById(`tn-${p}`).value=tool.name;
-    document.getElementById(`s-${p}1`).value=tool.agilerMehrwert;
-    document.getElementById(`s-${p}2`).value=tool.integration;
-    document.getElementById(`s-${p}3`).value=tool.einfuehrung;
-    document.getElementById(`s-${p}4`).value=tool.wirtschaft;
+    const total = am + it + ef + wi;
+    const [pc, pl] = total >= 32 ? ['ph','🟢 Hohes Potenzial']
+      : total >= 24 ? ['pm','🟡 Mittleres Potenzial']
+      : total >= 16 ? ['pl','🟠 Eingeschränktes Potenzial']
+      : ['pn','🔴 Geringes Potenzial'];
+
+    // IMPORTANT: min-width on bar ensures even 0-values are visible as a sliver
+    const barsHTML = scores.map(sc => `
+      <div class="tsc-bar">
+        <span class="tsc-bl">${sc.label}</span>
+        <div class="tsc-bt">
+          <div class="tsc-bf" style="width:${Math.max(sc.v * 10, sc.v > 0 ? 3 : 0)}%;background:${barColor(sc.v)}"></div>
+        </div>
+        <span class="tsc-bv" style="color:${barColor(sc.v)}">${sc.v}</span>
+      </div>`).join('');
+
+    container.innerHTML += `
+      <div class="tsc ok">
+        <div class="tsc-hdr">
+          <span class="tsc-name">${name}</span>
+          <div style="text-align:right">
+            <div class="tsc-total">${total}/40</div>
+            <span class="pot-label ${pc}">${pl}</span>
+          </div>
+        </div>
+        <div class="tsc-bars">${barsHTML}</div>
+        ${tool.begruendung ? `<div class="tsc-reason">💬 ${tool.begruendung}</div>` : ''}
+      </div>`;
+
+    // Sync table inputs
+    const p = idx === 0 ? 'a' : 'b';
+    document.getElementById(`tn-${p}`).value = name;
+    document.getElementById(`s-${p}1`).value = am;
+    document.getElementById(`s-${p}2`).value = it;
+    document.getElementById(`s-${p}3`).value = ef;
+    document.getElementById(`s-${p}4`).value = wi;
   });
   calcTotals();
-  const el=document.getElementById('scoring-status');
-  el.className='scoring-status populated';
-  el.innerHTML=`<span class="ss-icon">✅</span><div><div class="ss-h4">✅ Scoring befüllt: ${data.tools.map(t=>t.name).join(' vs ')}</div><div class="ss-p">${data.tools.length} Tools bewertet${data.empfohleneMethode?' · Methode: '+data.empfohleneMethode:''}</div></div><div class="ss-actions"><button class="set-btn" onclick="toggleEdit()">✏️ Anpassen</button></div>`;
+
+  const st = document.getElementById('score-status');
+  st.className = 'score-status ok';
+  st.innerHTML = `<span style="font-size:1.5rem">✅</span><div><div style="font-size:.9rem;font-weight:600;color:var(--green)">Scoring befüllt: ${data.tools.map(t=>t.name).join(' vs ')}</div><div style="font-size:.78rem;color:var(--ink-soft)">${data.tools.length} Tools bewertet${data.empfohleneMethode?' · Methode: '+data.empfohleneMethode:''}</div></div><div style="margin-left:auto"><button class="set-btn" onclick="toggleEdit()">✏️ Anpassen</button></div>`;
 }
 
-/* TABLE SYNC */
-function calcTotals(){
-  ['a','b'].forEach(t=>{
-    const vals=[1,2,3,4,5].map(i=>Math.min(10,Math.max(0,+document.getElementById(`s-${t}${i}`)?.value||0)));
-    const tot=vals.reduce((a,b)=>a+b,0);
-    const hasJ=vals[4]>0, max=hasJ?50:40;
-    document.getElementById(`tot-${t}`).textContent=`${tot}/${max}`;
-    const pe=document.getElementById(`pot-${t}`);
-    if(!tot){pe.innerHTML='';return;}
-    const thr=hasJ?[40,30,20]:[32,24,16];
-    const [c,l]=tot>=thr[0]?['ph','🟢 Hohes Potenzial']:tot>=thr[1]?['pm','🟡 Mittleres Potenzial']:tot>=thr[2]?['pl','🟠 Eingeschränkt']:['pn','🔴 Geringes Potenzial'];
-    pe.innerHTML=`<span class="pot-label ${c}">${l}</span>`;
+/* ═══════════════════════════════════
+   TABLE SYNC
+═══════════════════════════════════ */
+function calcTotals() {
+  ['a','b'].forEach(t => {
+    const vals = [1,2,3,4,5].map(i => Math.min(10, Math.max(0, parseFloat(document.getElementById(`s-${t}${i}`)?.value) || 0)));
+    const total = vals.reduce((a,b) => a+b, 0);
+    const hasJ = vals[4] > 0, max = hasJ ? 50 : 40;
+    document.getElementById(`tot-${t}`).textContent = `${total.toFixed(1)}/${max}`;
+    const pe = document.getElementById(`pot-${t}`);
+    if (!total) { pe.innerHTML = ''; return; }
+    const thr = hasJ ? [40,30,20] : [32,24,16];
+    const [c,l] = total>=thr[0] ? ['ph','🟢 Hohes Potenzial']
+      : total>=thr[1] ? ['pm','🟡 Mittleres Potenzial']
+      : total>=thr[2] ? ['pl','🟠 Eingeschränktes Potenzial']
+      : ['pn','🔴 Geringes Potenzial'];
+    pe.innerHTML = `<span class="pot-label ${c}">${l}</span>`;
   });
 }
-function syncTable(){
+function syncTable() {
   calcTotals();
-  if(!sd) return;
-  ['a','b'].forEach((t,idx)=>{
-    const card=document.getElementById('sc-cards').children[idx];
-    if(!card||!card.classList.contains('populated')) return;
-    const vals=[1,2,3,4].map(i=>+document.getElementById(`s-${t}${i}`)?.value||0);
-    const tot=vals.reduce((a,b)=>a+b,0);
-    const te=card.querySelector('.tsc-total'); if(te) te.textContent=`${tot}/40`;
-    card.querySelectorAll('.tsc-bf').forEach((b,i)=>{if(i<vals.length) b.style.width=`${vals[i]*10}%`;});
-    card.querySelectorAll('.tsc-bv').forEach((e,i)=>{if(i<vals.length) e.textContent=vals[i];});
+  if (!sd) return;
+  ['a','b'].forEach((t,idx) => {
+    const card = document.getElementById('sc-cards').querySelectorAll('.tsc.ok')[idx];
+    if (!card) return;
+    const vals = [1,2,3,4].map(i => parseFloat(document.getElementById(`s-${t}${i}`)?.value) || 0);
+    const total = vals.reduce((a,b) => a+b, 0);
+    const te = card.querySelector('.tsc-total'); if (te) te.textContent = `${total}/40`;
+    card.querySelectorAll('.tsc-bf').forEach((b,i) => { if(i<vals.length) b.style.width=`${vals[i]*10}%`; });
+    card.querySelectorAll('.tsc-bv').forEach((e,i) => { if(i<vals.length) e.textContent=vals[i]; });
   });
 }
-function syncNames(){
-  if(!sd) return;
-  const ns=document.getElementById('sc-cards').querySelectorAll('.tsc-name');
-  ['a','b'].forEach((t,i)=>{const v=document.getElementById(`tn-${t}`).value; if(ns[i]&&v) ns[i].textContent=v;});
+function syncNames() {
+  if (!sd) return;
+  const ns = document.getElementById('sc-cards').querySelectorAll('.tsc-name');
+  ['a','b'].forEach((t,i) => { const v=document.getElementById(`tn-${t}`).value; if(ns[i]&&v) ns[i].textContent=v; });
 }
-function toggleEdit(){
-  const p=document.getElementById('edit-panel');
-  p.style.display=p.style.display==='none'?'block':'none';
+function toggleEdit() {
+  const p = document.getElementById('edit-panel');
+  p.style.display = p.style.display === 'none' ? 'block' : 'none';
 }
 
-/* COPY */
-function copyJuri(){
-  navigator.clipboard.writeText(document.getElementById('juri-out').textContent).then(()=>{
-    const b=event.target; b.textContent='✅ Kopiert!';
-    setTimeout(()=>b.textContent='📋 Kopieren',2000);
+/* ═══════════════════════════════════
+   COPY
+═══════════════════════════════════ */
+function copyJuri() {
+  navigator.clipboard.writeText(document.getElementById('juri-out').textContent).then(() => {
+    const b = event.target; b.textContent = '✅ Kopiert!';
+    setTimeout(() => b.textContent = '📋 Kopieren', 2000);
   });
 }
 </script>
